@@ -12,6 +12,8 @@ animations.
 
 The game is in English by default and can be switched to Spanish from the main menu.
 
+**Website:** https://lcorb10.github.io/Xorbit-NASA-Space-Apps-2026/ (trailer, screenshots and download).
+
 ## Download and play
 
 1. Go to [Releases](../../releases) and download `Xorbit-Windows.zip`.
