@@ -68,6 +68,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 /* Botones */
 .btn { display: inline-flex; align-items: center; gap: 10px; font: 600 22px/1 var(--display); letter-spacing: .02em; padding: 14px 26px; border-radius: 6px; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: rgba(13,37,64,.8); }
 .btn.primary { background: var(--mark); border-color: var(--mark); color: #1a0f04; }
+.btn.gh { background: #000; border-color: #000; color: #fff; }
+.btn.gh svg { width: 22px; height: 22px; fill: currentColor; flex: none; }
+.cta + .cta { margin-top: 12px; }
 .btn:hover { filter: brightness(1.08); }
 .btn:focus-visible, .lang button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .btn small { font: 400 12px var(--mono); opacity: .8; }
@@ -175,6 +178,9 @@ html[lang="es"] [data-en-only] { display: none; }
       <div class="cta">
         <a class="btn primary" href="https://github.com/lcorb10/Xorbit-NASA-Space-Apps-2026/releases/download/v1.0/Xorbit-Windows.zip"><span data-i="btn_dl">Download for Windows</span> <small>.zip · 280 MB</small></a>
         <a class="btn" href="#trailer" data-i="btn_trailer">Watch the trailer</a>
+      </div>
+      <div class="cta">
+        <a class="btn gh" href="https://github.com/lcorb10/Xorbit-NASA-Space-Apps-2026"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span data-i="btn_gh">See on GitHub</span></a>
       </div>
       <div class="titleblock" aria-label="Project data">
         <div><span data-i="tb_project">Project</span>Xorbit</div>
@@ -363,7 +369,7 @@ const ES = {
   nav_trailer: "Tráiler", nav_play: "Cómo se juega", nav_missions: "Misiones", nav_challenge: "El reto", nav_download: "Descargar",
   tag: "Diseña el cohete. Vuela la misión. Entiende por qué funcionó.",
   hero_p: "Un juego donde armas un cohete con presupuesto, le pones a la nave instrumentos, energía y antena, y lo lanzas desde el Centro Espacial Kennedy. El vuelo sigue la física real y, cuando algo falla, el juego te dice por qué.",
-  btn_dl: "Descargar para Windows", btn_trailer: "Ver el tráiler",
+  btn_dl: "Descargar para Windows", btn_gh: "Ver en GitHub", btn_trailer: "Ver el tráiler",
   tb_project: "Proyecto", tb_rev: "Rev.", tb_engine: "Motor", tb_drawn: "Dibujado por",
   tr_eb: "Tráiler", tr_h: "Mira Xorbit en acción",
   ext_eb: "Versión extendida · 4:38", ext_h: "Todo el juego, misión por misión",
