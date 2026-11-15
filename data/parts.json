@@ -1,0 +1,672 @@
+{
+  "_notes": "Plantillas de piezas. Cada pieza del cohete es un perfil de revolución con parámetros (metros). La física (masa, volumen, costo, CM, CP) se calcula desde esta geometría en scripts/core/rocket_analysis.gd, igual para piezas prefabricadas y para las que dibuje el jugador. wall_m: espesor de pared efectivo con aluminio 2219 (incluye refuerzos y tapas; valor de juego). Las aletas no son una pieza: se agregan a una pieza del cuerpo (fins).",
+  "fixed_mass_kg": {
+    "decoupler_per_m_diameter": 60,
+    "payload_bay_avionics": 20
+  },
+  "parts": [
+    {
+      "id": "nose_cone",
+      "kind": "nose",
+      "shape": "cone",
+      "wall_m": 0.003,
+      "unlock_level": 0,
+      "defaults": {
+        "length": 1.4,
+        "diameter": 0.6,
+        "material": "aluminium"
+      }
+    },
+    {
+      "id": "nose_ogive",
+      "kind": "nose",
+      "shape": "ogive",
+      "wall_m": 0.003,
+      "unlock_level": 0,
+      "defaults": {
+        "length": 1.6,
+        "diameter": 0.6,
+        "material": "aluminium"
+      }
+    },
+    {
+      "id": "payload_bay",
+      "kind": "payload",
+      "wall_m": 0.003,
+      "unlock_level": 0,
+      "defaults": {
+        "length": 1,
+        "diameter": 0.6,
+        "material": "aluminium",
+        "payload_kg": 50
+      }
+    },
+    {
+      "id": "solid_motor",
+      "kind": "solid",
+      "wall_m": 0.004,
+      "unlock_level": 0,
+      "defaults": {
+        "length": 5,
+        "diameter": 0.6,
+        "material": "steel",
+        "engine": "solid_basic"
+      }
+    },
+    {
+      "id": "tank",
+      "kind": "tank",
+      "wall_m": 0.006,
+      "unlock_level": 1,
+      "defaults": {
+        "length": 6,
+        "diameter": 1.2,
+        "material": "aluminium",
+        "propellant": "lox_rp1"
+      }
+    },
+    {
+      "id": "engine",
+      "kind": "engine",
+      "unlock_level": 1,
+      "defaults": {
+        "diameter": 1.2,
+        "engine": "rutherford",
+        "count": 1
+      }
+    },
+    {
+      "id": "decoupler",
+      "kind": "decoupler",
+      "wall_m": 0.004,
+      "unlock_level": 1,
+      "defaults": {
+        "length": 0.4,
+        "diameter": 1.2,
+        "material": "aluminium"
+      }
+    },
+    {
+      "id": "adapter",
+      "kind": "adapter",
+      "wall_m": 0.003,
+      "unlock_level": 1,
+      "defaults": {
+        "length": 1,
+        "diameter": 1.2,
+        "diameter_top": 0.6,
+        "material": "aluminium"
+      }
+    }
+  ],
+  "fins": {
+    "unlock_level": 0,
+    "thickness_m": 0.008,
+    "defaults": {
+      "count": 4,
+      "span": 0.6,
+      "root": 1.1,
+      "tip": 0.4
+    }
+  },
+  "default_designs": {
+    "_notes": "Lista de arriba hacia abajo. Se usa cuando el jugador aún no ha guardado un diseño.",
+    "sounding": [
+      {
+        "id": "nose_ogive",
+        "length": 1.6,
+        "diameter": 0.6,
+        "material": "aluminium"
+      },
+      {
+        "id": "payload_bay",
+        "length": 1,
+        "diameter": 0.6,
+        "material": "aluminium",
+        "payload_kg": 50
+      },
+      {
+        "id": "solid_motor",
+        "length": 5,
+        "diameter": 0.6,
+        "material": "steel",
+        "engine": "solid_basic",
+        "fins": {
+          "count": 4,
+          "span": 0.6,
+          "root": 1.1,
+          "tip": 0.4
+        }
+      }
+    ],
+    "two_stage": [
+      {
+        "id": "nose_ogive",
+        "length": 2.4,
+        "diameter": 1.2,
+        "material": "aluminium"
+      },
+      {
+        "id": "payload_bay",
+        "length": 1.4,
+        "diameter": 1.2,
+        "material": "aluminium",
+        "payload_kg": 150
+      },
+      {
+        "id": "tank",
+        "length": 2.4,
+        "diameter": 1.2,
+        "material": "aluminium",
+        "propellant": "lox_rp1"
+      },
+      {
+        "id": "engine",
+        "diameter": 1.2,
+        "engine": "rutherford",
+        "count": 1
+      },
+      {
+        "id": "decoupler",
+        "length": 0.4,
+        "diameter": 1.2,
+        "material": "aluminium"
+      },
+      {
+        "id": "tank",
+        "length": 12,
+        "diameter": 1.2,
+        "material": "aluminium",
+        "propellant": "lox_rp1",
+        "fins": {
+          "count": 4,
+          "span": 0.6,
+          "root": 1.4,
+          "tip": 0.6
+        }
+      },
+      {
+        "id": "engine",
+        "diameter": 1.2,
+        "engine": "rutherford",
+        "count": 9
+      }
+    ],
+    "saturn_v": [
+      {
+        "id": "nose_cone",
+        "length": 10,
+        "diameter": 3.9,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "adapter",
+        "length": 8,
+        "diameter": 6.6,
+        "diameter_top": 3.9,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "payload_bay",
+        "length": 9,
+        "diameter": 6.6,
+        "material": "aluminium",
+        "payload_kg": 45000
+      },
+      {
+        "id": "tank",
+        "length": 10,
+        "diameter": 6.6,
+        "material": "aluminium",
+        "propellant": "lox_lh2",
+        "paint": "white"
+      },
+      {
+        "id": "engine",
+        "diameter": 6.6,
+        "engine": "j2",
+        "count": 1
+      },
+      {
+        "id": "decoupler",
+        "length": 1,
+        "diameter": 6.6,
+        "material": "aluminium"
+      },
+      {
+        "id": "adapter",
+        "length": 6,
+        "diameter": 10.1,
+        "diameter_top": 6.6,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "tank",
+        "length": 16,
+        "diameter": 10.1,
+        "material": "aluminium",
+        "propellant": "lox_lh2",
+        "paint": "white"
+      },
+      {
+        "id": "engine",
+        "diameter": 10.1,
+        "engine": "j2",
+        "count": 5
+      },
+      {
+        "id": "decoupler",
+        "length": 1,
+        "diameter": 10.1,
+        "material": "aluminium",
+        "paint": "black"
+      },
+      {
+        "id": "tank",
+        "length": 28,
+        "diameter": 10.1,
+        "material": "aluminium",
+        "propellant": "lox_rp1",
+        "paint": "roll",
+        "fins": {
+          "count": 4,
+          "span": 3.6,
+          "root": 6,
+          "tip": 2.5
+        }
+      },
+      {
+        "id": "engine",
+        "diameter": 10.1,
+        "engine": "f1",
+        "count": 5
+      }
+    ],
+    "mercury_redstone": [
+      {
+        "id": "nose_cone",
+        "length": 5.2,
+        "diameter": 0.9,
+        "material": "steel",
+        "paint": "red"
+      },
+      {
+        "id": "adapter",
+        "length": 1.4,
+        "diameter": 1.9,
+        "diameter_top": 0.9,
+        "material": "steel",
+        "paint": "black"
+      },
+      {
+        "id": "payload_bay",
+        "length": 1.4,
+        "diameter": 1.9,
+        "material": "aluminium",
+        "payload_kg": 3500,
+        "paint": "black"
+      },
+      {
+        "id": "adapter",
+        "length": 1.2,
+        "diameter": 1.78,
+        "diameter_top": 1.9,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "tank",
+        "length": 11,
+        "diameter": 1.78,
+        "material": "aluminium",
+        "propellant": "lox_rp1",
+        "paint": "white",
+        "fins": {
+          "count": 4,
+          "span": 1.5,
+          "root": 2.2,
+          "tip": 1.1
+        }
+      },
+      {
+        "id": "engine",
+        "diameter": 1.78,
+        "engine": "a7",
+        "count": 1
+      }
+    ],
+    "electron": [
+      {
+        "id": "nose_ogive",
+        "length": 2.5,
+        "diameter": 1.2,
+        "material": "carbon",
+        "paint": "black"
+      },
+      {
+        "id": "payload_bay",
+        "length": 1,
+        "diameter": 1.2,
+        "material": "carbon",
+        "payload_kg": 250,
+        "paint": "black"
+      },
+      {
+        "id": "tank",
+        "length": 2.4,
+        "diameter": 1.2,
+        "material": "carbon",
+        "propellant": "lox_rp1",
+        "paint": "black"
+      },
+      {
+        "id": "engine",
+        "diameter": 1.2,
+        "engine": "rutherford",
+        "count": 1
+      },
+      {
+        "id": "decoupler",
+        "length": 0.4,
+        "diameter": 1.2,
+        "material": "carbon",
+        "paint": "black"
+      },
+      {
+        "id": "tank",
+        "length": 11,
+        "diameter": 1.2,
+        "material": "carbon",
+        "propellant": "lox_rp1",
+        "paint": "black"
+      },
+      {
+        "id": "engine",
+        "diameter": 1.2,
+        "engine": "rutherford",
+        "count": 9
+      }
+    ],
+    "falcon_9": [
+      {
+        "id": "nose_ogive",
+        "length": 6.5,
+        "diameter": 5.2,
+        "material": "carbon",
+        "paint": "white"
+      },
+      {
+        "id": "payload_bay",
+        "length": 6.6,
+        "diameter": 5.2,
+        "material": "carbon",
+        "payload_kg": 15000,
+        "paint": "white"
+      },
+      {
+        "id": "adapter",
+        "length": 2,
+        "diameter": 3.66,
+        "diameter_top": 5.2,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "tank",
+        "length": 9.5,
+        "diameter": 3.66,
+        "material": "al_li",
+        "propellant": "lox_rp1",
+        "paint": "white"
+      },
+      {
+        "id": "engine",
+        "diameter": 3.66,
+        "engine": "merlin_vac",
+        "count": 1
+      },
+      {
+        "id": "decoupler",
+        "length": 1,
+        "diameter": 3.66,
+        "material": "carbon",
+        "paint": "black"
+      },
+      {
+        "id": "tank",
+        "length": 40,
+        "diameter": 3.66,
+        "material": "al_li",
+        "propellant": "lox_rp1",
+        "paint": "white"
+      },
+      {
+        "id": "engine",
+        "diameter": 3.66,
+        "engine": "merlin_1d",
+        "count": 9
+      }
+    ],
+    "atlas_v": [
+      {
+        "id": "nose_ogive",
+        "length": 7,
+        "diameter": 4.2,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "payload_bay",
+        "length": 5,
+        "diameter": 4.2,
+        "material": "aluminium",
+        "payload_kg": 1500,
+        "paint": "white"
+      },
+      {
+        "id": "adapter",
+        "length": 1.5,
+        "diameter": 3.05,
+        "diameter_top": 4.2,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "tank",
+        "length": 12.7,
+        "diameter": 3.05,
+        "material": "al_li",
+        "propellant": "lox_lh2",
+        "paint": "silver"
+      },
+      {
+        "id": "engine",
+        "diameter": 3.05,
+        "engine": "rl10c",
+        "count": 2
+      },
+      {
+        "id": "decoupler",
+        "length": 2,
+        "diameter": 3.81,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "tank",
+        "length": 26,
+        "diameter": 3.81,
+        "material": "aluminium",
+        "propellant": "lox_rp1",
+        "paint": "orange"
+      },
+      {
+        "id": "engine",
+        "diameter": 3.81,
+        "engine": "rd180",
+        "count": 1
+      }
+    ],
+    "apollo_11": [
+      {
+        "id": "nose_cone",
+        "length": 10,
+        "diameter": 3.9,
+        "material": "steel",
+        "paint": "red"
+      },
+      {
+        "id": "payload_bay",
+        "length": 6.5,
+        "diameter": 3.9,
+        "material": "aluminium",
+        "payload_kg": 9000,
+        "paint": "silver",
+        "probe": {
+          "instruments": [
+            "camera",
+            "spectrometer",
+            "drill"
+          ],
+          "power": "solar_big",
+          "antenna": "patch",
+          "landing": [
+            "legs"
+          ]
+        }
+      },
+      {
+        "id": "tank",
+        "length": 6,
+        "diameter": 3.9,
+        "material": "aluminium",
+        "propellant": "hypergolic",
+        "paint": "white"
+      },
+      {
+        "id": "engine",
+        "diameter": 3.9,
+        "engine": "lm_descent",
+        "count": 2
+      },
+      {
+        "id": "decoupler",
+        "length": 1,
+        "diameter": 3.9,
+        "material": "aluminium"
+      },
+      {
+        "id": "adapter",
+        "length": 8,
+        "diameter": 6.6,
+        "diameter_top": 3.9,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "tank",
+        "length": 10,
+        "diameter": 6.6,
+        "material": "aluminium",
+        "propellant": "lox_lh2",
+        "paint": "white"
+      },
+      {
+        "id": "engine",
+        "diameter": 6.6,
+        "engine": "j2",
+        "count": 1
+      },
+      {
+        "id": "decoupler",
+        "length": 1,
+        "diameter": 6.6,
+        "material": "aluminium"
+      },
+      {
+        "id": "adapter",
+        "length": 6,
+        "diameter": 10.1,
+        "diameter_top": 6.6,
+        "material": "aluminium",
+        "paint": "white"
+      },
+      {
+        "id": "tank",
+        "length": 16,
+        "diameter": 10.1,
+        "material": "aluminium",
+        "propellant": "lox_lh2",
+        "paint": "white"
+      },
+      {
+        "id": "engine",
+        "diameter": 10.1,
+        "engine": "j2",
+        "count": 5
+      },
+      {
+        "id": "decoupler",
+        "length": 1,
+        "diameter": 10.1,
+        "material": "aluminium",
+        "paint": "black"
+      },
+      {
+        "id": "tank",
+        "length": 28,
+        "diameter": 10.1,
+        "material": "aluminium",
+        "propellant": "lox_rp1",
+        "paint": "roll",
+        "fins": {
+          "count": 4,
+          "span": 3.6,
+          "root": 6,
+          "tip": 2.5
+        }
+      },
+      {
+        "id": "engine",
+        "diameter": 10.1,
+        "engine": "f1",
+        "count": 5
+      }
+    ]
+  },
+  "real_rockets": [
+    {
+      "id": "mercury_redstone",
+      "unlock_level": 0,
+      "name_key": "REAL_MERCURY_REDSTONE"
+    },
+    {
+      "id": "electron",
+      "unlock_level": 1,
+      "name_key": "REAL_ELECTRON"
+    },
+    {
+      "id": "falcon_9",
+      "unlock_level": 1,
+      "name_key": "REAL_FALCON_9"
+    },
+    {
+      "id": "atlas_v",
+      "unlock_level": 2,
+      "name_key": "REAL_ATLAS_V"
+    },
+    {
+      "id": "saturn_v",
+      "unlock_level": 3,
+      "name_key": "REAL_SATURN_V"
+    },
+    {
+      "id": "apollo_11",
+      "unlock_level": 4,
+      "name_key": "REAL_APOLLO_11"
+    }
+  ]
+}

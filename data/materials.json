@@ -1,0 +1,150 @@
+{
+  "_notes": "density_kg_m3: valores típicos de manual (aprox.). strength: resistencia específica relativa al aluminio 2219 (valor de juego): a más resistencia, pared más delgada para la misma carga. cost_usd_per_kg: valor de juego (material + fabricación). max_temp_c: temperatura de servicio aproximada. cost_usd_per_kg (desde 14 nov): costo de la estructura fabricada (material, mecanizado, soldadura, pruebas), no solo de la materia prima; calibrado para que Falcon 9, Atlas V y Saturno V den precios del orden real.",
+  "materials": [
+    {
+      "id": "aluminium",
+      "density_kg_m3": 2840,
+      "strength": 1,
+      "cost_usd_per_kg": 1800,
+      "max_temp_c": 150,
+      "unlock_level": 0,
+      "note": "Aleación 2219, usada en tanques de Saturn V y del transbordador.",
+      "name": {
+        "en": "Aluminium 2219",
+        "es": "Aluminio 2219"
+      },
+      "what": {
+        "en": "An aluminium alloy with copper. The classic rocket metal: light, easy to weld, and it gets stronger when it is very cold, which is perfect for tanks of liquid oxygen.",
+        "es": "Una aleación de aluminio con cobre. El metal clásico de los cohetes: liviano, fácil de soldar, y se vuelve más resistente cuando está muy frío, perfecto para tanques de oxígeno líquido."
+      },
+      "pros": {
+        "en": "Light and cheap; good all-rounder",
+        "es": "Liviano y barato; sirve para casi todo"
+      },
+      "cons": {
+        "en": "Softens above ~150 °C",
+        "es": "Se ablanda por encima de ~150 °C"
+      },
+      "used": {
+        "en": "Saturn V stages, Space Shuttle tank (first version)",
+        "es": "Etapas del Saturno V, tanque del transbordador (primera versión)"
+      }
+    },
+    {
+      "id": "steel",
+      "density_kg_m3": 7900,
+      "strength": 0.8,
+      "cost_usd_per_kg": 900,
+      "max_temp_c": 800,
+      "unlock_level": 0,
+      "note": "Acero inoxidable: pesado, barato y aguanta mucho calor.",
+      "name": {
+        "en": "Stainless steel",
+        "es": "Acero inoxidable"
+      },
+      "what": {
+        "en": "Iron with chromium and nickel. Almost three times heavier than aluminium, but cheap, tough and it stays strong when hot.",
+        "es": "Hierro con cromo y níquel. Casi tres veces más pesado que el aluminio, pero barato, duro y sigue firme cuando se calienta."
+      },
+      "pros": {
+        "en": "Cheapest; stands up to ~800 °C",
+        "es": "El más barato; aguanta hasta ~800 °C"
+      },
+      "cons": {
+        "en": "Very heavy: less Δv",
+        "es": "Muy pesado: menos Δv"
+      },
+      "used": {
+        "en": "Atlas (the first one, with \"balloon\" tanks), SpaceX Starship",
+        "es": "Atlas (el primero, con tanques \"globo\"), Starship de SpaceX"
+      }
+    },
+    {
+      "id": "al_li",
+      "density_kg_m3": 2710,
+      "strength": 1.25,
+      "cost_usd_per_kg": 3500,
+      "max_temp_c": 150,
+      "unlock_level": 3,
+      "note": "Aluminio-litio 2195, usado en el tanque externo ligero del transbordador y en SLS.",
+      "name": {
+        "en": "Aluminium-lithium 2195",
+        "es": "Aluminio-litio 2195"
+      },
+      "what": {
+        "en": "Aluminium with a little lithium, the lightest metal. About 5 % lighter and 25 % stronger than normal aluminium, so walls can be thinner.",
+        "es": "Aluminio con un poco de litio, el metal más liviano. Cerca de 5 % más liviano y 25 % más resistente que el aluminio normal, así que las paredes pueden ser más delgadas."
+      },
+      "pros": {
+        "en": "Lighter and stronger than aluminium",
+        "es": "Más liviano y resistente que el aluminio"
+      },
+      "cons": {
+        "en": "Costs more than twice as much",
+        "es": "Cuesta más del doble"
+      },
+      "used": {
+        "en": "Space Shuttle super-lightweight tank, SLS, Falcon 9",
+        "es": "Tanque superligero del transbordador, SLS, Falcon 9"
+      }
+    },
+    {
+      "id": "titanium",
+      "density_kg_m3": 4430,
+      "strength": 1.4,
+      "cost_usd_per_kg": 8000,
+      "max_temp_c": 450,
+      "unlock_level": 3,
+      "note": "Ti-6Al-4V.",
+      "name": {
+        "en": "Titanium Ti-6Al-4V",
+        "es": "Titanio Ti-6Al-4V"
+      },
+      "what": {
+        "en": "Titanium with aluminium and vanadium. Very strong for its weight and resists heat and corrosion; hard to machine, so expensive.",
+        "es": "Titanio con aluminio y vanadio. Muy resistente para su peso y aguanta calor y corrosión; difícil de trabajar, por eso es caro."
+      },
+      "pros": {
+        "en": "Very strong; stands up to ~450 °C",
+        "es": "Muy resistente; aguanta hasta ~450 °C"
+      },
+      "cons": {
+        "en": "Heavier than aluminium and expensive",
+        "es": "Más pesado que el aluminio y caro"
+      },
+      "used": {
+        "en": "Pressure tanks, Falcon 9 grid fins, engine parts",
+        "es": "Tanques de presión, aletas de rejilla del Falcon 9, piezas de motores"
+      }
+    },
+    {
+      "id": "carbon",
+      "density_kg_m3": 1600,
+      "strength": 2,
+      "cost_usd_per_kg": 4000,
+      "max_temp_c": 120,
+      "unlock_level": 5,
+      "note": "Fibra de carbono con resina epoxi: muy ligera, la resina no aguanta calor.",
+      "name": {
+        "en": "Carbon fibre",
+        "es": "Fibra de carbono"
+      },
+      "what": {
+        "en": "Carbon threads glued with epoxy resin, laid in layers. The lightest and strongest option, but the resin softens with heat.",
+        "es": "Hilos de carbono pegados con resina epoxi, en capas. La opción más liviana y resistente, pero la resina se ablanda con el calor."
+      },
+      "pros": {
+        "en": "Lightest and strongest: most Δv",
+        "es": "El más liviano y resistente: más Δv"
+      },
+      "cons": {
+        "en": "Most expensive; only ~120 °C",
+        "es": "El más caro; solo ~120 °C"
+      },
+      "used": {
+        "en": "Rocket Lab Electron (whole rocket), fairings",
+        "es": "Electron de Rocket Lab (todo el cohete), cofias"
+      }
+    }
+  ]
+}

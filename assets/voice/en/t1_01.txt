@@ -1,0 +1,1 @@
+Mission one: orbit. Orbiting is not going high; it is going sideways very fast, about 8 kilometres per second, so fast that while you fall you keep missing the Earth. You need about 9.4 kilometres per second in total. One stage is not enough, so today you build a rocket with two stages.

@@ -1,0 +1,1 @@
+Compare DATA with COMMUNICATIONS: if the camera makes more than the antenna can send, part of the science is lost. Pick the orbit too: lower gives sharper photos but the air brings it down; sun-synchronous always has the same light but costs more fuel.

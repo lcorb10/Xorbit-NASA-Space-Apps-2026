@@ -1,0 +1,40 @@
+{
+  "_units": "potencia en W, masa en kg, energía en Wh",
+  "_confidence": "nasa = cifra de documento NASA citado; juego = valor de juego a calibrar con NASA Small Spacecraft Technology State of the Art.",
+  "solar_constant_w_m2": 1361,
+  "solar_note": "La potencia de un panel cae con 1/r². La irradiancia por planeta está en data/planets.json (solar_irradiance_w_m2_derived).",
+  "sources": [
+    {
+      "id": "mmrtg",
+      "name": "RTG",
+      "reference": "MMRTG (Curiosity y Perseverance)",
+      "type": "rtg",
+      "power_w_bol": 110,
+      "power_w_eol": 72,
+      "design_life_years": 17,
+      "mass": 45,
+      "unlock_level": 7,
+      "confidence": "nasa",
+      "source": "NASA MMRTG Fact Sheet: ~110 W eléctricos al inicio, 72 W a los 17 años, 45 kg, 4,8 kg de dióxido de plutonio.",
+      "source_url": "https://mars.nasa.gov/internal_resources/788/"
+    },
+    {
+      "id": "solar_panel",
+      "name": "Panel solar",
+      "type": "solar",
+      "specific_power_w_per_kg_at_1au": 100,
+      "unlock_level": 2,
+      "confidence": "juego",
+      "source": "Valor de juego. Calibrar con NASA SmallSat SOA, capítulo Power."
+    },
+    {
+      "id": "battery",
+      "name": "Batería de ion de litio",
+      "type": "battery",
+      "specific_energy_wh_per_kg": 150,
+      "unlock_level": 4,
+      "confidence": "juego",
+      "source": "Valor de juego. Calibrar con NASA SmallSat SOA, capítulo Power."
+    }
+  ]
+}

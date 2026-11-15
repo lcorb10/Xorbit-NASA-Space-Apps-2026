@@ -1,0 +1,1 @@
+Open the payload bay. The client wants photos of the crops: the camera makes about 900 megabytes a day, and the antenna must send them all to the ground.

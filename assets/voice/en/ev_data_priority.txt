@@ -1,0 +1,1 @@
+Too much data, too little time. The next contact with the ground station is short. You can send only half of what is stored. The antenna can only send so many megabytes each day. When there is more data than time, the team decides what reaches the scientists first.

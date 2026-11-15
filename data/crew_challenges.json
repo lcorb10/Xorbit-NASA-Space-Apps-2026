@@ -1,0 +1,553 @@
+{
+  "_notes": "Retos del modo tripulación (scripts/ui/crew_challenge.gd, docs/TRIPULACION.md). phase: countdown / ascent / maxq / separation / orbit / landing. role: commander / engineer / systems / comms. say: lo que dice Houston. steps: press (botón de acción; anim mueve el control), timing (Houston cuenta count..1 y AHORA: pulsar en la ventana), zone (mantener la aguja en verde: target y width de 0 a 1, seconds dentro de la zona, drift = cuánto se mueve sola), look (encontrar con la mirada la luz que se enciende). pair: id del reto que ocurre al mismo tiempo (pantalla dividida). critical: en modo manual, fallar termina la misión. room: cabin / mcc / any (dónde se juega; por defecto any). sequence: pulsar los botones en el orden que dicta Houston antes de time segundos (keys: los 4 rótulos). reflex: pulsar solo cuando la luz se pone verde (hits = cuántas veces).",
+  "challenges": [
+    {
+      "id": "cd_go",
+      "phase": "countdown",
+      "role": "commander",
+      "say": {
+        "id": "cc_cd_go",
+        "en": "Commander, Houston. All systems nominal. Give me your GO for launch.",
+        "es": "Comandante, aquí Houston. Todo nominal. Dame tu GO para el lanzamiento."
+      },
+      "steps": [
+        {
+          "type": "press",
+          "control": "go_button",
+          "hint": {
+            "en": "Press GO",
+            "es": "Pulsa GO"
+          }
+        }
+      ],
+      "room": "cabin"
+    },
+    {
+      "id": "mcc_poll",
+      "phase": "countdown",
+      "role": "commander",
+      "room": "mcc",
+      "say": {
+        "id": "cc_mcc_poll",
+        "en": "Flight, this is Houston. Run the GO / NO-GO poll: call each console in order.",
+        "es": "Vuelo, aquí Houston. Haz la ronda de GO / NO-GO: llama a cada consola en orden."
+      },
+      "steps": [
+        {
+          "type": "sequence",
+          "keys": [
+            "BOOSTER",
+            "FIDO",
+            "GUIDO",
+            "EECOM"
+          ],
+          "length": 4,
+          "time": 7,
+          "hint": {
+            "en": "Call the consoles in order",
+            "es": "Llama a las consolas en orden"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cd_valves",
+      "phase": "countdown",
+      "role": "systems",
+      "say": {
+        "id": "cc_cd_valves",
+        "en": "Systems, fuel tank pressure is drifting. Bring it into the green and hold it.",
+        "es": "Sistemas, la presión del tanque de combustible se mueve. Llévala al verde y mantenla."
+      },
+      "steps": [
+        {
+          "type": "zone",
+          "control": "knob1",
+          "target": 0.55,
+          "width": 0.16,
+          "seconds": 2.5,
+          "drift": 0.9,
+          "hint": {
+            "en": "Turn the FUEL valve: keep the needle in the green",
+            "es": "Gira la válvula FUEL: mantén la aguja en el verde"
+          }
+        }
+      ],
+      "room": "cabin"
+    },
+    {
+      "id": "cab_checklist",
+      "phase": "countdown",
+      "role": "systems",
+      "room": "cabin",
+      "say": {
+        "id": "cc_cab_checklist",
+        "en": "Systems, run the cabin checklist: oxygen, fuel, liquid oxygen, power.",
+        "es": "Sistemas, haz la lista de la cabina: oxígeno, combustible, oxígeno líquido y energía."
+      },
+      "steps": [
+        {
+          "type": "sequence",
+          "keys": [
+            "O2",
+            "FUEL",
+            "LOX",
+            "PWR"
+          ],
+          "length": 4,
+          "time": 8,
+          "ordered": true,
+          "hint": {
+            "en": "Checklist in order",
+            "es": "Lista en orden"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cd_readback",
+      "phase": "countdown",
+      "role": "comms",
+      "say": {
+        "id": "cc_cd_readback",
+        "en": "Comms, confirm the launch window on my mark.",
+        "es": "Comunicaciones, confirma la ventana de lanzamiento en mi marca."
+      },
+      "steps": [
+        {
+          "type": "timing",
+          "control": "readback",
+          "count": 2,
+          "hint": {
+            "en": "Press READBACK on the mark",
+            "es": "Pulsa READBACK en la marca"
+          }
+        }
+      ],
+      "room": "any"
+    },
+    {
+      "id": "cd_arm",
+      "phase": "countdown",
+      "role": "engineer",
+      "critical": true,
+      "say": {
+        "id": "cc_cd_arm",
+        "en": "Engineer, arm the engines. Lift the cover, flip the switch, and ignite on my mark.",
+        "es": "Ingeniería, arma los motores. Levanta la tapa, sube el interruptor y enciende en mi marca."
+      },
+      "steps": [
+        {
+          "type": "press",
+          "control": "toggle",
+          "anim": "cover_open",
+          "hint": {
+            "en": "Lift the safety cover",
+            "es": "Levanta la tapa de seguridad"
+          }
+        },
+        {
+          "type": "press",
+          "control": "toggle",
+          "anim": "toggle_on",
+          "hint": {
+            "en": "Arm the engines",
+            "es": "Arma los motores"
+          }
+        },
+        {
+          "type": "timing",
+          "control": "toggle",
+          "count": 3,
+          "hint": {
+            "en": "Ignition on the mark",
+            "es": "Encendido en la marca"
+          }
+        }
+      ],
+      "room": "any"
+    },
+    {
+      "id": "asc_guidance",
+      "phase": "ascent",
+      "role": "commander",
+      "say": {
+        "id": "cc_asc_guidance",
+        "en": "Commander, start the pitch program. Keep the nose inside the guidance box.",
+        "es": "Comandante, inicia el programa de giro. Mantén la nariz dentro de la caja de guiado."
+      },
+      "steps": [
+        {
+          "type": "zone",
+          "control": "stick",
+          "target": 0.5,
+          "width": 0.18,
+          "seconds": 3.5,
+          "drift": 1.3,
+          "hint": {
+            "en": "Steer: keep the nose in the box",
+            "es": "Dirige: mantén la nariz en la caja"
+          }
+        }
+      ],
+      "room": "any"
+    },
+    {
+      "id": "mcc_uplink",
+      "phase": "ascent",
+      "role": "comms",
+      "room": "mcc",
+      "say": {
+        "id": "cc_mcc_uplink",
+        "en": "Comms, uplink the new guidance table. Type the command code before the pass ends.",
+        "es": "Comunicaciones, sube la nueva tabla de guiado. Escribe el código antes de que termine el paso de la estación."
+      },
+      "steps": [
+        {
+          "type": "sequence",
+          "keys": [
+            "CMD",
+            "LOAD",
+            "VERIFY",
+            "EXEC"
+          ],
+          "length": 5,
+          "time": 7,
+          "hint": {
+            "en": "Type the command code",
+            "es": "Escribe el código del comando"
+          }
+        }
+      ]
+    },
+    {
+      "id": "asc_antenna",
+      "phase": "ascent",
+      "role": "comms",
+      "say": {
+        "id": "cc_asc_antenna",
+        "en": "Comms, we are losing signal. Re-aim the antenna at the ground station.",
+        "es": "Comunicaciones, estamos perdiendo señal. Reapunta la antena a la estación de tierra."
+      },
+      "steps": [
+        {
+          "type": "zone",
+          "control": "antenna",
+          "target": 0.35,
+          "width": 0.14,
+          "seconds": 2.5,
+          "drift": 1,
+          "hint": {
+            "en": "Aim the antenna: signal in the green",
+            "es": "Apunta la antena: señal en el verde"
+          }
+        }
+      ],
+      "room": "any"
+    },
+    {
+      "id": "maxq_throttle",
+      "phase": "maxq",
+      "role": "engineer",
+      "say": {
+        "id": "cc_maxq_throttle",
+        "en": "Engineer, approaching max Q. Throttle down to seventy percent so the air does not crush us.",
+        "es": "Ingeniería, llegamos a max Q. Baja el acelerador al setenta por ciento para que el aire no nos aplaste."
+      },
+      "steps": [
+        {
+          "type": "zone",
+          "control": "throttle",
+          "target": 0.7,
+          "width": 0.12,
+          "seconds": 2.5,
+          "drift": 0.7,
+          "hint": {
+            "en": "Throttle to 70 %",
+            "es": "Acelerador al 70 %"
+          }
+        }
+      ],
+      "room": "any"
+    },
+    {
+      "id": "mcc_telemetry",
+      "phase": "maxq",
+      "role": "systems",
+      "room": "mcc",
+      "say": {
+        "id": "cc_mcc_telemetry",
+        "en": "Systems, telemetry is noisy. Flag every real alarm, ignore the false ones.",
+        "es": "Sistemas, la telemetría tiene ruido. Marca cada alarma real e ignora las falsas."
+      },
+      "steps": [
+        {
+          "type": "reflex",
+          "hits": 3,
+          "hint": {
+            "en": "Press only on GREEN",
+            "es": "Pulsa solo en VERDE"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sep_alarm",
+      "phase": "separation",
+      "role": "systems",
+      "say": {
+        "id": "cc_sep_alarm",
+        "en": "Master alarm! Systems, find the warning light and reset it.",
+        "es": "¡Alarma maestra! Sistemas, encuentra la luz de aviso y reiníciala."
+      },
+      "steps": [
+        {
+          "type": "look",
+          "target": "alarm",
+          "hint": {
+            "en": "Look around: find the red light",
+            "es": "Mira alrededor: encuentra la luz roja"
+          }
+        },
+        {
+          "type": "press",
+          "control": "master_alarm",
+          "hint": {
+            "en": "Reset the master alarm",
+            "es": "Reinicia la alarma maestra"
+          }
+        }
+      ],
+      "room": "cabin"
+    },
+    {
+      "id": "mcc_staging",
+      "phase": "separation",
+      "role": "engineer",
+      "room": "mcc",
+      "critical": true,
+      "say": {
+        "id": "cc_mcc_staging",
+        "en": "Booster, confirm staging sequence: safe, arm, fire.",
+        "es": "Booster, confirma la secuencia de separación: seguro, armar, disparar."
+      },
+      "steps": [
+        {
+          "type": "sequence",
+          "keys": [
+            "SAFE",
+            "ARM",
+            "FIRE",
+            "CONFIRM"
+          ],
+          "length": 3,
+          "time": 5,
+          "ordered": true,
+          "hint": {
+            "en": "Staging sequence",
+            "es": "Secuencia de separación"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sep_stage",
+      "phase": "separation",
+      "role": "engineer",
+      "critical": true,
+      "pair": "sep_hold",
+      "say": {
+        "id": "cc_sep_stage",
+        "en": "Engineer, main engine cut off. Separate the stage on my mark.",
+        "es": "Ingeniería, motor principal apagado. Separa la etapa en mi marca."
+      },
+      "steps": [
+        {
+          "type": "press",
+          "control": "toggle",
+          "anim": "cover_open",
+          "hint": {
+            "en": "Lift the STAGE cover",
+            "es": "Levanta la tapa de STAGE"
+          }
+        },
+        {
+          "type": "timing",
+          "control": "toggle",
+          "count": 3,
+          "anim": "toggle_on",
+          "hint": {
+            "en": "Separate on the mark",
+            "es": "Separa en la marca"
+          }
+        }
+      ],
+      "room": "any"
+    },
+    {
+      "id": "sep_hold",
+      "phase": "separation",
+      "role": "commander",
+      "say": {
+        "id": "cc_sep_hold",
+        "en": "Commander, hold attitude during separation.",
+        "es": "Comandante, mantén la orientación durante la separación."
+      },
+      "steps": [
+        {
+          "type": "zone",
+          "control": "stick",
+          "target": 0.5,
+          "width": 0.16,
+          "seconds": 3,
+          "drift": 1.8,
+          "hint": {
+            "en": "Hold steady",
+            "es": "Mantén firme"
+          }
+        }
+      ],
+      "room": "cabin"
+    },
+    {
+      "id": "tli_attitude",
+      "phase": "transfer",
+      "role": "commander",
+      "room": "any",
+      "say": {
+        "id": "cc_tli_attitude",
+        "en": "Commander, turn us to the burn attitude. The trip only works if the nose points exactly along the new orbit.",
+        "es": "Comandante, gira la nave a la posición del encendido. El viaje solo sale si la nariz apunta justo hacia la nueva órbita."
+      },
+      "steps": [
+        {
+          "type": "zone",
+          "control": "stick",
+          "target": 0.5,
+          "width": 0.16,
+          "seconds": 3,
+          "drift": 1,
+          "hint": {
+            "en": "Point the nose at the burn vector",
+            "es": "Apunta la nariz al vector del encendido"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tli_burn",
+      "phase": "transfer",
+      "role": "engineer",
+      "room": "any",
+      "say": {
+        "id": "cc_tli_burn",
+        "en": "Engineer, you are GO for the transfer burn. This is the big one: hold full thrust in the green until cutoff.",
+        "es": "Ingeniería, tienes GO para el encendido de transferencia. Es el grande: mantén el empuje en el verde hasta el apagado."
+      },
+      "steps": [
+        {
+          "type": "zone",
+          "control": "throttle",
+          "target": 0.9,
+          "width": 0.12,
+          "seconds": 3.5,
+          "drift": 0.9,
+          "hint": {
+            "en": "Hold the throttle at 90-100 %",
+            "es": "Mantén el acelerador entre 90 y 100 %"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tli_dsn",
+      "phase": "transfer",
+      "role": "comms",
+      "room": "any",
+      "say": {
+        "id": "cc_tli_dsn",
+        "en": "Comms, we are leaving the near-Earth antennas. Hand us over to the Deep Space Network on my mark.",
+        "es": "Comunicaciones, salimos del alcance de las antenas cercanas. Pásanos a la Red de Espacio Profundo en mi marca."
+      },
+      "steps": [
+        {
+          "type": "timing",
+          "control": "readback",
+          "count": 2,
+          "hint": {
+            "en": "Press READBACK on the mark",
+            "es": "Pulsa READBACK en la marca"
+          }
+        }
+      ]
+    },
+    {
+      "id": "land_alarm",
+      "phase": "landing",
+      "role": "systems",
+      "room": "any",
+      "say": {
+        "id": "cc_land_alarm",
+        "en": "Program alarm during the descent! Systems, it is the computer being overloaded, not the engine. Clear only the real alarms and keep us going.",
+        "es": "¡Alarma del programa en pleno descenso! Sistemas, es el computador sobrecargado, no el motor. Despeja solo las alarmas reales y sigue."
+      },
+      "steps": [
+        {
+          "type": "reflex",
+          "hits": 3,
+          "hint": {
+            "en": "Press only on GREEN",
+            "es": "Pulsa solo en VERDE"
+          }
+        }
+      ]
+    },
+    {
+      "id": "land_callouts",
+      "phase": "landing",
+      "role": "comms",
+      "room": "any",
+      "say": {
+        "id": "cc_land_callouts",
+        "en": "Comms, read the altitude to the commander on every mark. In the descent, nobody has time to look at the screens.",
+        "es": "Comunicaciones, léele la altura al comandante en cada marca. En el descenso nadie tiene tiempo de mirar las pantallas."
+      },
+      "steps": [
+        {
+          "type": "timing",
+          "control": "readback",
+          "count": 3,
+          "hint": {
+            "en": "Press READBACK on each mark",
+            "es": "Pulsa READBACK en cada marca"
+          }
+        }
+      ]
+    },
+    {
+      "id": "land_hover",
+      "phase": "landing",
+      "role": "commander",
+      "room": "any",
+      "say": {
+        "id": "cc_land_hover",
+        "en": "Commander, the landing site has boulders. Take manual control and keep the lander steady while we pick a flat spot.",
+        "es": "Comandante, el sitio tiene rocas. Toma el control manual y mantén el módulo estable mientras buscamos un lugar plano."
+      },
+      "steps": [
+        {
+          "type": "zone",
+          "control": "stick",
+          "target": 0.5,
+          "width": 0.2,
+          "seconds": 3,
+          "drift": 1.2,
+          "hint": {
+            "en": "Keep the lander steady",
+            "es": "Mantén el módulo estable"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Step two: fins, at the bottom of the rocket. They work like the feathers of an arrow: if the rocket tilts, the air pushes the fins and straightens it. A solid motor cannot steer, so it needs them. Press Add fins in this panel.

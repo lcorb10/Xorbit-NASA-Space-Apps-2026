@@ -1,0 +1,807 @@
+{
+  "_notes": "Eventos de la fase de operación (ops_view.gd). role: qué puesto de la tripulación responde (systems / comms). where: earth (órbita terrestre), moon, mars, deep, any. Cada opción: sci = multiplicador de la ciencia; cost_musd = gasto extra; life = multiplicador de la vida útil; risk = probabilidad de que salga mal (risk_sci si sale mal). immune: si la sonda lleva esa pieza, no hay riesgo. boost: si lleva esa pieza, sci_boost en vez de sci. safe = la que elige el piloto automático.",
+  "events": [
+    {
+      "id": "solar_storm",
+      "role": "systems",
+      "where": [
+        "any"
+      ],
+      "title": {
+        "en": "Solar storm",
+        "es": "Tormenta solar"
+      },
+      "text": {
+        "en": "The Sun just threw out a cloud of fast particles. It reaches the probe in a few hours. They can scramble the computer's memory.",
+        "es": "El Sol acaba de lanzar una nube de partículas rápidas. Llega a la sonda en unas horas. Pueden desordenar la memoria del computador."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Safe mode: switch off the instruments for 2 days",
+            "es": "Modo seguro: apagar instrumentos 2 días"
+          },
+          "sci": 0.95,
+          "safe": true,
+          "result": {
+            "id": "ev_solar_storm_0",
+            "en": "The probe slept through the storm. Two days without science, but the computer is intact.",
+            "es": "La sonda durmió durante la tormenta. Dos días sin ciencia, pero el computador quedó intacto."
+          },
+          "hint": {
+            "en": "Safe: you lose 2 days of measurements",
+            "es": "Seguro: pierdes 2 días de mediciones"
+          }
+        },
+        {
+          "label": {
+            "en": "Keep measuring: the storm itself is science",
+            "es": "Seguir midiendo: la tormenta también es ciencia"
+          },
+          "sci": 1.08,
+          "risk": 0.5,
+          "risk_sci": 0.75,
+          "immune": "obc_rad",
+          "result": {
+            "id": "ev_solar_storm_1",
+            "en": "Unique measurements of a solar storm. Worth it!",
+            "es": "Medidas únicas de una tormenta solar. ¡Valió la pena!"
+          },
+          "risk_text": {
+            "id": "ev_solar_storm_1_risk",
+            "en": "A particle flipped bits in the memory: the computer rebooted and lost a week of data. A radiation-hardened computer would have survived.",
+            "es": "Una partícula cambió bits de la memoria: el computador se reinició y perdió una semana de datos. Un computador resistente a la radiación habría aguantado."
+          },
+          "hint": {
+            "en": "Risky: rare science, but the computer may reboot (unless it is radiation-hardened)",
+            "es": "Arriesgado: ciencia única, pero el computador puede reiniciarse (salvo que sea resistente a la radiación)"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_solar_storm",
+        "en": "Solar storm. The Sun just threw out a cloud of fast particles. It reaches the probe in a few hours. They can scramble the computer's memory. The Sun sometimes throws out clouds of charged particles. In space there is no air or magnetic field to stop them, so they hit the electronics directly. Probes have a \"safe mode\" for these moments.",
+        "es": "Tormenta solar. El Sol acaba de lanzar una nube de partículas rápidas. Llega a la sonda en unas horas. Pueden desordenar la memoria del computador. El Sol a veces lanza nubes de partículas con carga. En el espacio no hay aire ni campo magnético que las frene, así que golpean directo la electrónica. Las sondas tienen un \"modo seguro\" para estos momentos."
+      },
+      "context": {
+        "en": "The Sun sometimes throws out clouds of charged particles. In space there is no air or magnetic field to stop them, so they hit the electronics directly. Probes have a \"safe mode\" for these moments.",
+        "es": "El Sol a veces lanza nubes de partículas con carga. En el espacio no hay aire ni campo magnético que las frene, así que golpean directo la electrónica. Las sondas tienen un \"modo seguro\" para estos momentos."
+      }
+    },
+    {
+      "id": "ground_outage",
+      "role": "comms",
+      "where": [
+        "any"
+      ],
+      "title": {
+        "en": "Ground station down",
+        "es": "Estación de tierra fuera de servicio"
+      },
+      "text": {
+        "en": "The station that listens to the probe goes into maintenance for 3 days. The data keeps coming.",
+        "es": "La estación que escucha la sonda entra en mantenimiento 3 días. Los datos siguen llegando."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Store the data on board until it is back",
+            "es": "Guardar los datos a bordo hasta que vuelva"
+          },
+          "sci": 1,
+          "safe": true,
+          "needs_storage": 3,
+          "result": {
+            "id": "ev_ground_outage_0",
+            "en": "The computer kept 3 days of data in its memory and sent them later. Nothing lost.",
+            "es": "El computador guardó 3 días de datos en su memoria y los envió después. No se perdió nada."
+          },
+          "fail_text": {
+            "id": "ev_ground_outage_0_fail",
+            "en": "The computer memory filled up in less than 3 days: part of the data was overwritten. A computer with more memory would have kept everything.",
+            "es": "La memoria del computador se llenó antes de 3 días: parte de los datos se sobrescribió. Un computador con más memoria lo habría guardado todo."
+          },
+          "fail_sci": 0.9,
+          "hint": {
+            "en": "Free: works only if the computer has enough memory for 3 days",
+            "es": "Gratis: funciona solo si el computador tiene memoria para 3 días"
+          }
+        },
+        {
+          "label": {
+            "en": "Rent extra antenna time (US$ 2 M)",
+            "es": "Alquilar tiempo extra de antena (US$ 2 M)"
+          },
+          "sci": 1,
+          "cost_musd": 2,
+          "result": {
+            "id": "ev_ground_outage_1",
+            "en": "Another station took the passes. It cost money but the data flowed.",
+            "es": "Otra estación tomó los pasos. Costó dinero, pero los datos siguieron llegando."
+          },
+          "hint": {
+            "en": "Costs US$ 2 M, but no data is lost",
+            "es": "Cuesta US$ 2 M, pero no se pierde ningún dato"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_ground_outage",
+        "en": "Ground station down. The station that listens to the probe goes into maintenance for 3 days. The data keeps coming. A probe only sends data when a ground antenna is listening. Stations need maintenance too, and while one is down the data piles up on board.",
+        "es": "Estación de tierra fuera de servicio. La estación que escucha la sonda entra en mantenimiento 3 días. Los datos siguen llegando. Una sonda solo envía datos cuando una antena de tierra la está escuchando. Las estaciones también necesitan mantenimiento, y mientras una está apagada los datos se acumulan a bordo."
+      },
+      "context": {
+        "en": "A probe only sends data when a ground antenna is listening. Stations need maintenance too, and while one is down the data piles up on board.",
+        "es": "Una sonda solo envía datos cuando una antena de tierra la está escuchando. Las estaciones también necesitan mantenimiento, y mientras una está apagada los datos se acumulan a bordo."
+      }
+    },
+    {
+      "id": "debris",
+      "role": "systems",
+      "where": [
+        "earth"
+      ],
+      "title": {
+        "en": "Space debris alert",
+        "es": "Alerta de basura espacial"
+      },
+      "text": {
+        "en": "A piece of an old rocket will pass 200 m away at 10 km/s. A hit would destroy the probe.",
+        "es": "Un pedazo de un cohete viejo pasará a 200 m a 10 km/s. Un choque destruiría la sonda."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Dodge: fire the thrusters",
+            "es": "Esquivar: encender los propulsores"
+          },
+          "sci": 0.98,
+          "life": 0.9,
+          "safe": true,
+          "result": {
+            "id": "ev_debris_0",
+            "en": "The probe moved 1 km. It used fuel it needed to keep its orbit, so it will last a bit less.",
+            "es": "La sonda se movió 1 km. Usó combustible que necesitaba para mantener su órbita, así que durará un poco menos."
+          },
+          "hint": {
+            "en": "Safe: uses fuel, the probe lasts a bit less",
+            "es": "Seguro: gasta combustible, la sonda dura un poco menos"
+          }
+        },
+        {
+          "label": {
+            "en": "Don't move: the odds are low",
+            "es": "No moverse: la probabilidad es baja"
+          },
+          "sci": 1,
+          "risk": 0.12,
+          "risk_sci": 0.2,
+          "result": {
+            "id": "ev_debris_1",
+            "en": "It passed by. This time the bet worked.",
+            "es": "Pasó de largo. Esta vez la apuesta salió bien."
+          },
+          "risk_text": {
+            "id": "ev_debris_1_risk",
+            "en": "Hit! A fragment broke a solar panel and the probe lost most of its power.",
+            "es": "¡Choque! Un fragmento rompió un panel solar y la sonda perdió casi toda su energía."
+          },
+          "hint": {
+            "en": "Gamble: small chance of a hit that ruins the mission",
+            "es": "Apuesta: poca probabilidad de un choque que arruina la misión"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_debris",
+        "en": "Space debris alert. A piece of an old rocket will pass 200 m away at 10 km/s. A hit would destroy the probe. Thousands of pieces of old rockets and satellites circle the Earth. Mission control watches them and, when one will pass too close, decides whether to move the probe. Moving uses fuel the probe needs to stay in orbit.",
+        "es": "Alerta de basura espacial. Un pedazo de un cohete viejo pasará a 200 m a 10 km/s. Un choque destruiría la sonda. Miles de pedazos de cohetes y satélites viejos dan vueltas a la Tierra. El control de misión los vigila y, cuando uno va a pasar demasiado cerca, decide si mover la sonda. Moverla gasta combustible que la sonda necesita para quedarse en órbita."
+      },
+      "context": {
+        "en": "Thousands of pieces of old rockets and satellites circle the Earth. Mission control watches them and, when one will pass too close, decides whether to move the probe. Moving uses fuel the probe needs to stay in orbit.",
+        "es": "Miles de pedazos de cohetes y satélites viejos dan vueltas a la Tierra. El control de misión los vigila y, cuando uno va a pasar demasiado cerca, decide si mover la sonda. Moverla gasta combustible que la sonda necesita para quedarse en órbita."
+      }
+    },
+    {
+      "id": "discovery",
+      "role": "comms",
+      "where": [
+        "any"
+      ],
+      "title": {
+        "en": "Something strange in the data",
+        "es": "Algo raro en los datos"
+      },
+      "text": {
+        "en": "The scientists see a signal nobody expected. They ask to point the instruments there for a week.",
+        "es": "Los científicos ven una señal que nadie esperaba. Piden apuntar los instrumentos ahí durante una semana."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Re-point and observe",
+            "es": "Reapuntar y observar"
+          },
+          "sci": 1.04,
+          "boost": "wheels",
+          "sci_boost": 1.2,
+          "result": {
+            "id": "ev_discovery_0",
+            "en": "The probe turned toward the signal and recorded it.",
+            "es": "La sonda giró hacia la señal y la registró."
+          },
+          "boost_text": {
+            "id": "ev_discovery_0_boost",
+            "en": "The reaction wheels pointed exactly: a discovery! The team is writing the paper.",
+            "es": "Las ruedas de reacción apuntaron exacto: ¡un descubrimiento! El equipo ya escribe el artículo."
+          },
+          "hint": {
+            "en": "More science if the probe can point exactly (reaction wheels)",
+            "es": "Más ciencia si la sonda puede apuntar exacto (ruedas de reacción)"
+          }
+        },
+        {
+          "label": {
+            "en": "Stay on the plan",
+            "es": "Seguir el plan"
+          },
+          "sci": 1,
+          "safe": true,
+          "result": {
+            "id": "ev_discovery_1",
+            "en": "The plan was kept. Maybe the next mission will look there.",
+            "es": "Se mantuvo el plan. Quizás la próxima misión mire ahí."
+          },
+          "hint": {
+            "en": "Safe: the plan stays as it was",
+            "es": "Seguro: el plan sigue como estaba"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_discovery",
+        "en": "Something strange in the data. The scientists see a signal nobody expected. They ask to point the instruments there for a week. Science plans are made before launch, but nature surprises. Pointing the instruments at something new means leaving the plan for a few days.",
+        "es": "Algo raro en los datos. Los científicos ven una señal que nadie esperaba. Piden apuntar los instrumentos ahí durante una semana. Los planes de ciencia se hacen antes de lanzar, pero la naturaleza sorprende. Apuntar los instrumentos a algo nuevo significa dejar el plan unos días."
+      },
+      "context": {
+        "en": "Science plans are made before launch, but nature surprises. Pointing the instruments at something new means leaving the plan for a few days.",
+        "es": "Los planes de ciencia se hacen antes de lanzar, pero la naturaleza sorprende. Apuntar los instrumentos a algo nuevo significa dejar el plan unos días."
+      }
+    },
+    {
+      "id": "battery_low",
+      "role": "systems",
+      "where": [
+        "earth",
+        "moon",
+        "mars"
+      ],
+      "title": {
+        "en": "Battery getting low",
+        "es": "La batería está bajando"
+      },
+      "text": {
+        "en": "A long shadow (eclipse or night) is draining the battery to 20 %.",
+        "es": "Una sombra larga (eclipse o noche) está bajando la batería al 20 %."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Switch off the instruments in the shadow",
+            "es": "Apagar los instrumentos en la sombra"
+          },
+          "sci": 0.93,
+          "safe": true,
+          "result": {
+            "id": "ev_battery_low_0",
+            "en": "Less science in the dark, but the battery recovered in the sunlight.",
+            "es": "Menos ciencia en la oscuridad, pero la batería se recuperó al sol."
+          },
+          "hint": {
+            "en": "Safe: less science in the dark",
+            "es": "Seguro: menos ciencia en la oscuridad"
+          }
+        },
+        {
+          "label": {
+            "en": "Keep everything on",
+            "es": "Mantener todo encendido"
+          },
+          "sci": 1,
+          "risk": 0.45,
+          "risk_sci": 0.7,
+          "immune": "rtg",
+          "result": {
+            "id": "ev_battery_low_1",
+            "en": "The battery held on until the Sun came back.",
+            "es": "La batería aguantó hasta que volvió el Sol."
+          },
+          "risk_text": {
+            "id": "ev_battery_low_1_risk",
+            "en": "The battery ran out: the probe shut down and took days to wake up. With an RTG this never happens.",
+            "es": "La batería se agotó: la sonda se apagó y tardó días en despertar. Con un RTG esto no pasa."
+          },
+          "hint": {
+            "en": "Risky: the battery may run out (an RTG never does)",
+            "es": "Arriesgado: la batería puede agotarse (un RTG nunca)"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_battery_low",
+        "en": "Battery getting low. A long shadow (eclipse or night) is draining the battery to 20 %. Solar panels only work in sunlight. In the shadow of a planet or at night, the probe lives on its battery, and if it runs out the probe shuts down.",
+        "es": "La batería está bajando. Una sombra larga (eclipse o noche) está bajando la batería al 20 %. Los paneles solares solo funcionan con luz. En la sombra de un planeta o de noche, la sonda vive de su batería, y si se agota, la sonda se apaga."
+      },
+      "context": {
+        "en": "Solar panels only work in sunlight. In the shadow of a planet or at night, the probe lives on its battery, and if it runs out the probe shuts down.",
+        "es": "Los paneles solares solo funcionan con luz. En la sombra de un planeta o de noche, la sonda vive de su batería, y si se agota, la sonda se apaga."
+      }
+    },
+    {
+      "id": "dust_storm",
+      "role": "systems",
+      "where": [
+        "mars"
+      ],
+      "title": {
+        "en": "Dust storm on Mars",
+        "es": "Tormenta de polvo en Marte"
+      },
+      "text": {
+        "en": "A storm the size of a continent covers the Sun. Dust settles on the solar panels.",
+        "es": "Una tormenta del tamaño de un continente tapa el Sol. El polvo se posa sobre los paneles solares."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Hibernate until it passes",
+            "es": "Hibernar hasta que pase"
+          },
+          "sci": 0.85,
+          "safe": true,
+          "immune_sci": "rtg",
+          "result": {
+            "id": "ev_dust_storm_0",
+            "en": "The probe waited weeks with minimum power. It survived, with a gap in the data.",
+            "es": "La sonda esperó semanas con la energía mínima. Sobrevivió, con un hueco en los datos."
+          },
+          "hint": {
+            "en": "Safe: weeks without science, the probe survives",
+            "es": "Seguro: semanas sin ciencia, la sonda sobrevive"
+          }
+        },
+        {
+          "label": {
+            "en": "Keep working with what is left",
+            "es": "Seguir trabajando con lo que quede"
+          },
+          "sci": 1,
+          "risk": 0.6,
+          "risk_sci": 0.4,
+          "immune": "rtg",
+          "result": {
+            "id": "ev_dust_storm_1",
+            "en": "Enough sunlight got through. Lucky!",
+            "es": "Pasó suficiente luz. ¡Qué suerte!"
+          },
+          "risk_text": {
+            "id": "ev_dust_storm_1_risk",
+            "en": "The panels could not keep up and the probe froze in the night. Opportunity ended like this in 2018. Curiosity and Perseverance use an RTG.",
+            "es": "Los paneles no alcanzaron y la sonda se congeló en la noche. Así terminó Opportunity en 2018. Curiosity y Perseverance usan RTG."
+          },
+          "hint": {
+            "en": "Very risky with solar panels; safe with an RTG",
+            "es": "Muy arriesgado con paneles solares; seguro con un RTG"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_dust_storm",
+        "en": "Dust storm on Mars. A storm the size of a continent covers the Sun. Dust settles on the solar panels. Mars has storms that cover the whole planet for weeks. The dust blocks the Sun and settles on the solar panels: rovers like Opportunity ended this way.",
+        "es": "Tormenta de polvo en Marte. Una tormenta del tamaño de un continente tapa el Sol. El polvo se posa sobre los paneles solares. Marte tiene tormentas que cubren todo el planeta durante semanas. El polvo tapa el Sol y se posa sobre los paneles solares: rovers como Opportunity terminaron así."
+      },
+      "context": {
+        "en": "Mars has storms that cover the whole planet for weeks. The dust blocks the Sun and settles on the solar panels: rovers like Opportunity ended this way.",
+        "es": "Marte tiene tormentas que cubren todo el planeta durante semanas. El polvo tapa el Sol y se posa sobre los paneles solares: rovers como Opportunity terminaron así."
+      }
+    },
+    {
+      "id": "instrument_reset",
+      "role": "comms",
+      "where": [
+        "any"
+      ],
+      "title": {
+        "en": "The camera rebooted by itself",
+        "es": "La cámara se reinició sola"
+      },
+      "text": {
+        "en": "A software error resets the main instrument every few hours.",
+        "es": "Un error de software reinicia el instrumento principal cada pocas horas."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Send a software patch from Earth",
+            "es": "Enviar un parche de software desde la Tierra"
+          },
+          "sci": 1,
+          "risk": 0.2,
+          "risk_sci": 0.92,
+          "safe": true,
+          "result": {
+            "id": "ev_instrument_reset_0",
+            "en": "The patch fixed it. Engineers can repair a probe millions of km away by radio.",
+            "es": "El parche lo arregló. Los ingenieros pueden reparar una sonda a millones de km por radio."
+          },
+          "risk_text": {
+            "id": "ev_instrument_reset_0_risk",
+            "en": "The first patch had an error; the second worked. A few days were lost.",
+            "es": "El primer parche tenía un error; el segundo funcionó. Se perdieron unos días."
+          },
+          "hint": {
+            "en": "Usually works; a bad patch costs a few days",
+            "es": "Casi siempre funciona; un parche malo cuesta unos días"
+          }
+        },
+        {
+          "label": {
+            "en": "Switch it off and use the others",
+            "es": "Apagarlo y usar los demás"
+          },
+          "sci": 0.85,
+          "result": {
+            "id": "ev_instrument_reset_1",
+            "en": "Safe, but without the main instrument a part of the science was lost.",
+            "es": "Seguro, pero sin el instrumento principal se perdió parte de la ciencia."
+          },
+          "hint": {
+            "en": "Safe, but you lose the main instrument",
+            "es": "Seguro, pero pierdes el instrumento principal"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_instrument_reset",
+        "en": "The camera rebooted by itself. A software error resets the main instrument every few hours. Spacecraft run software, and software has bugs. Engineers on the ground can write a fix and send it by radio, millions of kilometres away.",
+        "es": "La cámara se reinició sola. Un error de software reinicia el instrumento principal cada pocas horas. Las naves funcionan con software, y el software tiene errores. Los ingenieros en tierra pueden escribir un arreglo y enviarlo por radio, a millones de kilómetros."
+      },
+      "context": {
+        "en": "Spacecraft run software, and software has bugs. Engineers on the ground can write a fix and send it by radio, millions of kilometres away.",
+        "es": "Las naves funcionan con software, y el software tiene errores. Los ingenieros en tierra pueden escribir un arreglo y enviarlo por radio, a millones de kilómetros."
+      }
+    },
+    {
+      "id": "micrometeoroid",
+      "role": "systems",
+      "where": [
+        "any"
+      ],
+      "title": {
+        "en": "Micrometeoroid hit",
+        "es": "Impacto de micrometeorito"
+      },
+      "text": {
+        "en": "A grain of dust at 20 km/s punched a tiny hole in a radiator. Coolant is leaking slowly.",
+        "es": "Un grano de polvo a 20 km/s hizo un agujerito en un radiador. El refrigerante se escapa despacio."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Close the valve of that loop",
+            "es": "Cerrar la válvula de ese circuito"
+          },
+          "sci": 0.95,
+          "safe": true,
+          "result": {
+            "id": "ev_micrometeoroid_0",
+            "en": "The leak stopped. One radiator less means some instruments must rest more often.",
+            "es": "La fuga se detuvo. Con un radiador menos, algunos instrumentos deben descansar más seguido."
+          },
+          "hint": {
+            "en": "Safe: less cooling, instruments rest more",
+            "es": "Seguro: menos enfriamiento, los instrumentos descansan más"
+          }
+        },
+        {
+          "label": {
+            "en": "Keep it open and watch the temperature",
+            "es": "Dejarlo abierto y vigilar la temperatura"
+          },
+          "sci": 1,
+          "risk": 0.5,
+          "risk_sci": 0.75,
+          "immune": "tvac",
+          "result": {
+            "id": "ev_micrometeoroid_1",
+            "en": "The leak sealed itself with frozen coolant. Lucky.",
+            "es": "La fuga se selló sola con refrigerante congelado. Suerte."
+          },
+          "risk_text": {
+            "id": "ev_micrometeoroid_1_risk",
+            "en": "The loop ran dry and the camera overheated. The thermal vacuum test would have shown this weak spot.",
+            "es": "El circuito se vació y la cámara se recalentó. La prueba de vacío térmico habría mostrado ese punto débil."
+          },
+          "hint": {
+            "en": "Risky: may overheat (a thermal vacuum test would show it)",
+            "es": "Arriesgado: puede recalentarse (la prueba de vacío térmico lo mostraría)"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_micrometeoroid",
+        "en": "Micrometeoroid hit. A grain of dust at 20 km/s punched a tiny hole in a radiator. Coolant is leaking slowly. Space is full of tiny grains of dust moving faster than bullets. A hit can puncture a pipe of the cooling system that keeps the instruments at the right temperature.",
+        "es": "Impacto de micrometeorito. Un grano de polvo a 20 km/s hizo un agujerito en un radiador. El refrigerante se escapa despacio. El espacio está lleno de granos de polvo diminutos que van más rápido que una bala. Un impacto puede perforar un tubo del sistema que mantiene los instrumentos a la temperatura correcta."
+      },
+      "context": {
+        "en": "Space is full of tiny grains of dust moving faster than bullets. A hit can puncture a pipe of the cooling system that keeps the instruments at the right temperature.",
+        "es": "El espacio está lleno de granos de polvo diminutos que van más rápido que una bala. Un impacto puede perforar un tubo del sistema que mantiene los instrumentos a la temperatura correcta."
+      }
+    },
+    {
+      "id": "data_priority",
+      "role": "comms",
+      "where": [
+        "any"
+      ],
+      "title": {
+        "en": "Too much data, too little time",
+        "es": "Demasiados datos, poco tiempo"
+      },
+      "text": {
+        "en": "The next contact with the ground station is short. You can send only half of what is stored.",
+        "es": "El próximo contacto con la estación de tierra es corto. Solo puedes enviar la mitad de lo guardado."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Send the images first",
+            "es": "Enviar primero las imágenes"
+          },
+          "sci": 1.03,
+          "result": {
+            "id": "ev_data_priority_0",
+            "en": "Scientists loved the pictures; the rest of the data goes next time.",
+            "es": "A los científicos les encantaron las imágenes; el resto de los datos va la próxima vez."
+          },
+          "hint": {
+            "en": "The best data first; the rest waits",
+            "es": "Los mejores datos primero; el resto espera"
+          }
+        },
+        {
+          "label": {
+            "en": "Compress everything and send it all",
+            "es": "Comprimir todo y enviarlo completo"
+          },
+          "sci": 0.98,
+          "safe": true,
+          "result": {
+            "id": "ev_data_priority_1",
+            "en": "Everything arrived, a little blurry. Compression trades quality for speed.",
+            "es": "Llegó todo, un poco borroso. Comprimir cambia calidad por velocidad."
+          },
+          "hint": {
+            "en": "Everything arrives, with a little less quality",
+            "es": "Llega todo, con un poco menos de calidad"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_data_priority",
+        "en": "Too much data, too little time. The next contact with the ground station is short. You can send only half of what is stored. The antenna can only send so many megabytes each day. When there is more data than time, the team decides what reaches the scientists first.",
+        "es": "Demasiados datos, poco tiempo. El próximo contacto con la estación de tierra es corto. Solo puedes enviar la mitad de lo guardado. La antena solo puede enviar cierta cantidad de megabytes al día. Cuando hay más datos que tiempo, el equipo decide qué llega primero a los científicos."
+      },
+      "context": {
+        "en": "The antenna can only send so many megabytes each day. When there is more data than time, the team decides what reaches the scientists first.",
+        "es": "La antena solo puede enviar cierta cantidad de megabytes al día. Cuando hay más datos que tiempo, el equipo decide qué llega primero a los científicos."
+      }
+    },
+    {
+      "id": "eclipse_season",
+      "role": "systems",
+      "where": [
+        "earth",
+        "moon"
+      ],
+      "title": {
+        "en": "Eclipse season",
+        "es": "Temporada de eclipses"
+      },
+      "text": {
+        "en": "For two weeks the probe passes through the Earth's shadow every orbit. It gets cold.",
+        "es": "Durante dos semanas la sonda pasa por la sombra de la Tierra en cada vuelta. Se enfría."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Turn on the heaters",
+            "es": "Encender los calentadores"
+          },
+          "sci": 0.96,
+          "safe": true,
+          "result": {
+            "id": "ev_eclipse_season_0",
+            "en": "Warm and safe; the heaters used power that the instruments could not use.",
+            "es": "Caliente y segura; los calentadores gastaron energía que no usaron los instrumentos."
+          },
+          "hint": {
+            "en": "Safe: heaters use power the instruments needed",
+            "es": "Seguro: los calentadores gastan energía de los instrumentos"
+          }
+        },
+        {
+          "label": {
+            "en": "Let it cool down",
+            "es": "Dejar que se enfríe"
+          },
+          "sci": 1,
+          "risk": 0.4,
+          "risk_sci": 0.8,
+          "immune": "tvac",
+          "result": {
+            "id": "ev_eclipse_season_1",
+            "en": "It handled the cold fine.",
+            "es": "Aguantó bien el frío."
+          },
+          "risk_text": {
+            "id": "ev_eclipse_season_1_risk",
+            "en": "The battery froze and lost capacity. A thermal vacuum test would have measured this before launch.",
+            "es": "La batería se congeló y perdió capacidad. Una prueba de vacío térmico lo habría medido antes de lanzar."
+          },
+          "hint": {
+            "en": "Risky: the battery may freeze (a thermal vacuum test would tell)",
+            "es": "Arriesgado: la batería puede congelarse (la prueba de vacío térmico lo diría)"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_eclipse_season",
+        "en": "Eclipse season. For two weeks the probe passes through the Earth's shadow every orbit. It gets cold. Twice a year a satellite's orbit lines up with the Sun and it crosses the Earth's shadow on every lap. In the cold, batteries and electronics suffer.",
+        "es": "Temporada de eclipses. Durante dos semanas la sonda pasa por la sombra de la Tierra en cada vuelta. Se enfría. Dos veces al año la órbita de un satélite se alinea con el Sol y cruza la sombra de la Tierra en cada vuelta. Con el frío, las baterías y la electrónica sufren."
+      },
+      "context": {
+        "en": "Twice a year a satellite's orbit lines up with the Sun and it crosses the Earth's shadow on every lap. In the cold, batteries and electronics suffer.",
+        "es": "Dos veces al año la órbita de un satélite se alinea con el Sol y cruza la sombra de la Tierra en cada vuelta. Con el frío, las baterías y la electrónica sufren."
+      }
+    },
+    {
+      "id": "public_request",
+      "role": "comms",
+      "where": [
+        "any"
+      ],
+      "title": {
+        "en": "A school asks for a photo",
+        "es": "Una escuela pide una foto"
+      },
+      "text": {
+        "en": "Students from a school in Barranquilla ask the probe to take a picture for them.",
+        "es": "Estudiantes de un colegio de Barranquilla piden que la sonda tome una foto para ellos."
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Turn the camera and take it",
+            "es": "Girar la cámara y tomarla"
+          },
+          "sci": 1,
+          "boost": "wheels",
+          "sci_boost": 1.05,
+          "result": {
+            "id": "ev_public_request_0",
+            "en": "The photo went viral and more students now want to study science.",
+            "es": "La foto se hizo viral y más estudiantes quieren estudiar ciencias."
+          },
+          "boost_text": {
+            "id": "ev_public_request_0_boost",
+            "en": "The reaction wheels pointed exactly: a perfect photo, and the public loves the mission.",
+            "es": "Las ruedas de reacción apuntaron exacto: foto perfecta, y el público ama la misión."
+          },
+          "hint": {
+            "en": "Inspires the public; better with reaction wheels",
+            "es": "Inspira al público; mejor con ruedas de reacción"
+          }
+        },
+        {
+          "label": {
+            "en": "Politely say no: the plan comes first",
+            "es": "Decir que no con cortesía: primero el plan"
+          },
+          "sci": 1,
+          "safe": true,
+          "result": {
+            "id": "ev_public_request_1",
+            "en": "The plan stayed intact. The user segment includes the public too!",
+            "es": "El plan quedó intacto. ¡El segmento de usuarios también incluye al público!"
+          },
+          "hint": {
+            "en": "The science plan stays intact",
+            "es": "El plan científico queda intacto"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_public_request",
+        "en": "A school asks for a photo. Students from a school in Barranquilla ask the probe to take a picture for them. Space missions are paid for by people, and the \"user segment\" includes the public. Sharing images inspires students, but it takes time from the science plan.",
+        "es": "Una escuela pide una foto. Estudiantes de un colegio de Barranquilla piden que la sonda tome una foto para ellos. Las misiones espaciales las paga la gente, y el \"segmento de usuarios\" incluye al público. Compartir imágenes inspira a los estudiantes, pero quita tiempo al plan científico."
+      },
+      "context": {
+        "en": "Space missions are paid for by people, and the \"user segment\" includes the public. Sharing images inspires students, but it takes time from the science plan.",
+        "es": "Las misiones espaciales las paga la gente, y el \"segmento de usuarios\" incluye al público. Compartir imágenes inspira a los estudiantes, pero quita tiempo al plan científico."
+      }
+    },
+    {
+      "id": "software_update",
+      "role": "comms",
+      "where": [
+        "any"
+      ],
+      "title": {
+        "en": "New software available",
+        "es": "Software nuevo disponible"
+      },
+      "text": {
+        "en": "Engineers wrote a better program to process images on board. Install it in flight?",
+        "es": "Los ingenieros escribieron un mejor programa para procesar imágenes a bordo. ¿Lo instalamos en vuelo?"
+      },
+      "options": [
+        {
+          "label": {
+            "en": "Install it now",
+            "es": "Instalarlo ya"
+          },
+          "sci": 1.1,
+          "risk": 0.35,
+          "risk_sci": 0.85,
+          "immune": "ditl",
+          "result": {
+            "id": "ev_software_update_0",
+            "en": "Sharper images with the same data!",
+            "es": "¡Imágenes más nítidas con los mismos datos!"
+          },
+          "risk_text": {
+            "id": "ev_software_update_0_risk",
+            "en": "It had a bug and the computer rebooted. Testing a full day of operation on the ground (DITL) would have caught it.",
+            "es": "Tenía un error y el computador se reinició. Una prueba de un día completo de operación en tierra (DITL) lo habría encontrado."
+          },
+          "hint": {
+            "en": "Better images, but a bug may reboot the probe (unless you did the DITL test)",
+            "es": "Mejores imágenes, pero un error puede reiniciar la sonda (salvo que hiciste la prueba DITL)"
+          }
+        },
+        {
+          "label": {
+            "en": "Wait and test it on the ground first",
+            "es": "Esperar y probarlo antes en tierra"
+          },
+          "sci": 1.02,
+          "safe": true,
+          "result": {
+            "id": "ev_software_update_1",
+            "en": "Safe choice: it was installed a month later, already tested.",
+            "es": "Opción segura: se instaló un mes después, ya probado."
+          },
+          "hint": {
+            "en": "Safe and a bit later: tested first on the ground",
+            "es": "Seguro y un poco después: primero se prueba en tierra"
+          }
+        }
+      ],
+      "voice": {
+        "id": "ev_software_update",
+        "en": "New software available. Engineers wrote a better program to process images on board. Install it in flight? Improving software in flight can give better science with the same hardware, but a mistake can crash the computer far from any repair shop.",
+        "es": "Software nuevo disponible. Los ingenieros escribieron un mejor programa para procesar imágenes a bordo. ¿Lo instalamos en vuelo? Mejorar el software en vuelo puede dar mejor ciencia con el mismo equipo, pero un error puede colgar el computador lejos de cualquier taller."
+      },
+      "context": {
+        "en": "Improving software in flight can give better science with the same hardware, but a mistake can crash the computer far from any repair shop.",
+        "es": "Mejorar el software en vuelo puede dar mejor ciencia con el mismo equipo, pero un error puede colgar el computador lejos de cualquier taller."
+      }
+    }
+  ],
+  "lost_signal": {
+    "id": "ev_lost_signal",
+    "en": "The probe stopped answering on day {d}. The computer did not survive the whole mission.",
+    "es": "La sonda dejó de responder el día {d}. El computador no aguantó toda la misión."
+  }
+}

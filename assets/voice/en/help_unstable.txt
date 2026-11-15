@@ -1,0 +1,1 @@
+The centre of pressure is above the centre of mass, so the air will flip it over. Add fins to the bottom stage, or switch to liquid engines that can steer with gimbal.

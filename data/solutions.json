@@ -1,0 +1,593 @@
+{
+  "_notes": "Generado por Solver (godot --headless --path . -- --solve). Un cohete verificado por misión para el botón 'Me rindo'.",
+  "solutions": {
+    "0": {
+      "cost": 13588229.9228108,
+      "design": [
+        {
+          "diameter": 0.6,
+          "id": "nose_ogive",
+          "length": 1.6,
+          "material": "aluminium"
+        },
+        {
+          "diameter": 0.6,
+          "id": "payload_bay",
+          "length": 0.6,
+          "material": "aluminium",
+          "payload_kg": 45,
+          "probe": {
+            "antenna": "whip",
+            "instruments": [
+              "thermo"
+            ],
+            "power": "battery"
+          }
+        },
+        {
+          "diameter": 0.6,
+          "fins": {
+            "count": 4,
+            "root": 0.8,
+            "span": 0.45,
+            "tip": 0.35
+          },
+          "id": "solid_motor",
+          "length": 4.0,
+          "material": "steel"
+        }
+      ],
+      "dv": 3883.01138445363,
+      "reason": "OK_SPACE",
+      "science": 6.0,
+      "target": 6.0
+    },
+    "1": {
+      "cost": 34746584.8367701,
+      "design": [
+        {
+          "diameter": 3.0,
+          "id": "nose_ogive",
+          "length": 4.8,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 3.0,
+          "id": "payload_bay",
+          "length": 2.7,
+          "material": "aluminium",
+          "paint": "white",
+          "payload_kg": 120.0,
+          "probe": {
+            "antenna": "whip",
+            "instruments": [
+              "camera"
+            ],
+            "power": "solar_small"
+          }
+        },
+        {
+          "diameter": 3.0,
+          "id": "tank",
+          "length": 12.0,
+          "material": "aluminium",
+          "paint": "silver",
+          "propellant": "lox_rp1"
+        },
+        {
+          "count": 1,
+          "diameter": 3.0,
+          "engine": "merlin_1d",
+          "id": "engine"
+        },
+        {
+          "diameter": 3.0,
+          "id": "decoupler",
+          "length": 0.6,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 3.0,
+          "id": "tank",
+          "length": 12.0,
+          "material": "aluminium",
+          "paint": "white",
+          "propellant": "lox_rp1"
+        },
+        {
+          "count": 3,
+          "diameter": 3.0,
+          "engine": "merlin_1d",
+          "id": "engine"
+        }
+      ],
+      "dv": 11990.9667263588,
+      "reason": "OK_ORBIT",
+      "science": 12.0,
+      "target": 12.0
+    },
+    "2": {
+      "cost": 101639909.555851,
+      "design": [
+        {
+          "diameter": 3.7,
+          "id": "nose_ogive",
+          "length": 5.9,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 3.7,
+          "id": "payload_bay",
+          "length": 3.3,
+          "material": "aluminium",
+          "paint": "white",
+          "payload_kg": 1440.0,
+          "probe": {
+            "antenna": "patch",
+            "instruments": [
+              "camera",
+              "magnetometer"
+            ],
+            "power": "solar_big"
+          }
+        },
+        {
+          "diameter": 3.7,
+          "id": "tank",
+          "length": 5.0,
+          "material": "aluminium",
+          "paint": "silver",
+          "propellant": "lox_lh2"
+        },
+        {
+          "count": 1,
+          "diameter": 3.7,
+          "engine": "rl10c",
+          "id": "engine"
+        },
+        {
+          "diameter": 3.7,
+          "id": "decoupler",
+          "length": 0.6,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 3.7,
+          "id": "tank",
+          "length": 16.0,
+          "material": "aluminium",
+          "paint": "white",
+          "propellant": "lox_rp1"
+        },
+        {
+          "count": 4,
+          "diameter": 3.7,
+          "engine": "merlin_1d",
+          "id": "engine"
+        }
+      ],
+      "dv": 13812.7906739656,
+      "reason": "OK_ORBIT",
+      "science": 22.0,
+      "target": 20.0
+    },
+    "3": {
+      "cost": 200483410.650369,
+      "design": [
+        {
+          "diameter": 5.0,
+          "id": "nose_ogive",
+          "length": 8.0,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 5.0,
+          "id": "payload_bay",
+          "length": 4.5,
+          "material": "aluminium",
+          "paint": "white",
+          "payload_kg": 1456.0,
+          "probe": {
+            "antenna": "patch",
+            "instruments": [
+              "camera",
+              "spectrometer"
+            ],
+            "power": "solar_small"
+          }
+        },
+        {
+          "diameter": 5.0,
+          "id": "tank",
+          "length": 9.0,
+          "material": "aluminium",
+          "paint": "silver",
+          "propellant": "lox_lh2"
+        },
+        {
+          "count": 1,
+          "diameter": 5.0,
+          "engine": "j2",
+          "id": "engine"
+        },
+        {
+          "diameter": 5.0,
+          "id": "decoupler",
+          "length": 0.6,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 5.0,
+          "id": "tank",
+          "length": 16.0,
+          "material": "aluminium",
+          "paint": "white",
+          "propellant": "lox_rp1"
+        },
+        {
+          "count": 6,
+          "diameter": 5.0,
+          "engine": "merlin_1d",
+          "id": "engine"
+        }
+      ],
+      "dv": 13947.6631616523,
+      "reason": "OK_ORBIT",
+      "science": 54.4,
+      "target": 40.0
+    },
+    "4": {
+      "cost": 486024622.237644,
+      "design": [
+        {
+          "diameter": 6.6,
+          "id": "nose_ogive",
+          "length": 10.6,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 6.6,
+          "id": "payload_bay",
+          "length": 5.9,
+          "material": "aluminium",
+          "paint": "white",
+          "payload_kg": 3786.0,
+          "probe": {
+            "antenna": "patch",
+            "instruments": [
+              "camera",
+              "spectrometer",
+              "drill"
+            ],
+            "landing": [
+              "legs"
+            ],
+            "power": "solar_big"
+          }
+        },
+        {
+          "diameter": 6.6,
+          "id": "tank",
+          "length": 12.0,
+          "material": "al_li",
+          "paint": "silver",
+          "propellant": "lox_lh2"
+        },
+        {
+          "count": 1,
+          "diameter": 6.6,
+          "engine": "j2",
+          "id": "engine"
+        },
+        {
+          "diameter": 6.6,
+          "id": "decoupler",
+          "length": 0.6,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 6.6,
+          "id": "tank",
+          "length": 20.0,
+          "material": "aluminium",
+          "paint": "white",
+          "propellant": "lox_rp1"
+        },
+        {
+          "count": 3,
+          "diameter": 6.6,
+          "engine": "rd180",
+          "id": "engine"
+        }
+      ],
+      "dv": 15580.6455195319,
+      "reason": "OK_ORBIT",
+      "science": 138.0,
+      "target": 60.0
+    },
+    "5": {
+      "cost": 542123762.599109,
+      "design": [
+        {
+          "diameter": 5.0,
+          "id": "nose_ogive",
+          "length": 8.0,
+          "material": "carbon",
+          "paint": "white"
+        },
+        {
+          "diameter": 5.0,
+          "id": "payload_bay",
+          "length": 4.5,
+          "material": "aluminium",
+          "paint": "white",
+          "payload_kg": 2398.0,
+          "probe": {
+            "antenna": "dish",
+            "instruments": [
+              "camera",
+              "spectrometer",
+              "radar"
+            ],
+            "power": "solar_big"
+          }
+        },
+        {
+          "diameter": 5.0,
+          "id": "tank",
+          "length": 12.0,
+          "material": "carbon",
+          "paint": "silver",
+          "propellant": "lox_lh2"
+        },
+        {
+          "count": 1,
+          "diameter": 5.0,
+          "engine": "j2",
+          "id": "engine"
+        },
+        {
+          "diameter": 5.0,
+          "id": "decoupler",
+          "length": 0.6,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 5.0,
+          "id": "tank",
+          "length": 20.0,
+          "material": "aluminium",
+          "paint": "white",
+          "propellant": "lox_rp1"
+        },
+        {
+          "count": 8,
+          "diameter": 5.0,
+          "engine": "merlin_1d",
+          "id": "engine"
+        }
+      ],
+      "dv": 15614.010215478,
+      "reason": "OK_ORBIT",
+      "science": 141.6,
+      "target": 70.0
+    },
+    "6": {
+      "cost": 710198498.184262,
+      "design": [
+        {
+          "diameter": 5.0,
+          "id": "nose_ogive",
+          "length": 8.0,
+          "material": "carbon",
+          "paint": "white"
+        },
+        {
+          "diameter": 5.0,
+          "id": "payload_bay",
+          "length": 4.5,
+          "material": "aluminium",
+          "paint": "white",
+          "payload_kg": 2953.0,
+          "probe": {
+            "antenna": "dish",
+            "instruments": [
+              "camera",
+              "spectrometer",
+              "drill"
+            ],
+            "landing": [
+              "heat_shield",
+              "parachute"
+            ],
+            "power": "solar_big"
+          }
+        },
+        {
+          "diameter": 5.0,
+          "id": "tank",
+          "length": 9.0,
+          "material": "carbon",
+          "paint": "silver",
+          "propellant": "lox_lh2"
+        },
+        {
+          "count": 1,
+          "diameter": 5.0,
+          "engine": "j2",
+          "id": "engine"
+        },
+        {
+          "diameter": 5.0,
+          "id": "decoupler",
+          "length": 0.6,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 5.0,
+          "id": "tank",
+          "length": 16.0,
+          "material": "aluminium",
+          "paint": "white",
+          "propellant": "lox_rp1"
+        },
+        {
+          "count": 6,
+          "diameter": 5.0,
+          "engine": "merlin_1d",
+          "id": "engine"
+        }
+      ],
+      "dv": 14143.4674248654,
+      "reason": "OK_ORBIT",
+      "science": 207.0,
+      "target": 100.0
+    },
+    "7": {
+      "cost": 857349197.689704,
+      "design": [
+        {
+          "diameter": 6.6,
+          "id": "nose_ogive",
+          "length": 10.6,
+          "material": "carbon",
+          "paint": "white"
+        },
+        {
+          "diameter": 6.6,
+          "id": "payload_bay",
+          "length": 5.9,
+          "material": "aluminium",
+          "paint": "white",
+          "payload_kg": 2901.0,
+          "probe": {
+            "antenna": "dish",
+            "instruments": [
+              "camera",
+              "spectrometer",
+              "magnetometer"
+            ],
+            "power": "rtg"
+          }
+        },
+        {
+          "diameter": 6.6,
+          "id": "tank",
+          "length": 12.0,
+          "material": "carbon",
+          "paint": "silver",
+          "propellant": "lox_lh2"
+        },
+        {
+          "count": 1,
+          "diameter": 6.6,
+          "engine": "j2",
+          "id": "engine"
+        },
+        {
+          "diameter": 6.6,
+          "id": "decoupler",
+          "length": 0.6,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 6.6,
+          "id": "tank",
+          "length": 12.0,
+          "material": "aluminium",
+          "paint": "white",
+          "propellant": "lox_rp1"
+        },
+        {
+          "count": 2,
+          "diameter": 6.6,
+          "engine": "rd180",
+          "id": "engine"
+        }
+      ],
+      "dv": 16222.51852459,
+      "reason": "OK_ORBIT",
+      "science": 154.0,
+      "target": 120.0
+    },
+    "8": {
+      "cost": 1183992290.32976,
+      "design": [
+        {
+          "diameter": 6.6,
+          "id": "nose_ogive",
+          "length": 10.6,
+          "material": "carbon",
+          "paint": "white"
+        },
+        {
+          "diameter": 6.6,
+          "id": "payload_bay",
+          "length": 5.9,
+          "material": "aluminium",
+          "paint": "white",
+          "payload_kg": 1401.0,
+          "probe": {
+            "antenna": "dish",
+            "instruments": [
+              "magnetometer",
+              "camera",
+              "spectrometer"
+            ],
+            "power": "rtg"
+          }
+        },
+        {
+          "diameter": 6.6,
+          "id": "tank",
+          "length": 9.0,
+          "material": "carbon",
+          "paint": "silver",
+          "propellant": "lox_lh2"
+        },
+        {
+          "count": 1,
+          "diameter": 6.6,
+          "engine": "j2",
+          "id": "engine"
+        },
+        {
+          "diameter": 6.6,
+          "id": "decoupler",
+          "length": 0.6,
+          "material": "aluminium",
+          "paint": "white"
+        },
+        {
+          "diameter": 6.6,
+          "id": "tank",
+          "length": 30.0,
+          "material": "aluminium",
+          "paint": "white",
+          "propellant": "lox_rp1"
+        },
+        {
+          "count": 4,
+          "diameter": 6.6,
+          "engine": "rd180",
+          "id": "engine"
+        }
+      ],
+      "dv": 18816.8306293069,
+      "reason": "OK_ORBIT",
+      "science": 101.0,
+      "target": 100.0
+    }
+  }
+}

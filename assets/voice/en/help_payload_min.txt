@@ -1,0 +1,1 @@
+The client needs a heavier spacecraft than the one you carry. Pick the payload bay and raise the payload mass: the instruments, fuel and structure of a real probe weigh a lot.

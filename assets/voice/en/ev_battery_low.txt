@@ -1,0 +1,1 @@
+Battery getting low. A long shadow (eclipse or night) is draining the battery to 20 %. Solar panels only work in sunlight. In the shadow of a planet or at night, the probe lives on its battery, and if it runs out the probe shuts down.

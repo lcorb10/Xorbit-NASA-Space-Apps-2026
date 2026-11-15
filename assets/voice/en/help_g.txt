@@ -1,0 +1,1 @@
+Too much acceleration: as the upper stage empties it pulls more g than the structure can take. Use a weaker engine up there, or a stronger material.

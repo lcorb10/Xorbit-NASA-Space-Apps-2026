@@ -1,0 +1,1 @@
+This mission lands, and the probe is missing landing equipment. Pick the payload bay and tick it: legs for the Moon; heat shield and parachute for Mars.

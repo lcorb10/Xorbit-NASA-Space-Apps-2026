@@ -1,0 +1,365 @@
+{
+  "_notes": "Historia de la campaña: el jugador es ingeniero del Grupo XORBIT y recibe encargos (uno por misión). client/story/goal/tip en en/es. Los clientes son ficticios. Los criterios (Δv, presupuesto, carga) salen de levels.json y del análisis; aquí solo el texto.",
+  "intro": {
+    "title": {
+      "en": "Welcome to XORBIT",
+      "es": "Bienvenido a XORBIT"
+    },
+    "body": {
+      "en": "XORBIT is a small team of rocket engineers. Agencies, universities and companies call us when they need something in space and do not know how to get it there. You just joined as a flight engineer. Each mission is a job from a client: read what they need, design a rocket that can do it within the budget, and fly it. If it fails, the flight report tells you why, and you try again. Houston, our flight director, will guide you.",
+      "es": "XORBIT es un equipo pequeño de ingenieros de cohetes. Agencias, universidades y empresas nos llaman cuando necesitan algo en el espacio y no saben cómo llevarlo. Acabas de entrar como ingeniero de vuelo. Cada misión es un encargo de un cliente: lee lo que necesita, diseña un cohete que lo logre dentro del presupuesto y lánzalo. Si falla, el informe de vuelo te dice por qué y lo vuelves a intentar. Houston, nuestro director de vuelo, te va a guiar."
+    }
+  },
+  "missions": {
+    "0": {
+      "client": {
+        "en": "Caribbean Weather Institute",
+        "es": "Instituto del Clima del Caribe"
+      },
+      "story": {
+        "id": "story_0",
+        "en": "The institute wants to measure the upper atmosphere with a small instrument. It only needs a few minutes above 100 km, then it can fall back into the sea.",
+        "es": "El instituto quiere medir la atmósfera alta con un instrumento pequeño. Solo necesita unos minutos por encima de 100 km; después puede volver a caer al mar."
+      },
+      "goal": {
+        "en": "Fly straight up past 100 km (the edge of space) carrying the payload bay. No orbit needed.",
+        "es": "Sube en línea recta y pasa los 100 km (el borde del espacio) llevando la bahía de carga. No hace falta órbita."
+      },
+      "tip": {
+        "en": "A single solid motor with fins, a payload bay and a nose is enough.",
+        "es": "Basta un motor sólido con aletas, una bahía de carga y una punta."
+      },
+      "extras": [
+        {
+          "cond": "instr:thermo",
+          "text": {
+            "en": "Carry the thermometer to measure the upper air",
+            "es": "Llevar el termómetro para medir el aire alto"
+          }
+        },
+        {
+          "cond": "max_g:12",
+          "text": {
+            "en": "Keep acceleration under 12 g so the instrument survives",
+            "es": "Mantener la aceleración debajo de 12 g para que el instrumento sobreviva"
+          }
+        }
+      ]
+    },
+    "1": {
+      "client": {
+        "en": "Andes University, space lab",
+        "es": "Universidad de los Andes, laboratorio espacial"
+      },
+      "story": {
+        "id": "story_1",
+        "en": "The students built a small satellite to photograph crops. It must go around the Earth for months, so it has to reach orbit, not just space.",
+        "es": "Los estudiantes hicieron un satélite pequeño para fotografiar cultivos. Tiene que dar vueltas a la Tierra por meses, así que debe llegar a órbita, no solo al espacio."
+      },
+      "goal": {
+        "en": "Put the payload in a stable low orbit (about 200 km, ~7.8 km/s sideways).",
+        "es": "Deja la carga en una órbita baja estable (unos 200 km, ~7,8 km/s de lado)."
+      },
+      "tip": {
+        "en": "You need two stages: one rocket alone cannot carry its own empty tank that fast.",
+        "es": "Necesitas dos etapas: un cohete solo no puede llevar su propio tanque vacío tan rápido."
+      },
+      "extras": [
+        {
+          "cond": "instr:camera",
+          "text": {
+            "en": "Photograph the crops: carry a camera",
+            "es": "Fotografiar los cultivos: llevar una cámara"
+          }
+        },
+        {
+          "cond": "budget:0.6",
+          "text": {
+            "en": "Spend less than 60 % of the budget",
+            "es": "Gastar menos del 60 % del presupuesto"
+          }
+        }
+      ]
+    },
+    "2": {
+      "client": {
+        "en": "Pacific Telecom",
+        "es": "Telecom del Pacífico"
+      },
+      "story": {
+        "id": "story_2",
+        "en": "A TV and internet company needs a satellite that stays still over the same spot of the Earth, so dishes never have to move.",
+        "es": "Una empresa de televisión e internet necesita un satélite que se quede quieto sobre el mismo punto de la Tierra, para que las antenas nunca tengan que moverse."
+      },
+      "goal": {
+        "en": "Reach geostationary orbit, 35,786 km up: low orbit first, then about 3.9 km/s more.",
+        "es": "Llega a la órbita geoestacionaria, a 35.786 km: primero órbita baja y luego unos 3,9 km/s más."
+      },
+      "tip": {
+        "en": "Use hydrogen in the upper stage: it gives more speed per kilogram.",
+        "es": "Usa hidrógeno en la etapa de arriba: da más velocidad por kilo."
+      },
+      "extras": [
+        {
+          "cond": "power:solar_big",
+          "text": {
+            "en": "Power the TV transmitters with large solar wings",
+            "es": "Alimentar los transmisores con alas solares grandes"
+          }
+        },
+        {
+          "cond": "science",
+          "text": {
+            "en": "Reach the science goal",
+            "es": "Cumplir la meta de ciencia"
+          }
+        }
+      ]
+    },
+    "3": {
+      "client": {
+        "en": "Lunar Mapping Consortium",
+        "es": "Consorcio de Cartografía Lunar"
+      },
+      "story": {
+        "id": "story_3",
+        "en": "Before anyone lands again, the consortium wants a detailed map of the Moon from orbit.",
+        "es": "Antes de que alguien vuelva a aterrizar, el consorcio quiere un mapa detallado de la Luna desde su órbita."
+      },
+      "goal": {
+        "en": "Leave Earth orbit, travel 3 days to the Moon and brake to stay in lunar orbit.",
+        "es": "Sal de la órbita terrestre, viaja 3 días hasta la Luna y frena para quedarte en órbita lunar."
+      },
+      "tip": {
+        "en": "Three stages work well: the Saturn V used three.",
+        "es": "Tres etapas funcionan bien: el Saturno V usaba tres."
+      },
+      "extras": [
+        {
+          "cond": "instr:camera",
+          "text": {
+            "en": "Map the far side of the Moon with a camera",
+            "es": "Cartografiar el lado oculto de la Luna con una cámara"
+          }
+        },
+        {
+          "cond": "instr:spectrometer",
+          "text": {
+            "en": "Find out what the craters are made of (spectrometer)",
+            "es": "Saber de qué están hechos los cráteres (espectrómetro)"
+          }
+        }
+      ]
+    },
+    "4": {
+      "client": {
+        "en": "Lunar Mapping Consortium",
+        "es": "Consorcio de Cartografía Lunar"
+      },
+      "story": {
+        "id": "story_4",
+        "en": "The map found an interesting crater. Now they want instruments on the ground.",
+        "es": "El mapa encontró un cráter interesante. Ahora quieren instrumentos en el suelo."
+      },
+      "goal": {
+        "en": "Land softly on the Moon. With no air, the engine has to do all the braking.",
+        "es": "Aterriza suave en la Luna. Sin aire, el motor tiene que hacer todo el frenado."
+      },
+      "tip": {
+        "en": "Budget about 1.7 km/s extra just for landing.",
+        "es": "Calcula unos 1,7 km/s extra solo para aterrizar."
+      },
+      "extras": [
+        {
+          "cond": "instr:drill",
+          "text": {
+            "en": "Drill a sample of lunar soil",
+            "es": "Perforar una muestra de suelo lunar"
+          }
+        },
+        {
+          "cond": "max_g:6",
+          "text": {
+            "en": "A gentle ride: keep it under 6 g",
+            "es": "Un viaje suave: menos de 6 g"
+          }
+        }
+      ]
+    },
+    "5": {
+      "client": {
+        "en": "Red Planet Science Network",
+        "es": "Red Científica del Planeta Rojo"
+      },
+      "story": {
+        "id": "story_5",
+        "en": "Scientists want to study the Martian weather from orbit for a full Martian year.",
+        "es": "Los científicos quieren estudiar el clima de Marte desde su órbita durante un año marciano."
+      },
+      "goal": {
+        "en": "Reach Mars (7 months of travel) and brake into orbit.",
+        "es": "Llega a Marte (7 meses de viaje) y frena para quedar en órbita."
+      },
+      "tip": {
+        "en": "Launch windows to Mars open every 26 months: the planets must line up.",
+        "es": "Las ventanas de lanzamiento a Marte se abren cada 26 meses: los planetas deben alinearse."
+      },
+      "extras": [
+        {
+          "cond": "instr:radar",
+          "text": {
+            "en": "Look for buried ice with radar",
+            "es": "Buscar hielo enterrado con el radar"
+          }
+        },
+        {
+          "cond": "antenna:dish",
+          "text": {
+            "en": "Send the data home with a high-gain dish",
+            "es": "Enviar los datos con un plato de alta ganancia"
+          }
+        }
+      ]
+    },
+    "6": {
+      "client": {
+        "en": "Red Planet Science Network",
+        "es": "Red Científica del Planeta Rojo"
+      },
+      "story": {
+        "id": "story_6",
+        "en": "Orbit was not enough: they want a rover driving on the surface, looking for traces of ancient water.",
+        "es": "La órbita no alcanzó: quieren un rover recorriendo la superficie, buscando rastros de agua antigua."
+      },
+      "goal": {
+        "en": "Land on Mars. The thin air helps a little with a heat shield and parachute.",
+        "es": "Aterriza en Marte. El aire delgado ayuda un poco con escudo térmico y paracaídas."
+      },
+      "tip": {
+        "en": "Every kilogram you land costs many kilograms at launch. Keep the payload light.",
+        "es": "Cada kilo que aterrizas cuesta muchos kilos en el despegue. Mantén la carga liviana."
+      },
+      "extras": [
+        {
+          "cond": "instr:drill",
+          "text": {
+            "en": "Drill into the Martian rocks",
+            "es": "Perforar las rocas de Marte"
+          }
+        },
+        {
+          "cond": "science",
+          "text": {
+            "en": "Reach the science goal",
+            "es": "Cumplir la meta de ciencia"
+          }
+        }
+      ]
+    },
+    "7": {
+      "client": {
+        "en": "Outer Planets Foundation",
+        "es": "Fundación de los Planetas Exteriores"
+      },
+      "story": {
+        "id": "story_7",
+        "en": "The foundation wants to study Jupiter's moons, where there may be oceans under the ice.",
+        "es": "La fundación quiere estudiar las lunas de Júpiter, donde puede haber océanos bajo el hielo."
+      },
+      "goal": {
+        "en": "Reach Jupiter, five times farther from the Sun than the Earth.",
+        "es": "Llega a Júpiter, cinco veces más lejos del Sol que la Tierra."
+      },
+      "tip": {
+        "en": "Very little sunlight reaches Jupiter: real probes use nuclear batteries (RTG) or huge panels.",
+        "es": "A Júpiter llega muy poca luz: las sondas reales usan baterías nucleares (RTG) o paneles enormes."
+      },
+      "extras": [
+        {
+          "cond": "power:rtg",
+          "text": {
+            "en": "Use an RTG: sunlight is too weak at Jupiter",
+            "es": "Usar un RTG: en Júpiter la luz del Sol es muy débil"
+          }
+        },
+        {
+          "cond": "instr:magnetometer",
+          "text": {
+            "en": "Measure Jupiter's huge magnetic field",
+            "es": "Medir el enorme campo magnético de Júpiter"
+          }
+        }
+      ]
+    },
+    "8": {
+      "client": {
+        "en": "Golden Record Project",
+        "es": "Proyecto Disco de Oro"
+      },
+      "story": {
+        "id": "story_8",
+        "en": "Like Voyager in 1977, they want to send a message out of the Solar System, for anyone who might find it.",
+        "es": "Como la Voyager en 1977, quieren enviar un mensaje fuera del sistema solar, para quien pueda encontrarlo."
+      },
+      "goal": {
+        "en": "Escape the Sun's gravity for good.",
+        "es": "Escapa para siempre de la gravedad del Sol."
+      },
+      "tip": {
+        "en": "This is the hardest Δv in the game: use your best engines and lightest materials.",
+        "es": "Es el Δv más difícil del juego: usa tus mejores motores y los materiales más livianos."
+      },
+      "extras": [
+        {
+          "cond": "power:rtg",
+          "text": {
+            "en": "Power for decades: an RTG, like Voyager",
+            "es": "Energía por décadas: un RTG, como la Voyager"
+          }
+        },
+        {
+          "cond": "antenna:dish",
+          "text": {
+            "en": "Keep talking to Earth from the edge of the Solar System",
+            "es": "Seguir hablando con la Tierra desde el borde del sistema solar"
+          }
+        }
+      ]
+    },
+    "9": {
+      "client": {
+        "en": "XORBIT, future projects",
+        "es": "XORBIT, proyectos futuros"
+      },
+      "story": {
+        "id": "story_9",
+        "en": "The team wonders: could people ever reach another star? This is a thought experiment.",
+        "es": "El equipo se pregunta: ¿podríamos llegar alguna vez a otra estrella? Es un experimento mental."
+      },
+      "goal": {
+        "en": "Explore how far today's rockets can go, and what new technology would be needed.",
+        "es": "Explora hasta dónde llegan los cohetes de hoy y qué tecnología nueva haría falta."
+      },
+      "tip": {
+        "en": "Chemical rockets are not enough for the stars. That is why scientists study light sails and fusion.",
+        "es": "Los cohetes químicos no alcanzan para las estrellas. Por eso se estudian las velas de luz y la fusión."
+      },
+      "extras": [
+        {
+          "cond": "science",
+          "text": {
+            "en": "Reach the science goal",
+            "es": "Cumplir la meta de ciencia"
+          }
+        },
+        {
+          "cond": "budget:1.0",
+          "text": {
+            "en": "Stay within the budget",
+            "es": "Quedarte dentro del presupuesto"
+          }
+        }
+      ]
+    }
+  }
+}

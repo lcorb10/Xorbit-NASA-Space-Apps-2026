@@ -1,0 +1,1 @@
+A liquid engine drinks from a tank, and the tank goes right above it. Inside there is kerosene, the fuel, and liquid oxygen to burn it, because in space there is no air. Drag a Tank on top of the engine.

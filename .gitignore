@@ -1,0 +1,20 @@
+# Godot
+.godot/
+.import/
+export/
+*.translation
+export_presets.cfg.bak
+# Sistema / editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+# Secretos (API keys del director de vuelo)
+.env
+*.key
+secrets.cfg
+
+# Tráiler: clips y render (pesados, se regeneran con tools/trailer)
+tools/trailer/out/
+tools/out_mandos.txt
+build/

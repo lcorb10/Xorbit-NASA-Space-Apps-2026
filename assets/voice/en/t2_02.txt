@@ -1,0 +1,1 @@
+Specific impulse, Isp, tells how much push an engine gets from each kilogram of fuel. Kerosene gives about 340 seconds, hydrogen about 450: a third more for the same fuel. Pick the tank of the second stage and change its propellant to hydrogen.

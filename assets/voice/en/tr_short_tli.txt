@@ -1,0 +1,1 @@
+v3|Not enough delta-v for Trans-lunar injection. The probe stays where it is. Look at the numbers: we need a bigger upper stage.

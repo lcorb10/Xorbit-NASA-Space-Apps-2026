@@ -1,0 +1,1 @@
+This is the probe. Each instrument adds mass, uses power, makes data and costs money. Below you choose the power source, the antenna, the computer, how it points, and the ground station that listens. Hover over any option to learn what it does.

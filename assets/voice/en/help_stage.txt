@@ -1,0 +1,1 @@
+One stage cannot reach this. Drag a decoupler on top, then a second engine and tank above it. Dropping the empty first stage is what makes orbit possible.

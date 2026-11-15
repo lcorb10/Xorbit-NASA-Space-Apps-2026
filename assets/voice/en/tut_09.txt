@@ -1,0 +1,1 @@
+Two marks matter here. The black and white circle is the centre of mass, where the weight balances. The orange cross is the centre of pressure, where the air pushes. Rule: the circle must be above the cross. If it is not, make the fins bigger, or move weight up.

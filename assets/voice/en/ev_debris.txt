@@ -1,0 +1,1 @@
+Space debris alert. A piece of an old rocket will pass 200 m away at 10 km/s. A hit would destroy the probe. Thousands of pieces of old rockets and satellites circle the Earth. Mission control watches them and, when one will pass too close, decides whether to move the probe. Moving uses fuel the probe needs to stay in orbit.

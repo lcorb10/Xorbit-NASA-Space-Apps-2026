@@ -1,0 +1,1 @@
+v3|No heat shield: the probe is burning up in the atmosphere. At 5 km/s the air compresses and heats up to thousands of degrees.

@@ -1,0 +1,1 @@
+The camera rebooted by itself. A software error resets the main instrument every few hours. Spacecraft run software, and software has bugs. Engineers on the ground can write a fix and send it by radio, millions of kilometres away.

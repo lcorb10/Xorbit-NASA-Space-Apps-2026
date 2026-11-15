@@ -1,0 +1,1 @@
+Step one: the engine, always at the bottom. It pushes the rocket up by throwing hot gas down. Drag the Solid motor onto the stand. A solid motor is a tube full of fuel that burns all at once: simple, cheap and powerful.

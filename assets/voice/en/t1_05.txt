@@ -1,0 +1,1 @@
+Here is the trick to reach orbit. When the first tank is empty, it is just dead weight. The decoupler is a ring with small explosive bolts: it drops the empty stage so the rest flies lighter. It goes on top of the first tank. Drag the Decoupler there.

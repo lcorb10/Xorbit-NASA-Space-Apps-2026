@@ -1,0 +1,1 @@
+v3|To leave Earth orbit you need two more burns: one to travel to the Moon and one to brake and stay there. That is why the Δv goal is bigger.

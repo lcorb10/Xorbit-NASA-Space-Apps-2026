@@ -1,0 +1,740 @@
+{
+  "_notes": "Líneas de radio de Houston fuera del tutorial. id = nombre del audio en assets/voice/en/<id>.ogg (voces: después). part_briefs: la primera vez que el jugador pone ese tipo de pieza. level_briefs: al entrar a cada misión. flight: líneas del lanzamiento (who = quién habla).",
+  "speaker": {
+    "en": "HOUSTON",
+    "es": "HOUSTON"
+  },
+  "part_briefs": {
+    "nose": {
+      "id": "brief_nose",
+      "en": "Nose on. That point splits the air, so the rocket isn't pushing against a wall of wind.",
+      "es": "Punta colocada. Esa punta abre el aire para que el cohete no empuje contra una pared de viento."
+    },
+    "payload": {
+      "id": "brief_payload",
+      "en": "Payload aboard. That's the whole reason we fly: everything below exists to carry it.",
+      "es": "Carga a bordo. Es la razón de volar: todo lo que va debajo existe para llevarla."
+    },
+    "solid": {
+      "id": "brief_solid",
+      "en": "Solid motor in place. Once it's lit it burns to the end, no throttle, no off switch, so it needs fins to fly straight.",
+      "es": "Motor sólido en su sitio. Una vez encendido arde hasta el final, sin acelerador ni apagado, así que necesita aletas para volar derecho."
+    },
+    "tank": {
+      "id": "brief_tank",
+      "en": "Tank mounted. It holds fuel and liquid oxygen: there's no air up there, so we bring our own. Now it needs an engine below that burns that propellant.",
+      "es": "Tanque montado. Lleva combustible y oxígeno líquido: allá arriba no hay aire, así que llevamos el nuestro. Ahora necesita debajo un motor que queme ese propelente."
+    },
+    "engine": {
+      "id": "brief_engine",
+      "en": "Engine attached. It throws gas out the back and the rocket goes the other way. Liquid engines can tilt to steer, so big rockets don't need fins.",
+      "es": "Motor instalado. Lanza gas hacia atrás y el cohete va hacia el otro lado. Los motores líquidos se inclinan para dirigir, por eso los cohetes grandes no necesitan aletas."
+    },
+    "decoupler": {
+      "id": "brief_decoupler",
+      "en": "Separator in. When the stage below runs dry, we drop it and stop carrying dead weight. That's staging.",
+      "es": "Separador puesto. Cuando la etapa de abajo se quede seca, la soltamos y dejamos de cargar peso muerto. Eso es el escalonamiento."
+    },
+    "adapter": {
+      "id": "brief_adapter",
+      "en": "Adapter fitted. It smooths the step between two diameters so the air doesn't trip over the edge.",
+      "es": "Adaptador colocado. Suaviza el escalón entre dos diámetros para que el aire no tropiece con el borde."
+    },
+    "fins": {
+      "id": "brief_fins",
+      "en": "Fins on. They move the centre of pressure back, like the feathers of an arrow.",
+      "es": "Aletas puestas. Corren el centro de presión hacia atrás, como las plumas de una flecha."
+    }
+  },
+  "level_briefs": [
+    {
+      "id": "lvl_00",
+      "en": "Mission zero: reach space, one hundred kilometres up. Go up, come down. Let's build it piece by piece.",
+      "es": "Misión cero: llegar al espacio, a cien kilómetros. Subir y bajar. Armémoslo pieza por pieza."
+    },
+    {
+      "id": "lvl_01",
+      "en": "Mission one: put a satellite in low orbit. Height isn't enough this time; you need sideways speed, about nine point four kilometres per second in total. One stage won't make it.",
+      "es": "Misión uno: poner un satélite en órbita baja. Esta vez la altura no basta; necesitas velocidad de lado, unos nueve coma cuatro kilómetros por segundo en total. Con una sola etapa no se llega."
+    },
+    {
+      "id": "lvl_02",
+      "en": "Mission two: a communications satellite in geostationary orbit, thirty-six thousand kilometres up, where it hangs over the same spot. You'll want a vacuum engine on the upper stage.",
+      "es": "Misión dos: un satélite de comunicaciones en órbita geoestacionaria, a treinta y seis mil kilómetros, donde se queda sobre el mismo punto. Te conviene un motor de vacío en la etapa de arriba."
+    },
+    {
+      "id": "lvl_03",
+      "en": "Mission three: lunar orbit. Hydrogen engines are unlocked: they're the most efficient, but hydrogen is so light its tanks get huge.",
+      "es": "Misión tres: órbita lunar. Se desbloquean los motores de hidrógeno: son los más eficientes, pero el hidrógeno es tan liviano que sus tanques se vuelven enormes."
+    },
+    {
+      "id": "lvl_04",
+      "en": "Mission four: land on the Moon. No air to slow you down, only your engine, so bring a throttleable one.",
+      "es": "Misión cuatro: aterrizar en la Luna. No hay aire que te frene, solo tu motor, así que lleva uno regulable."
+    },
+    {
+      "id": "lvl_05",
+      "en": "Mission five: Mars orbit. Months of travel, and sunlight there is less than half of ours.",
+      "es": "Misión cinco: órbita de Marte. Meses de viaje, y allá la luz del Sol es menos de la mitad que aquí."
+    },
+    {
+      "id": "lvl_06",
+      "en": "Mission six: a rover on Mars. A heat shield and a parachute let the thin air do part of the braking for free.",
+      "es": "Misión seis: un rover en Marte. Un escudo térmico y un paracaídas dejan que el aire delgado haga parte del frenado gratis."
+    },
+    {
+      "id": "lvl_07",
+      "en": "Mission seven: Jupiter. Five times farther from the Sun; solar panels barely work out there. Time for nuclear power.",
+      "es": "Misión siete: Júpiter. Cinco veces más lejos del Sol; allá los paneles solares casi no rinden. Toca energía nuclear."
+    },
+    {
+      "id": "lvl_08",
+      "en": "Mission eight: leave the Solar System, like Voyager one. Every metre per second counts.",
+      "es": "Misión ocho: salir del sistema solar, como la Voyager uno. Cada metro por segundo cuenta."
+    },
+    {
+      "id": "lvl_09",
+      "en": "Mission nine: the stars. With today's rockets it would take tens of thousands of years. Let's talk about what might get us there.",
+      "es": "Misión nueve: las estrellas. Con los cohetes de hoy tardaríamos decenas de miles de años. Hablemos de qué podría llevarnos."
+    }
+  ],
+  "flight": {
+    "rollout": {
+      "id": "fl_rollout",
+      "who": "LAUNCH CONTROL",
+      "en": "Rollout has begun. The crawler is taking the vehicle out to the pad.",
+      "es": "Comienza el traslado. La oruga lleva el vehículo a la plataforma."
+    },
+    "on_pad": {
+      "id": "fl_on_pad",
+      "who": "LAUNCH CONTROL",
+      "en": "Vehicle is on the pad and secured. Pad crew is clear.",
+      "es": "El vehículo está en la plataforma y asegurado. El equipo de tierra se retiró."
+    },
+    "poll": {
+      "id": "fl_poll",
+      "who": "FLIGHT",
+      "en": "All stations, go/no-go for launch. Booster? Go. Guidance? Go. Range? Go. We are go for launch.",
+      "es": "Todas las estaciones, ¿listos para el lanzamiento? ¿Propulsión? Listo. ¿Guiado? Listo. ¿Zona de seguridad? Lista. Tenemos luz verde."
+    },
+    "ignition": {
+      "id": "fl_ignition",
+      "who": "LAUNCH CONTROL",
+      "en": "Ignition sequence start.",
+      "es": "Inicia la secuencia de encendido."
+    },
+    "liftoff": {
+      "id": "fl_liftoff",
+      "who": "LAUNCH CONTROL",
+      "en": "Liftoff! We have liftoff, and the clock is running.",
+      "es": "¡Despegue! Tenemos despegue, y el reloj está corriendo."
+    },
+    "tower": {
+      "id": "fl_tower",
+      "who": "HOUSTON",
+      "en": "Tower cleared. Houston has control.",
+      "es": "Torre superada. Houston toma el control."
+    },
+    "max_q": {
+      "id": "fl_max_q",
+      "who": "HOUSTON",
+      "en": "Max Q. The air is pushing hardest on the vehicle right now.",
+      "es": "Max Q. Ahora mismo el aire empuja con más fuerza sobre el vehículo."
+    },
+    "cutoff": {
+      "id": "fl_cutoff",
+      "who": "HOUSTON",
+      "en": "Main engine cutoff on stage one.",
+      "es": "Apagado de motores de la etapa uno."
+    },
+    "separation": {
+      "id": "fl_separation",
+      "who": "HOUSTON",
+      "en": "Stage separation confirmed. Dropping the dead weight.",
+      "es": "Separación de etapa confirmada. Soltamos el peso muerto."
+    },
+    "ignition_upper": {
+      "id": "fl_ignition_upper",
+      "who": "HOUSTON",
+      "en": "Upper stage ignition. Good burn.",
+      "es": "Encendido de la etapa superior. Buen encendido."
+    },
+    "karman": {
+      "id": "fl_karman",
+      "who": "HOUSTON",
+      "en": "One hundred kilometres. Passing the Kármán line: you are in space.",
+      "es": "Cien kilómetros. Cruzando la línea de Kármán: estás en el espacio."
+    },
+    "cutoff_last": {
+      "id": "fl_cutoff_last",
+      "who": "HOUSTON",
+      "en": "Engine cutoff. The vehicle is coasting.",
+      "es": "Apagado de motores. El vehículo sigue por inercia."
+    },
+    "orbit": {
+      "id": "fl_orbit",
+      "who": "HOUSTON",
+      "en": "Orbit confirmed. It is falling around the Earth now, and it will keep falling for a long time.",
+      "es": "Órbita confirmada. Ahora cae alrededor de la Tierra, y va a seguir cayendo por mucho tiempo."
+    },
+    "apogee": {
+      "id": "fl_apogee",
+      "who": "HOUSTON",
+      "en": "Apogee. That is the highest point; from here it comes back down.",
+      "es": "Apogeo. Es el punto más alto; desde aquí vuelve a bajar."
+    },
+    "impact": {
+      "id": "fl_impact",
+      "who": "HOUSTON",
+      "en": "Impact downrange. The vehicle is back on the ground.",
+      "es": "Impacto en la zona de caída. El vehículo volvió a tierra."
+    },
+    "tumble": {
+      "id": "fl_tumble",
+      "who": "HOUSTON",
+      "en": "We are seeing a roll... it is tumbling! The air flipped it over. We have lost the vehicle.",
+      "es": "Vemos un giro... ¡está dando vueltas! El aire lo volteó. Perdimos el vehículo."
+    },
+    "pad_fail": {
+      "id": "fl_pad_fail",
+      "who": "LAUNCH CONTROL",
+      "en": "Engines at full thrust, but it is not leaving the pad. Thrust is lower than its weight. Shut it down.",
+      "es": "Motores a máxima potencia, pero no sale de la plataforma. El empuje es menor que su peso. Apaguen todo."
+    },
+    "breakup": {
+      "id": "fl_breakup",
+      "who": "HOUSTON",
+      "en": "Flight, we have lost telemetry... the vehicle broke apart. The structure could not take the load.",
+      "es": "Flight, perdimos la telemetría... el vehículo se partió. La estructura no aguantó la carga."
+    },
+    "reentry": {
+      "id": "fl_reentry2",
+      "who": "HOUSTON",
+      "en": "Reentry. The empty booster burns up in the thick air, as planned. The capsule is protected by its heat shield.",
+      "es": "Reentrada. La etapa vacía se quema en el aire denso, como estaba previsto. La cápsula va protegida por su escudo térmico."
+    },
+    "splashdown": {
+      "id": "fl_splashdown",
+      "who": "HOUSTON",
+      "en": "Parachutes open... splashdown in the Atlantic. The recovery ship is on its way. Good flight!",
+      "es": "Se abren los paracaídas... amerizaje en el Atlántico. El barco de rescate va en camino. ¡Buen vuelo!"
+    }
+  },
+  "real_briefs": {
+    "saturn_v": {
+      "id": "real_saturn_v",
+      "en": "That is the Saturn V, built from our parts with its real sizes: five F-1 engines, then five J-2s, then one J-2 to push Apollo toward the Moon. Take a look at each stage, then try to beat it.",
+      "es": "Ese es el Saturno V, armado con nuestras piezas y sus medidas reales: cinco motores F-1, luego cinco J-2 y luego un J-2 para empujar al Apolo hacia la Luna. Mira cada etapa y luego intenta superarlo."
+    },
+    "mercury_redstone": {
+      "id": "real_mercury_redstone",
+      "en": "Mercury-Redstone, 1961. It carried Alan Shepard to 187 kilometres in a fifteen-minute up-and-down flight. One engine, big fins for stability, and a red escape tower on top to pull the capsule away if anything went wrong.",
+      "es": "Mercury-Redstone, 1961. Llevó a Alan Shepard a 187 kilómetros en un vuelo de subida y bajada de quince minutos. Un solo motor, aletas grandes para mantenerse derecho y una torre de escape roja arriba para sacar la cápsula si algo fallaba."
+    },
+    "electron": {
+      "id": "real_electron",
+      "en": "Electron, by Rocket Lab. Small and black because it is built from carbon fibre, which is light and strong. Nine Rutherford engines below, one above, and it puts small satellites into orbit.",
+      "es": "Electron, de Rocket Lab. Pequeño y negro porque está hecho de fibra de carbono, que es liviana y resistente. Nueve motores Rutherford abajo y uno arriba, y pone satélites pequeños en órbita."
+    },
+    "falcon_9": {
+      "id": "real_falcon_9",
+      "en": "Falcon 9. Nine Merlin engines on the first stage, one vacuum Merlin on the second. Its engines can steer, so it needs no fins. The real one even lands its first stage back on Earth.",
+      "es": "Falcon 9. Nueve motores Merlin en la primera etapa y un Merlin de vacío en la segunda. Sus motores se inclinan para dirigir, así que no necesita aletas. El real hasta aterriza su primera etapa de vuelta."
+    },
+    "atlas_v": {
+      "id": "real_atlas_v",
+      "en": "Atlas V. One powerful kerosene engine on the orange first stage, and the Centaur upper stage that burns hydrogen: low thrust, but very efficient for long pushes toward high orbits and other planets.",
+      "es": "Atlas V. Un motor de queroseno muy potente en la primera etapa naranja, y la etapa superior Centaur que quema hidrógeno: poco empuje pero muy eficiente para empujes largos hacia órbitas altas y otros planetas."
+    },
+    "apollo_11": {
+      "id": "real_apollo_11",
+      "en": "Apollo 11, July 1969. The Saturn V puts the Apollo spacecraft on its way to the Moon. On top: the escape tower, the command module with three astronauts, the service module with its engine, and the Lunar Module with its landing legs. Neil Armstrong and Buzz Aldrin landed in the Sea of Tranquility.",
+      "es": "Apolo 11, julio de 1969. El Saturno V pone a la nave Apolo rumbo a la Luna. Arriba: la torre de escape, el módulo de mando con tres astronautas, el módulo de servicio con su motor y el Módulo Lunar con sus patas. Neil Armstrong y Buzz Aldrin alunizaron en el Mar de la Tranquilidad."
+    }
+  },
+  "help": {
+    "help_empty": {
+      "id": "help_empty",
+      "en": "The stand is empty. Every rocket starts with an engine at the bottom: drag one from the parts list, then stack a tank above it.",
+      "es": "El soporte está vacío. Todo cohete empieza con un motor abajo: arrastra uno de la lista de piezas y luego pon un tanque encima."
+    },
+    "help_no_engine": {
+      "id": "help_no_engine",
+      "en": "One of your stages has no engine, so it cannot push. Add an engine at the bottom of each stage, right below its tank.",
+      "es": "Una de tus etapas no tiene motor, así que no puede empujar. Agrega un motor abajo de cada etapa, justo debajo de su tanque."
+    },
+    "help_no_fuel": {
+      "id": "help_no_fuel",
+      "en": "A stage has an engine but nothing to burn. Put a tank above that engine — liquid engines drink from the tank right on top of them.",
+      "es": "Una etapa tiene motor pero nada que quemar. Pon un tanque encima de ese motor: los motores líquidos toman el propelente del tanque que tienen arriba."
+    },
+    "help_twr": {
+      "id": "help_twr",
+      "en": "Thrust is below weight: it will not leave the pad. Add engines, pick a stronger one, or remove mass. Thrust-to-weight on stage one should be above 1.2.",
+      "es": "El empuje es menor que el peso: no va a despegar. Agrega motores, elige uno más fuerte o quita masa. El empuje/peso de la etapa uno debe pasar de 1,2."
+    },
+    "help_twr_marginal": {
+      "id": "help_twr_marginal",
+      "en": "It will lift off, but slowly, and every second spent hovering burns fuel against gravity. One or two more engines on stage one would pay for themselves.",
+      "es": "Va a despegar, pero lento, y cada segundo flotando gasta combustible contra la gravedad. Uno o dos motores más en la etapa uno se pagan solos."
+    },
+    "help_nose": {
+      "id": "help_nose",
+      "en": "There is no nose on top. A flat front pushes against a wall of air and wastes delta-v. Add a nose cone at the very top — an ogive is the best.",
+      "es": "No hay punta arriba. Un frente plano empuja contra una pared de aire y desperdicia delta-v. Agrega una punta en lo más alto: la ojival es la mejor."
+    },
+    "help_unstable": {
+      "id": "help_unstable",
+      "en": "The centre of pressure is above the centre of mass, so the air will flip it over. Add fins to the bottom stage, or switch to liquid engines that can steer with gimbal.",
+      "es": "El centro de presión está por encima del centro de masa, así que el aire lo va a voltear. Agrega aletas a la etapa de abajo, o usa motores líquidos que dirigen con gimbal."
+    },
+    "help_g": {
+      "id": "help_g",
+      "en": "Too much acceleration: as the upper stage empties it pulls more g than the structure can take. Use a weaker engine up there, or a stronger material.",
+      "es": "Demasiada aceleración: cuando la etapa de arriba se vacía tira más g de lo que aguanta la estructura. Usa un motor más flojo allá arriba o un material más resistente."
+    },
+    "help_dv": {
+      "id": "help_dv",
+      "en": "Not enough delta-v. Make the tanks longer — the upper stage first, because every kilogram saved up there is worth more — or use a more efficient engine with higher Isp.",
+      "es": "No alcanza el delta-v. Alarga los tanques —primero el de arriba, porque cada kilo ahorrado allá vale más— o usa un motor más eficiente, de mayor Isp."
+    },
+    "help_stage": {
+      "id": "help_stage",
+      "en": "One stage cannot reach this. Drag a decoupler on top, then a second engine and tank above it. Dropping the empty first stage is what makes orbit possible.",
+      "es": "Con una etapa no se llega. Arrastra un desacoplador arriba y luego un segundo motor y tanque encima. Soltar la primera etapa vacía es lo que hace posible la órbita."
+    },
+    "help_budget": {
+      "id": "help_budget",
+      "en": "Over budget. The most expensive things are engines and big tanks. Use fewer or cheaper engines, or aluminium instead of exotic materials.",
+      "es": "Te pasaste del presupuesto. Lo más caro son los motores y los tanques grandes. Usa menos motores o más baratos, o aluminio en vez de materiales exóticos."
+    },
+    "help_payload": {
+      "id": "help_payload",
+      "en": "There is no payload. A mission needs something to deliver — add a payload bay near the top, under the nose.",
+      "es": "No hay carga útil. Una misión necesita algo que entregar: agrega una bahía de carga arriba, debajo de la punta."
+    },
+    "help_ok": {
+      "id": "help_ok",
+      "en": "Everything checks out on my board: enough delta-v, it lifts, it flies straight and fits the budget. You are go for launch.",
+      "es": "Todo en orden en mi pantalla: alcanza el delta-v, despega, vuela derecho y cabe en el presupuesto. Tienes luz verde para lanzar."
+    },
+    "help_link": {
+      "id": "help_link",
+      "en": "Your antenna cannot reach the Earth from the destination: all the science would be lost. Pick the payload bay and choose a stronger antenna.",
+      "es": "Tu antena no alcanza la Tierra desde el destino: toda la ciencia se perdería. Elige la bahía de carga y pon una antena más potente."
+    },
+    "help_power": {
+      "id": "help_power",
+      "en": "The probe uses more power than it makes at the destination. Remember that solar panels give less the farther you are from the Sun. Use bigger panels, fewer instruments, or an RTG.",
+      "es": "La sonda gasta más energía de la que genera en el destino. Recuerda que los paneles dan menos cuanto más lejos del Sol. Usa paneles más grandes, menos instrumentos o un RTG."
+    },
+    "help_instr": {
+      "id": "help_instr",
+      "en": "The probe has no instruments: the client would get nothing. Pick the payload bay and tick at least one instrument.",
+      "es": "La sonda no lleva instrumentos: el cliente no recibiría nada. Elige la bahía de carga y marca al menos un instrumento."
+    },
+    "help_gear": {
+      "id": "help_gear",
+      "en": "This mission lands, and the probe is missing landing equipment. Pick the payload bay and tick it: legs for the Moon; heat shield and parachute for Mars.",
+      "es": "Esta misión aterriza y a la sonda le falta equipo de aterrizaje. Elige la bahía de carga y márcalo: patas para la Luna; escudo térmico y paracaídas para Marte."
+    },
+    "help_payload_min": {
+      "id": "help_payload_min",
+      "en": "The client needs a heavier spacecraft than the one you carry. Pick the payload bay and raise the payload mass: the instruments, fuel and structure of a real probe weigh a lot.",
+      "es": "El cliente necesita una nave más pesada que la que llevas. Elige la bahía de carga y sube la masa de la carga: los instrumentos, el combustible y la estructura de una sonda real pesan mucho."
+    }
+  },
+  "transfer": {
+    "park": {
+      "en": "We are in low orbit. Waiting for the right moment to start the trip.",
+      "es": "Estamos en órbita baja. Esperando el momento justo para empezar el viaje.",
+      "id": "tr_park"
+    },
+    "burn": {
+      "en": "Engine on: {leg}. This burn changes our orbit.",
+      "es": "Motor encendido: {leg}. Este encendido cambia nuestra órbita."
+    },
+    "coast": {
+      "en": "Engine off. We coast along half an ellipse, the cheapest way between two orbits. The destination will be exactly there when we arrive.",
+      "es": "Motor apagado. Vamos por media elipse, la forma más barata de ir de una órbita a otra. El destino estará justo ahí cuando lleguemos.",
+      "id": "tr_coast"
+    },
+    "arrive": {
+      "en": "{leg}: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "{leg}: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "land": {
+      "en": "{leg}: engine pointing down, slowing to a few metres per second... contact!",
+      "es": "{leg}: motor apuntando hacia abajo, frenando hasta unos pocos metros por segundo... ¡contacto!"
+    },
+    "flyby": {
+      "en": "We arrived, but there is no fuel left for {leg}. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para {leg}. Sin frenar, pasamos de largo."
+    },
+    "short": {
+      "en": "Not enough delta-v for {leg}. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para {leg}. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "galaxy": {
+      "en": "This is the Milky Way: about 200 billion stars. The nearest one is 4.2 light years away; Voyager would need 75,000 years.",
+      "es": "Esta es la Vía Láctea: unas 200 mil millones de estrellas. La más cercana está a 4,2 años luz; la Voyager tardaría 75.000 años.",
+      "id": "tr_galaxy"
+    },
+    "separate": {
+      "en": "Burn complete. The empty upper stage separates: from here only the spacecraft travels, following the dashed line.",
+      "es": "Encendido completo. La etapa de arriba, ya vacía, se separa: desde aquí viaja solo la nave, siguiendo la línea punteada.",
+      "id": "tr_separate"
+    }
+  },
+  "landing": {
+    "pdi": {
+      "en": "Powered descent. We are coming in sideways at more than 1,600 metres per second, so the engine points forward to brake. On the Moon there is no air: the engine does all the work.",
+      "es": "Descenso con motor. Venimos de lado a más de 1.600 metros por segundo, así que el motor apunta hacia adelante para frenar. En la Luna no hay aire: el motor hace todo el trabajo.",
+      "id": "ld_pdi"
+    },
+    "vertical": {
+      "en": "Pitch over: we are upright now. Coming down slowly, a metre per second, looking for a flat spot without boulders.",
+      "es": "Nos ponemos de pie. Bajamos despacio, a un metro por segundo, buscando un lugar plano y sin rocas.",
+      "id": "ld_vertical"
+    },
+    "contact": {
+      "en": "Contact light! Engine stop. The legs absorbed the touchdown. The Eagle has landed, like Apollo 11 in 1969.",
+      "es": "¡Luz de contacto! Motor apagado. Las patas absorbieron el golpe. El Águila ha aterrizado, como el Apolo 11 en 1969.",
+      "id": "ld_contact"
+    },
+    "crash_fuel": {
+      "en": "Fuel is out! There was no delta-v left for the last part of the descent. The lander falls.",
+      "es": "¡Se acabó el combustible! No quedaba delta-v para el final del descenso. La nave cae.",
+      "id": "ld_crash_fuel"
+    },
+    "crash_legs": {
+      "en": "No landing legs: the lander rests on its engine bell and tips over. Legs spread the weight and absorb the touchdown.",
+      "es": "Sin patas: la nave se apoya en la campana del motor y se vuelca. Las patas reparten el peso y absorben el golpe.",
+      "id": "ld_crash_legs"
+    },
+    "entry": {
+      "en": "Entering the Martian atmosphere at 5 kilometres per second. The heat shield reaches 1,300 degrees while the thin air brakes us.",
+      "es": "Entramos en la atmósfera de Marte a 5 kilómetros por segundo. El escudo térmico llega a 1.300 grados mientras el aire delgado nos frena.",
+      "id": "ld_entry"
+    },
+    "chute": {
+      "en": "Parachute open! The air of Mars is 100 times thinner than Earth's, so it only gets us down to about 90 metres per second.",
+      "es": "¡Paracaídas abierto! El aire de Marte es 100 veces más delgado que el de la Tierra, así que solo nos baja a unos 90 metros por segundo.",
+      "id": "ld_chute"
+    },
+    "skycrane": {
+      "en": "Shell released. The sky crane fires its rockets and lowers the rover on cables, so the engines do not blow dust over it.",
+      "es": "Coraza suelta. La grúa aérea enciende sus cohetes y baja el rover con cables, para que los motores no le tiren polvo encima.",
+      "id": "ld_skycrane"
+    },
+    "touchdown": {
+      "en": "Touchdown confirmed! Cables cut, and the sky crane flies away to crash far from the rover. We are on Mars.",
+      "es": "¡Contacto confirmado! Se cortan los cables y la grúa se aleja para caer lejos del rover. Estamos en Marte.",
+      "id": "ld_touchdown"
+    },
+    "crash_heat": {
+      "en": "No heat shield: the probe is burning up in the atmosphere. At 5 km/s the air compresses and heats up to thousands of degrees.",
+      "es": "Sin escudo térmico: la sonda se quema en la atmósfera. A 5 km/s el aire se comprime y se calienta a miles de grados.",
+      "id": "ld_crash_heat"
+    },
+    "crash_chute": {
+      "en": "No parachute: the thin air alone cannot slow us down enough. Impact.",
+      "es": "Sin paracaídas: el aire delgado solo no alcanza a frenarnos. Impacto.",
+      "id": "ld_crash_chute"
+    },
+    "walk": {
+      "id": "land_walk",
+      "en": "Commander, the ladder is down and the dust has settled. Go out and walk to the marker: that is where the flag goes. Take it slow, you weigh one sixth here.",
+      "es": "Comandante, la escalera está abajo y el polvo ya se asentó. Sal y camina hasta la marca: ahí va la bandera. Con calma, aquí pesas la sexta parte."
+    },
+    "flag": {
+      "id": "land_flag",
+      "en": "Flag is up. Houston copies, XORBIT crew: you are walking on the Moon. Everyone in this room is standing up.",
+      "es": "Bandera arriba. Houston copia, tripulación XORBIT: están caminando en la Luna. Todos en esta sala están de pie."
+    }
+  },
+  "crew": {
+    "crew_tut_cabin": {
+      "id": "crew_tut_cabin",
+      "en": "Welcome aboard, crew. From here you fly the rocket yourselves. When I call your station, it is your turn: follow my instructions and watch the panel in the corner.",
+      "es": "Bienvenidos a bordo, tripulación. Desde aquí ustedes vuelan el cohete. Cuando llame a su puesto, es su turno: sigan mis instrucciones y miren el panel de la esquina."
+    },
+    "crew_tut_mcc": {
+      "id": "crew_tut_mcc",
+      "en": "Welcome to Mission Control. There is nobody on board this time: you fly the spacecraft from these consoles. When I call your console, it is your turn.",
+      "es": "Bienvenidos a la Sala de Control. Esta vez no hay nadie a bordo: ustedes vuelan la nave desde estas consolas. Cuando llame a su consola, es su turno."
+    },
+    "crew_err_1": {
+      "id": "crew_err_1",
+      "en": "Easy, crew! That one shook us. Stay sharp.",
+      "es": "¡Con calma, tripulación! Eso nos sacudió. Atentos."
+    },
+    "crew_err_2": {
+      "id": "crew_err_2",
+      "en": "Crew, that is two. One more like that and we lose the vehicle.",
+      "es": "Tripulación, van dos. Una más así y perdemos el vehículo."
+    },
+    "fail_crew_pad": {
+      "id": "fail_crew_pad",
+      "en": "Hold, hold, hold! Abort on the pad. The crew is safe, but we are not flying today.",
+      "es": "¡Alto, alto, alto! Aborto en la plataforma. La tripulación está a salvo, pero hoy no volamos."
+    },
+    "fail_crew_loc": {
+      "id": "fail_crew_loc",
+      "en": "We lost attitude control! The vehicle is breaking up.",
+      "es": "¡Perdimos el control de orientación! El vehículo se está rompiendo."
+    },
+    "fail_crew_sep": {
+      "id": "fail_crew_sep",
+      "en": "Negative staging! The spent stage is still attached and we are falling.",
+      "es": "¡La separación falló! La etapa vacía sigue unida y estamos cayendo."
+    },
+    "contract_welcome": {
+      "id": "contract_welcome",
+      "en": "Welcome to XORBIT Mission Control. Clients from all over the world need things in space, and we need a crew that can design, build and fly the rockets to get them there.",
+      "es": "Bienvenidos al Control de Misión de XORBIT. Clientes de todo el mundo necesitan cosas en el espacio, y nosotros necesitamos una tripulación que diseñe, construya y vuele los cohetes para llevarlas."
+    },
+    "contract_crew": {
+      "id": "contract_crew",
+      "en": "Meet your crew. Four stations, four astronauts. They will fly what you design.",
+      "es": "Conozcan a su tripulación. Cuatro puestos, cuatro astronautas. Ellos volarán lo que ustedes diseñen."
+    },
+    "contract_sign": {
+      "id": "contract_sign",
+      "en": "Sign here, and welcome aboard. Your first client is already waiting.",
+      "es": "Firmen aquí, y bienvenidos a bordo. Su primer cliente ya está esperando."
+    }
+  },
+  "transfer_legs": {
+    "tr_burn_tli": {
+      "id": "tr_burn_tli",
+      "en": "Engine on: Trans-lunar injection. This burn changes our orbit.",
+      "es": "Motor encendido: Inyección translunar. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_loi": {
+      "id": "tr_burn_loi",
+      "en": "Engine on: Lunar orbit insertion. This burn changes our orbit.",
+      "es": "Motor encendido: Inserción en órbita lunar. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_land_moon": {
+      "id": "tr_burn_land_moon",
+      "en": "Engine on: Moon landing. This burn changes our orbit.",
+      "es": "Motor encendido: Alunizaje. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_gto": {
+      "id": "tr_burn_gto",
+      "en": "Engine on: Transfer to geostationary. This burn changes our orbit.",
+      "es": "Motor encendido: Transferencia a geoestacionaria. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_circ_geo": {
+      "id": "tr_burn_circ_geo",
+      "en": "Engine on: Circularize at 35,786 km. This burn changes our orbit.",
+      "es": "Motor encendido: Circularizar a 35.786 km. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_tmi": {
+      "id": "tr_burn_tmi",
+      "en": "Engine on: Trans-Mars injection. This burn changes our orbit.",
+      "es": "Motor encendido: Inyección a Marte. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_moi": {
+      "id": "tr_burn_moi",
+      "en": "Engine on: Mars orbit insertion. This burn changes our orbit.",
+      "es": "Motor encendido: Inserción en órbita de Marte. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_edl_mars": {
+      "id": "tr_burn_edl_mars",
+      "en": "Engine on: Entry, descent and landing on Mars. This burn changes our orbit.",
+      "es": "Motor encendido: Entrada, descenso y aterrizaje en Marte. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_tji": {
+      "id": "tr_burn_tji",
+      "en": "Engine on: Trip to Jupiter. This burn changes our orbit.",
+      "es": "Motor encendido: Viaje a Júpiter. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_solar_escape": {
+      "id": "tr_burn_solar_escape",
+      "en": "Engine on: Escape from the Solar System. This burn changes our orbit.",
+      "es": "Motor encendido: Escape del sistema solar. Este encendido cambia nuestra órbita."
+    },
+    "tr_burn_escape": {
+      "id": "tr_burn_escape",
+      "en": "Engine on: Leaving the Sun behind. This burn changes our orbit.",
+      "es": "Motor encendido: Dejando atrás el Sol. Este encendido cambia nuestra órbita."
+    },
+    "tr_arrive_tli": {
+      "id": "tr_arrive_tli",
+      "en": "Trans-lunar injection: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Inyección translunar: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_loi": {
+      "id": "tr_arrive_loi",
+      "en": "Lunar orbit insertion: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Inserción en órbita lunar: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_land_moon": {
+      "id": "tr_arrive_land_moon",
+      "en": "Moon landing: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Alunizaje: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_gto": {
+      "id": "tr_arrive_gto",
+      "en": "Transfer to geostationary: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Transferencia a geoestacionaria: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_circ_geo": {
+      "id": "tr_arrive_circ_geo",
+      "en": "Circularize at 35,786 km: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Circularizar a 35.786 km: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_tmi": {
+      "id": "tr_arrive_tmi",
+      "en": "Trans-Mars injection: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Inyección a Marte: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_moi": {
+      "id": "tr_arrive_moi",
+      "en": "Mars orbit insertion: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Inserción en órbita de Marte: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_edl_mars": {
+      "id": "tr_arrive_edl_mars",
+      "en": "Entry, descent and landing on Mars: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Entrada, descenso y aterrizaje en Marte: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_tji": {
+      "id": "tr_arrive_tji",
+      "en": "Trip to Jupiter: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Viaje a Júpiter: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_solar_escape": {
+      "id": "tr_arrive_solar_escape",
+      "en": "Escape from the Solar System: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Escape del sistema solar: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_arrive_escape": {
+      "id": "tr_arrive_escape",
+      "en": "Leaving the Sun behind: we brake and the destination's gravity catches us. We are in orbit!",
+      "es": "Dejando atrás el Sol: frenamos y la gravedad del destino nos atrapa. ¡Estamos en órbita!"
+    },
+    "tr_land_land_moon": {
+      "id": "tr_land_land_moon",
+      "en": "Moon landing: engine pointing down, slowing to a few metres per second... contact!",
+      "es": "Alunizaje: motor apuntando hacia abajo, frenando hasta unos pocos metros por segundo... ¡contacto!"
+    },
+    "tr_land_edl_mars": {
+      "id": "tr_land_edl_mars",
+      "en": "Entry, descent and landing on Mars: engine pointing down, slowing to a few metres per second... contact!",
+      "es": "Entrada, descenso y aterrizaje en Marte: motor apuntando hacia abajo, frenando hasta unos pocos metros por segundo... ¡contacto!"
+    },
+    "tr_flyby_tli": {
+      "id": "tr_flyby_tli",
+      "en": "We arrived, but there is no fuel left for Trans-lunar injection. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Inyección translunar. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_loi": {
+      "id": "tr_flyby_loi",
+      "en": "We arrived, but there is no fuel left for Lunar orbit insertion. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Inserción en órbita lunar. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_land_moon": {
+      "id": "tr_flyby_land_moon",
+      "en": "We arrived, but there is no fuel left for Moon landing. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Alunizaje. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_gto": {
+      "id": "tr_flyby_gto",
+      "en": "We arrived, but there is no fuel left for Transfer to geostationary. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Transferencia a geoestacionaria. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_circ_geo": {
+      "id": "tr_flyby_circ_geo",
+      "en": "We arrived, but there is no fuel left for Circularize at 35,786 km. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Circularizar a 35.786 km. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_tmi": {
+      "id": "tr_flyby_tmi",
+      "en": "We arrived, but there is no fuel left for Trans-Mars injection. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Inyección a Marte. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_moi": {
+      "id": "tr_flyby_moi",
+      "en": "We arrived, but there is no fuel left for Mars orbit insertion. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Inserción en órbita de Marte. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_edl_mars": {
+      "id": "tr_flyby_edl_mars",
+      "en": "We arrived, but there is no fuel left for Entry, descent and landing on Mars. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Entrada, descenso y aterrizaje en Marte. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_tji": {
+      "id": "tr_flyby_tji",
+      "en": "We arrived, but there is no fuel left for Trip to Jupiter. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Viaje a Júpiter. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_solar_escape": {
+      "id": "tr_flyby_solar_escape",
+      "en": "We arrived, but there is no fuel left for Escape from the Solar System. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Escape del sistema solar. Sin frenar, pasamos de largo."
+    },
+    "tr_flyby_escape": {
+      "id": "tr_flyby_escape",
+      "en": "We arrived, but there is no fuel left for Leaving the Sun behind. Without braking we fly past.",
+      "es": "Llegamos, pero no queda combustible para Dejando atrás el Sol. Sin frenar, pasamos de largo."
+    },
+    "tr_short_tli": {
+      "id": "tr_short_tli",
+      "en": "Not enough delta-v for Trans-lunar injection. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Inyección translunar. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_loi": {
+      "id": "tr_short_loi",
+      "en": "Not enough delta-v for Lunar orbit insertion. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Inserción en órbita lunar. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_land_moon": {
+      "id": "tr_short_land_moon",
+      "en": "Not enough delta-v for Moon landing. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Alunizaje. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_gto": {
+      "id": "tr_short_gto",
+      "en": "Not enough delta-v for Transfer to geostationary. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Transferencia a geoestacionaria. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_circ_geo": {
+      "id": "tr_short_circ_geo",
+      "en": "Not enough delta-v for Circularize at 35,786 km. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Circularizar a 35.786 km. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_tmi": {
+      "id": "tr_short_tmi",
+      "en": "Not enough delta-v for Trans-Mars injection. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Inyección a Marte. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_moi": {
+      "id": "tr_short_moi",
+      "en": "Not enough delta-v for Mars orbit insertion. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Inserción en órbita de Marte. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_edl_mars": {
+      "id": "tr_short_edl_mars",
+      "en": "Not enough delta-v for Entry, descent and landing on Mars. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Entrada, descenso y aterrizaje en Marte. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_tji": {
+      "id": "tr_short_tji",
+      "en": "Not enough delta-v for Trip to Jupiter. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Viaje a Júpiter. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_solar_escape": {
+      "id": "tr_short_solar_escape",
+      "en": "Not enough delta-v for Escape from the Solar System. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Escape del sistema solar. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    },
+    "tr_short_escape": {
+      "id": "tr_short_escape",
+      "en": "Not enough delta-v for Leaving the Sun behind. The probe stays where it is. Look at the numbers: we need a bigger upper stage.",
+      "es": "No alcanza el delta-v para Dejando atrás el Sol. La sonda se queda donde está. Mira los números: hace falta una etapa de arriba más grande."
+    }
+  }
+}

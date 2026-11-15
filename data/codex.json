@@ -1,0 +1,357 @@
+{
+  "_notes": "Explicaciones del juego: qué hace cada pieza, cómo funciona y un ejemplo real; y los conceptos de cohetería. Las cifras reales son aproximadas y de dominio público; revisar antes de la entrega.",
+  "parts": {
+    "nose": {
+      "what": {
+        "en": "Splits the air in front of the rocket.",
+        "es": "Abre el aire delante del cohete."
+      },
+      "how": {
+        "en": "A pointed shape lets the air slide around instead of slamming into a flat face. Long curved (ogive) noses have less drag at high speed; cones are simpler to build. The nose also creates lift near the front, which pulls the centre of pressure forward, so the rocket needs fins or steering at the back to balance it.",
+        "es": "Una forma en punta deja que el aire se deslice alrededor en vez de chocar con una cara plana. Las puntas largas y curvas (ojivas) tienen menos resistencia a alta velocidad; los conos son más fáciles de fabricar. La punta también genera sustentación adelante, lo que corre el centro de presión hacia arriba; por eso el cohete necesita aletas o dirección en la parte de atrás para equilibrarlo."
+      },
+      "real": {
+        "en": "Falcon 9's nose is a 13 m fairing that splits in two halves once the rocket leaves the thick air.",
+        "es": "La punta del Falcon 9 es una cofia de 13 m que se abre en dos mitades cuando el cohete sale del aire denso."
+      }
+    },
+    "payload": {
+      "what": {
+        "en": "Carries what the mission is for: a satellite, a probe or instruments.",
+        "es": "Lleva aquello para lo que existe la misión: un satélite, una sonda o instrumentos."
+      },
+      "how": {
+        "en": "Every kilogram of payload needs much more propellant below it, because that propellant must also lift itself. That is why spacecraft are built as light as possible.",
+        "es": "Cada kilogramo de carga necesita mucho más propelente debajo, porque ese propelente también tiene que levantarse a sí mismo. Por eso las naves se construyen tan livianas como se puede."
+      },
+      "real": {
+        "en": "Electron puts about 300 kg into low orbit with a rocket of about 13 tonnes: barely 2 % of the launch mass reaches orbit.",
+        "es": "Electron pone unos 300 kg en órbita baja con un cohete de unas 13 toneladas: apenas el 2 % de la masa de lanzamiento llega a la órbita."
+      }
+    },
+    "solid": {
+      "what": {
+        "en": "Fuel and oxidizer mixed into a rubbery solid that burns from the inside out.",
+        "es": "Combustible y oxidante mezclados en un sólido gomoso que arde de adentro hacia afuera."
+      },
+      "how": {
+        "en": "Simple and powerful, but once lit it cannot be throttled or switched off. The shape of the channel inside the grain sets how the thrust changes during the burn. A solid motor cannot steer by itself, so it relies on fins to fly straight.",
+        "es": "Es simple y potente, pero una vez encendido no se puede regular ni apagar. La forma del canal dentro del grano decide cómo cambia el empuje durante el encendido. Un motor sólido no puede dirigirse solo, así que depende de las aletas para volar derecho."
+      },
+      "real": {
+        "en": "The Space Shuttle's two solid boosters gave more than 80 % of the thrust at liftoff. NASA's sounding rockets launched from Wallops, which reach space and fall back, are mostly solid.",
+        "es": "Los dos propulsores sólidos del transbordador espacial daban más del 80 % del empuje al despegar. Los cohetes sonda de la NASA que se lanzan desde Wallops, que llegan al espacio y caen, son casi todos sólidos."
+      }
+    },
+    "tank": {
+      "what": {
+        "en": "Holds the liquid propellant: a fuel and liquid oxygen to burn it.",
+        "es": "Guarda el propelente líquido: un combustible y oxígeno líquido para quemarlo."
+      },
+      "how": {
+        "en": "There is no air in space, so the rocket carries its own oxygen. A bigger tank gives more Δv but also more weight to lift. Liquid hydrogen is the most efficient fuel, but it is so light that its tanks must be huge, and so cold (−253 °C) that they are wrapped in orange insulating foam.",
+        "es": "En el espacio no hay aire, así que el cohete lleva su propio oxígeno. Un tanque más grande da más Δv, pero también más peso que levantar. El hidrógeno líquido es el combustible más eficiente, pero es tan liviano que sus tanques tienen que ser enormes, y tan frío (−253 °C) que se recubren con espuma aislante naranja."
+      },
+      "real": {
+        "en": "Falcon 9's first stage carries about 400 tonnes of liquid oxygen and RP-1, a refined kerosene.",
+        "es": "La primera etapa del Falcon 9 lleva unas 400 toneladas de oxígeno líquido y RP-1, un queroseno refinado."
+      }
+    },
+    "engine": {
+      "what": {
+        "en": "Burns propellant and throws the hot gas out the back very fast, so the rocket is pushed the other way.",
+        "es": "Quema el propelente y lanza el gas caliente hacia atrás muy rápido, así que el cohete es empujado hacia el otro lado."
+      },
+      "how": {
+        "en": "That is Newton's third law. Thrust says how hard the engine pushes; specific impulse (Isp) says how efficiently it uses propellant. The bell-shaped nozzle speeds the gas up: wide bells work best in vacuum, shorter ones at sea level. Liquid engines can tilt (gimbal) to steer.",
+        "es": "Es la tercera ley de Newton. El empuje dice con cuánta fuerza empuja el motor; el impulso específico (Isp), qué tan bien aprovecha el propelente. La tobera en forma de campana acelera el gas: las campanas anchas rinden mejor en el vacío y las cortas a nivel del mar. Los motores líquidos se pueden inclinar (gimbal) para dirigir el cohete."
+      },
+      "real": {
+        "en": "Falcon 9 clusters 9 Merlin engines in its first stage; if one fails, the rest can still reach orbit.",
+        "es": "El Falcon 9 agrupa 9 motores Merlin en su primera etapa; si uno falla, los demás todavía pueden llegar a la órbita."
+      }
+    },
+    "decoupler": {
+      "what": {
+        "en": "Joins two stages and separates them in flight.",
+        "es": "Une dos etapas y las separa en pleno vuelo."
+      },
+      "how": {
+        "en": "When a stage runs out of propellant, its empty tanks and engines are dead weight. Dropping them lets the next stage push a much lighter rocket. That is staging, and it is why almost every orbital rocket has two or more stages.",
+        "es": "Cuando una etapa se queda sin propelente, sus tanques vacíos y sus motores son peso muerto. Soltarlos permite que la siguiente etapa empuje un cohete mucho más liviano. Eso es el escalonamiento, y por eso casi todos los cohetes orbitales tienen dos etapas o más."
+      },
+      "real": {
+        "en": "The Saturn V dropped three stages on its way to the Moon.",
+        "es": "El Saturno V soltó tres etapas en su camino a la Luna."
+      }
+    },
+    "adapter": {
+      "what": {
+        "en": "Joins parts with different diameters.",
+        "es": "Une piezas de diámetros distintos."
+      },
+      "how": {
+        "en": "A cone-shaped section smooths the airflow between a wide stage and a narrow one. Narrowing toward the back (a boat tail) reduces drag but moves the centre of pressure forward.",
+        "es": "Una sección en forma de cono suaviza el paso del aire entre una etapa ancha y una angosta. Si se angosta hacia atrás (cola de bote) reduce la resistencia, pero corre el centro de presión hacia adelante."
+      },
+      "real": {
+        "en": "The Saturn V narrowed from 10 m to 6.6 m through a conical adapter below its third stage.",
+        "es": "El Saturno V se angostaba de 10 m a 6,6 m con un adaptador cónico debajo de su tercera etapa."
+      }
+    },
+    "fins": {
+      "what": {
+        "en": "Keep the rocket pointing forward, like the feathers of an arrow.",
+        "es": "Mantienen el cohete apuntando hacia adelante, como las plumas de una flecha."
+      },
+      "how": {
+        "en": "Air pushes on the fins and moves the centre of pressure (CP) back. If the CP is behind the centre of mass (CM), any tilt creates a force that straightens the rocket. Too small and it flips; too big and it turns into the wind and carries extra weight and drag.",
+        "es": "El aire empuja las aletas y corre el centro de presión (CP) hacia atrás. Si el CP queda detrás del centro de masa (CM), cualquier inclinación crea una fuerza que endereza el cohete. Si son muy pequeñas, se voltea; si son muy grandes, gira contra el viento y carga peso y resistencia de más."
+      },
+      "real": {
+        "en": "Big rockets like Falcon 9 have no stabilizing fins: they steer by tilting their engines.",
+        "es": "Cohetes grandes como el Falcon 9 no tienen aletas estabilizadoras: se dirigen inclinando los motores."
+      }
+    }
+  },
+  "concepts": [
+    {
+      "id": "dv",
+      "title": {
+        "en": "Δv (delta-v)",
+        "es": "Δv (delta-v)"
+      },
+      "body": {
+        "en": "The total change of speed your rocket can make by burning all its propellant. It is the budget of a space mission: reaching low orbit from the ground takes about 9.4 km/s, including what is lost fighting gravity and air.",
+        "es": "El cambio total de velocidad que tu cohete puede lograr quemando todo su propelente. Es el presupuesto de una misión espacial: llegar a órbita baja desde el suelo cuesta unos 9,4 km/s, contando lo que se pierde peleando contra la gravedad y el aire."
+      }
+    },
+    {
+      "id": "rocket_eq",
+      "title": {
+        "en": "The rocket equation",
+        "es": "La ecuación del cohete"
+      },
+      "body": {
+        "en": "Konstantin Tsiolkovsky found it in 1903: Δv depends on the engine's efficiency and on the ratio between the full and the empty rocket. Doubling the propellant does not double the Δv, because each extra kilogram must also be lifted. That is why we use stages.",
+        "es": "Konstantín Tsiolkovski la encontró en 1903: el Δv depende de la eficiencia del motor y de la relación entre el cohete lleno y el cohete vacío. Duplicar el propelente no duplica el Δv, porque cada kilogramo extra también hay que levantarlo. Por eso se usan etapas."
+      }
+    },
+    {
+      "id": "isp",
+      "title": {
+        "en": "Specific impulse (Isp)",
+        "es": "Impulso específico (Isp)"
+      },
+      "body": {
+        "en": "How efficiently an engine uses its propellant, measured in seconds. Higher is better: solid motors give about 250 s, kerosene about 310 s, hydrogen about 450 s, and ion engines about 3,100 s but with a tiny push.",
+        "es": "Qué tan bien aprovecha un motor su propelente, medido en segundos. Más es mejor: los motores sólidos dan unos 250 s, el queroseno unos 310 s, el hidrógeno unos 450 s, y los motores iónicos unos 3.100 s pero con un empuje diminuto."
+      }
+    },
+    {
+      "id": "twr",
+      "title": {
+        "en": "Thrust-to-weight ratio",
+        "es": "Relación empuje/peso"
+      },
+      "body": {
+        "en": "Thrust divided by the rocket's weight. Below 1 it cannot lift off. Around 1.2 to 1.5 is typical at launch: lower wastes propellant fighting gravity, much higher means heavy engines and a violent ride through the air.",
+        "es": "El empuje dividido por el peso del cohete. Si es menor que 1, no despega. Lo normal al despegar es entre 1,2 y 1,5: menos gasta propelente peleando contra la gravedad; mucho más significa motores pesados y un paso violento por el aire."
+      }
+    },
+    {
+      "id": "cm",
+      "title": {
+        "en": "Centre of mass (CM)",
+        "es": "Centro de masa (CM)"
+      },
+      "body": {
+        "en": "The balance point of the rocket. Heavy parts high up move it forward, which helps stability. It shifts during flight as propellant burns.",
+        "es": "El punto de equilibrio del cohete. Las piezas pesadas arriba lo corren hacia adelante, lo que ayuda a la estabilidad. Se mueve durante el vuelo a medida que se quema el propelente."
+      }
+    },
+    {
+      "id": "cp",
+      "title": {
+        "en": "Centre of pressure (CP)",
+        "es": "Centro de presión (CP)"
+      },
+      "body": {
+        "en": "The point where all the air forces on the rocket add up. We calculate it with the Barrowman method, the same one model rocketeers use: the nose and any widening pull it forward, fins and narrowing push it back.",
+        "es": "El punto donde se suman todas las fuerzas del aire sobre el cohete. Lo calculamos con el método de Barrowman, el mismo que usan los cohetes de aficionados: la punta y los ensanchamientos lo llevan hacia adelante; las aletas y los angostamientos, hacia atrás."
+      }
+    },
+    {
+      "id": "stability",
+      "title": {
+        "en": "Stability margin",
+        "es": "Margen de estabilidad"
+      },
+      "body": {
+        "en": "The distance from the CM down to the CP, measured in body diameters (calibres). Between 1 and 2 calibres a finned rocket flies straight. Negative means the CP is in front and the rocket flips, unless its engines steer it.",
+        "es": "La distancia del CM hacia abajo hasta el CP, medida en diámetros del cuerpo (calibres). Entre 1 y 2 calibres un cohete con aletas vuela derecho. Negativo significa que el CP está adelante y el cohete se voltea, salvo que sus motores lo dirijan."
+      }
+    },
+    {
+      "id": "staging",
+      "title": {
+        "en": "Stages",
+        "es": "Etapas"
+      },
+      "body": {
+        "en": "A rocket made of several rockets stacked on top of each other. Each stage burns, then drops off so the next one pushes less dead weight. Our analysis numbers stages in firing order: stage 1 is the bottom one.",
+        "es": "Un cohete hecho de varios cohetes apilados. Cada etapa se enciende y luego se suelta para que la siguiente empuje menos peso muerto. El análisis numera las etapas en orden de encendido: la etapa 1 es la de abajo."
+      }
+    },
+    {
+      "id": "gimbal",
+      "title": {
+        "en": "Gimbal",
+        "es": "Gimbal"
+      },
+      "body": {
+        "en": "Tilting the engine a few degrees to point the thrust and steer the rocket, like balancing a broom on your hand. It lets big rockets fly without fins, even when they are aerodynamically unstable.",
+        "es": "Inclinar el motor unos grados para orientar el empuje y dirigir el cohete, como equilibrar una escoba en la mano. Permite que los cohetes grandes vuelen sin aletas, aunque sean inestables por aerodinámica."
+      }
+    },
+    {
+      "id": "orbit",
+      "title": {
+        "en": "Orbit",
+        "es": "Órbita"
+      },
+      "body": {
+        "en": "Reaching space is about height; staying there is about sideways speed. At 400 km you need about 7.7 km/s sideways so that you keep falling around the Earth without ever hitting it.",
+        "es": "Llegar al espacio es cuestión de altura; quedarse allí es cuestión de velocidad hacia el costado. A 400 km hacen falta unos 7,7 km/s de lado para seguir cayendo alrededor de la Tierra sin chocar nunca con ella."
+      }
+    },
+    {
+      "id": "dvmap",
+      "title": {
+        "en": "The Δv map",
+        "es": "El mapa de Δv"
+      },
+      "body": {
+        "en": "Like a metro map of the Solar System: each line is a manoeuvre and its number is the Δv it costs, in km/s. Add up the stations on your route: that is the Δv your rocket needs. Getting off the Earth (9.4) is the most expensive step of all.",
+        "es": "Como un mapa del metro del sistema solar: cada tramo es una maniobra y su número es el Δv que cuesta, en km/s. Suma las estaciones de tu ruta: ese es el Δv que necesita tu cohete. Salir de la Tierra (9,4) es el paso más caro de todos."
+      }
+    },
+    {
+      "id": "landing",
+      "title": {
+        "en": "How to land on the Moon and on Mars",
+        "es": "Cómo se aterriza en la Luna y en Marte"
+      },
+      "body": {
+        "en": "The Moon has no air, so the engine must cancel all the speed: the lander arrives sideways at about 1.7 km/s, points its engine forward to brake, turns upright near the ground and comes down at about 1 m/s onto its legs, which absorb the touchdown. That costs about 1.7 km/s of Δv. Mars has thin air: a heat shield brakes from 5 km/s to about 400 m/s, a parachute down to about 90 m/s, and rockets do the last part (Perseverance used a sky crane that lowered it on cables).",
+        "es": "La Luna no tiene aire, así que el motor tiene que anular toda la velocidad: la nave llega de lado a unos 1,7 km/s, apunta el motor hacia adelante para frenar, se pone de pie cerca del suelo y baja a cerca de 1 m/s sobre sus patas, que absorben el golpe. Eso cuesta unos 1,7 km/s de Δv. Marte tiene aire delgado: un escudo térmico frena de 5 km/s a unos 400 m/s, un paracaídas hasta unos 90 m/s y el final lo hacen cohetes (Perseverance usó una grúa aérea que lo bajó con cables)."
+      }
+    }
+  ],
+  "build": {
+    "title": {
+      "en": "How to build a rocket",
+      "es": "Cómo se arma un cohete"
+    },
+    "intro": {
+      "en": "A rocket is built from the bottom up, like a stack. Each part has a fixed place and a job. If one is missing or in the wrong place, the rocket does not fly. This is the order for a two-stage rocket (for a first, single-stage rocket, skip steps 4 to 6).",
+      "es": "Un cohete se arma de abajo hacia arriba, como una pila. Cada pieza tiene un lugar fijo y un trabajo. Si falta una o está en el lugar equivocado, el cohete no vuela. Este es el orden para un cohete de dos etapas (para un primer cohete de una sola etapa, sáltate los pasos 4 a 6)."
+    },
+    "steps": [
+      {
+        "title": {
+          "en": "Engine (bottom)",
+          "es": "Motor (abajo)"
+        },
+        "body": {
+          "en": "Goes at the very bottom. It burns fuel and throws hot gas down at great speed; by reaction, the rocket goes up (Newton's third law). Without an engine nothing moves. Its push, the thrust, must be greater than the weight of the whole rocket.",
+          "es": "Va en lo más bajo. Quema combustible y lanza gas caliente hacia abajo muy rápido; por reacción, el cohete sube (tercera ley de Newton). Sin motor nada se mueve. Su empuje tiene que ser mayor que el peso de todo el cohete."
+        }
+      },
+      {
+        "title": {
+          "en": "Fins (around the base)",
+          "es": "Aletas (alrededor de la base)"
+        },
+        "body": {
+          "en": "Stuck to the side of the lowest part. Like the feathers of an arrow, they keep the nose pointing forward: if the rocket tilts, the air pushes on the fins and straightens it. Needed when the engine cannot steer (solid motors). Liquid engines that tilt (gimbal) can fly without them.",
+          "es": "Pegadas al costado de la parte más baja. Como las plumas de una flecha, mantienen la punta hacia adelante: si el cohete se tuerce, el aire empuja las aletas y lo endereza. Hacen falta cuando el motor no puede girar (motores sólidos). Los motores líquidos que se inclinan (gimbal) pueden volar sin ellas."
+        }
+      },
+      {
+        "title": {
+          "en": "Tank (above the engine)",
+          "es": "Tanque (encima del motor)"
+        },
+        "body": {
+          "en": "Right above its engine, because the engine drinks from it through pipes. It holds the fuel (kerosene or hydrogen) and the oxidizer (liquid oxygen): in space there is no air, so the rocket carries its own oxygen to burn. It is the biggest and heaviest part. A solid motor already has its fuel inside, so it does not need a tank.",
+          "es": "Justo encima de su motor, porque el motor toma el combustible de ahí por tuberías. Guarda el combustible (queroseno o hidrógeno) y el oxidante (oxígeno líquido): en el espacio no hay aire, así que el cohete lleva su propio oxígeno para quemar. Es la pieza más grande y pesada. Un motor sólido ya tiene el combustible adentro, así que no necesita tanque."
+        }
+      },
+      {
+        "title": {
+          "en": "Decoupler (between stages)",
+          "es": "Desacoplador (entre etapas)"
+        },
+        "body": {
+          "en": "A ring on top of the first tank. When the first stage runs out of fuel, small explosive bolts release it and it falls away. The rest of the rocket no longer carries that empty metal, so it gains much more speed. This is what makes reaching orbit possible.",
+          "es": "Un anillo encima del primer tanque. Cuando la primera etapa se queda sin combustible, unos pernos explosivos la sueltan y cae. El resto del cohete ya no carga ese metal vacío, así que gana mucha más velocidad. Esto es lo que permite llegar a la órbita."
+        }
+      },
+      {
+        "title": {
+          "en": "Second engine",
+          "es": "Segundo motor"
+        },
+        "body": {
+          "en": "Above the decoupler, pointing down. It only turns on after the separation, high up where there is almost no air, so it is usually a vacuum engine with a large bell.",
+          "es": "Encima del desacoplador, apuntando hacia abajo. Solo se enciende después de la separación, arriba donde casi no hay aire, por eso suele ser un motor de vacío con una campana grande."
+        }
+      },
+      {
+        "title": {
+          "en": "Second tank",
+          "es": "Segundo tanque"
+        },
+        "body": {
+          "en": "Above the second engine, which drinks from it. It is smaller than the first one because the upper stage only carries what is above it.",
+          "es": "Encima del segundo motor, que toma de él. Es más chico que el primero porque la etapa de arriba solo carga lo que está encima."
+        }
+      },
+      {
+        "title": {
+          "en": "Payload (near the top)",
+          "es": "Carga útil (cerca de la punta)"
+        },
+        "body": {
+          "en": "Just below the nose. It is the reason for the mission: the satellite, the probe or the instruments. Everything else exists to carry it. It goes at the top so it is the last thing left when the stages fall away.",
+          "es": "Justo debajo de la punta. Es la razón de la misión: el satélite, la sonda o los instrumentos. Todo lo demás existe para llevarla. Va arriba para ser lo último que queda cuando las etapas se sueltan."
+        }
+      },
+      {
+        "title": {
+          "en": "Nose (top)",
+          "es": "Punta (arriba)"
+        },
+        "body": {
+          "en": "Always at the very top. A flat front slams into the air and wastes energy; a pointed one lets the air slide around. It also protects the payload from air and heat during the climb.",
+          "es": "Siempre en lo más alto. Un frente plano choca contra el aire y gasta energía; una punta deja que el aire se deslice alrededor. También protege la carga del aire y del calor durante la subida."
+        }
+      }
+    ],
+    "rules": {
+      "en": "Three rules to remember: 1. Engine at the bottom, nose at the top. 2. Each tank right above its own engine. 3. The centre of mass (the weight) must be above the centre of pressure (where the air pushes), or the rocket flips.",
+      "es": "Tres reglas para recordar: 1. Motor abajo, punta arriba. 2. Cada tanque justo encima de su motor. 3. El centro de masa (el peso) tiene que estar encima del centro de presión (donde empuja el aire), o el cohete se da vuelta."
+    }
+  },
+  "materials_intro": {
+    "title": {
+      "en": "What the rocket is made of",
+      "es": "De qué está hecho el cohete"
+    },
+    "body": {
+      "en": "The walls of tanks and stages are a compromise: light, so the rocket gains more speed; strong, so it does not break under the push and the air pressure; and able to stand heat. Choose the material in the panel of each part.",
+      "es": "Las paredes de tanques y etapas son un compromiso: livianas, para que el cohete gane más velocidad; resistentes, para que no se rompan con el empuje y la presión del aire; y que aguanten el calor. El material se elige en el panel de cada pieza."
+    }
+  }
+}

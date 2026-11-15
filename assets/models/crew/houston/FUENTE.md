@@ -1,0 +1,12 @@
+# Houston (director de vuelo)
+- Personaje creado con **MPFB2** (MakeHuman Plugin for Blender, v2.0.18, extensions.blender.org/add-ons/mpfb).
+  - MPFB es GPL, pero solo se usó como herramienta: el personaje que genera no queda bajo GPL.
+- Recursos: **MakeHuman system assets** y **Visemes 02**, licencia **CC0** (makehumancommunity.org, espejo files2.makehumancommunity.org):
+  - piel: middleage caucasian male;
+  - ojos, cejas eyebrow003, pestañas eyelashes02, dientes, lengua;
+  - pelo short02 (en el juego se pasa a gris con `assets/shaders/gray_hair.gdshader`);
+  - traje: male_elegantsuit01 y shoes02.
+- Visemas estilo Meta (`viseme_aa`, `viseme_O`, `viseme_PP`…) para mover la boca; los usa `scripts/three_d/houston_face.gd`.
+- Script de generación: `tools/blender/houston_mpfb.py`.
+  - Se corre con Blender 5.2 headless y un perfil aparte: `BLENDER_USER_RESOURCES=D:/xorbit_quarantine/houston/bu`.
+  - Los recursos están en `D:/xorbit_quarantine/houston`.

@@ -1,0 +1,1 @@
+Start at the bottom again: a liquid engine. Unlike the solid one, it can be throttled, shut off and tilted. Tilting is called gimbal: the engine steers the rocket, so it does not need fins. Drag the Liquid engine onto the stand.

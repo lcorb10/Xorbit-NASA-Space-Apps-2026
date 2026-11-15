@@ -1,0 +1,1 @@
+Your rocket is complete: engine at the bottom, payload in the middle, nose on top. This bar is delta-v: how much speed the rocket can gain with all its fuel. This mission needs 2 kilometres per second. If the bar does not reach the mark, pick the motor and make it longer: more fuel, more speed.

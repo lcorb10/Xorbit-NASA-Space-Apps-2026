@@ -1,0 +1,1 @@
+v3|Engine attached. It throws gas out the back and the rocket goes the other way. Liquid engines can tilt to steer, so big rockets don't need fins.

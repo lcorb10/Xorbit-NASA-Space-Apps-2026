@@ -1,0 +1,1 @@
+Not enough delta-v. Make the tanks longer — the upper stage first, because every kilogram saved up there is worth more — or use a more efficient engine with higher Isp.

@@ -1,0 +1,1 @@
+New software available. Engineers wrote a better program to process images on board. Install it in flight? Improving software in flight can give better science with the same hardware, but a mistake can crash the computer far from any repair shop.

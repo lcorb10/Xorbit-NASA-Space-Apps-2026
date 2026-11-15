@@ -1,0 +1,1 @@
+A hydrogen tank needs a hydrogen engine. Pick the engine of the second stage and choose a vacuum engine like the RL10. Its huge bell lets the gas expand fully where there is no air, so it pushes more.

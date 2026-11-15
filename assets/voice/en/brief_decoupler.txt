@@ -1,0 +1,1 @@
+v3|Separator in. When the stage below runs dry, we drop it and stop carrying dead weight. That's staging.

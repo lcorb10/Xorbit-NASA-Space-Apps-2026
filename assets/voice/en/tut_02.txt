@@ -1,0 +1,1 @@
+This is the hangar. The round base in the middle is the launch stand: the rocket is built on top of it, from the bottom up. Drag with the mouse to look around and use the wheel to zoom.

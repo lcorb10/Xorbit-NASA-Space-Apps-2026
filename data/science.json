@@ -1,0 +1,677 @@
+{
+  "_notes": "Sonda: instrumentos, energía y comunicaciones (requisito del reto). Masas y potencias aproximadas de instrumentos reales (NASA SmallSat SOA y fichas de misiones). Ciencia = valor de juego. Destinos por misión: au = distancia al Sol (paneles rinden 1/au²), link_km = distancia a la Tierra para la antena, zones = dónde se hace ciencia (multiplicador), target = ciencia para la 3.ª estrella. usd_per_kg: costo de la nave por kilo según el destino (más lejos y más difícil, más cara). payload_min_kg: masa mínima de la nave que pide el cliente. Precio por kilo: órbita baja ~10 mil US$/kg; geoestacionaria ~30 mil; Luna ~80 mil; Marte ~200 mil (aterrizaje y décadas de vida); planetas exteriores y escape ~600 mil (electrónica resistente a la radiación, RTG, diseñada para durar décadas, como Voyager).",
+  "instruments": [
+    {
+      "id": "thermo",
+      "mass": 1.5,
+      "power_w": 2,
+      "data_mb": 5,
+      "cost_musd": 0.3,
+      "science": 6,
+      "best": [
+        "atmosphere",
+        "suborbital"
+      ],
+      "unlock": 0,
+      "name": {
+        "en": "Thermometer and barometer",
+        "es": "Termómetro y barómetro"
+      },
+      "what": {
+        "en": "Measures temperature and pressure of the air. Cheap and light: the first instrument of any sounding rocket.",
+        "es": "Mide la temperatura y la presión del aire. Barato y liviano: el primer instrumento de cualquier cohete sonda."
+      }
+    },
+    {
+      "id": "camera",
+      "mass": 8,
+      "power_w": 15,
+      "data_mb": 900,
+      "cost_musd": 2,
+      "science": 12,
+      "best": [
+        "orbit",
+        "flyby",
+        "surface"
+      ],
+      "unlock": 1,
+      "name": {
+        "en": "Camera",
+        "es": "Cámara"
+      },
+      "what": {
+        "en": "Takes pictures of the surface. Produces a lot of data, so it needs a good antenna to send it home.",
+        "es": "Toma fotos de la superficie. Produce muchos datos, así que necesita una buena antena para enviarlos."
+      },
+      "needs_pointing": true
+    },
+    {
+      "id": "magnetometer",
+      "mass": 3,
+      "power_w": 4,
+      "data_mb": 20,
+      "cost_musd": 1,
+      "science": 10,
+      "best": [
+        "orbit",
+        "flyby",
+        "deep"
+      ],
+      "unlock": 2,
+      "name": {
+        "en": "Magnetometer",
+        "es": "Magnetómetro"
+      },
+      "what": {
+        "en": "Measures magnetic fields. It must stay away from the probe's electronics, so real ones go at the end of a long boom.",
+        "es": "Mide campos magnéticos. Debe estar lejos de la electrónica de la sonda: los reales van en la punta de un brazo largo."
+      }
+    },
+    {
+      "id": "spectrometer",
+      "mass": 12,
+      "power_w": 20,
+      "data_mb": 300,
+      "cost_musd": 5,
+      "science": 22,
+      "best": [
+        "orbit",
+        "surface"
+      ],
+      "unlock": 3,
+      "name": {
+        "en": "Spectrometer",
+        "es": "Espectrómetro"
+      },
+      "what": {
+        "en": "Splits light into colours to find out what rocks and air are made of. The most valuable science, but heavy and power hungry.",
+        "es": "Separa la luz en colores para saber de qué están hechas las rocas y el aire. La ciencia más valiosa, pero pesado y gasta mucha energía."
+      },
+      "needs_pointing": true
+    },
+    {
+      "id": "radar",
+      "mass": 20,
+      "power_w": 60,
+      "data_mb": 600,
+      "cost_musd": 8,
+      "science": 25,
+      "best": [
+        "orbit"
+      ],
+      "unlock": 5,
+      "name": {
+        "en": "Ground-penetrating radar",
+        "es": "Radar de penetración"
+      },
+      "what": {
+        "en": "Sends radio waves into the ground to find ice and layers below the surface. Needs a lot of power.",
+        "es": "Envía ondas de radio al suelo para encontrar hielo y capas bajo la superficie. Necesita mucha energía."
+      },
+      "needs_pointing": true
+    },
+    {
+      "id": "drill",
+      "mass": 25,
+      "power_w": 80,
+      "data_mb": 50,
+      "cost_musd": 10,
+      "science": 35,
+      "best": [
+        "surface"
+      ],
+      "unlock": 4,
+      "name": {
+        "en": "Drill and sample lab",
+        "es": "Taladro y laboratorio de muestras"
+      },
+      "what": {
+        "en": "Drills a few centimetres and analyses the dust. Only works if you land.",
+        "es": "Perfora unos centímetros y analiza el polvo. Solo sirve si aterrizas."
+      }
+    }
+  ],
+  "power": [
+    {
+      "id": "battery",
+      "mass": 6,
+      "w_1au": 0,
+      "battery_wh": 400,
+      "cost_musd": 0.4,
+      "unlock": 0,
+      "name": {
+        "en": "Battery only",
+        "es": "Solo batería"
+      },
+      "what": {
+        "en": "Enough for a short flight of a few hours. When it runs out, the probe goes silent.",
+        "es": "Alcanza para un vuelo corto de unas horas. Cuando se agota, la sonda se apaga."
+      }
+    },
+    {
+      "id": "solar_small",
+      "mass": 10,
+      "w_1au": 120,
+      "battery_wh": 200,
+      "cost_musd": 1.5,
+      "unlock": 1,
+      "name": {
+        "en": "Small solar panels",
+        "es": "Paneles solares chicos"
+      },
+      "what": {
+        "en": "About 120 W near the Earth. Sunlight weakens with the square of the distance: at Mars they give less than half.",
+        "es": "Unos 120 W cerca de la Tierra. La luz del Sol baja con el cuadrado de la distancia: en Marte dan menos de la mitad."
+      }
+    },
+    {
+      "id": "solar_big",
+      "mass": 35,
+      "w_1au": 500,
+      "battery_wh": 600,
+      "cost_musd": 5,
+      "unlock": 2,
+      "name": {
+        "en": "Large solar wings",
+        "es": "Alas solares grandes"
+      },
+      "what": {
+        "en": "About 500 W at the Earth, 210 W at Mars and only 18 W at Jupiter. Juno used three huge wings to work there.",
+        "es": "Unos 500 W en la Tierra, 210 W en Marte y apenas 18 W en Júpiter. Juno usó tres alas enormes para funcionar allá."
+      }
+    },
+    {
+      "id": "rtg",
+      "mass": 45,
+      "w_1au": 110,
+      "battery_wh": 300,
+      "cost_musd": 60,
+      "rtg": true,
+      "unlock": 7,
+      "name": {
+        "en": "RTG (nuclear battery)",
+        "es": "RTG (batería nuclear)"
+      },
+      "what": {
+        "en": "110 W from the heat of plutonium, day and night, near or far from the Sun. Curiosity, Perseverance and Voyager use them.",
+        "es": "110 W del calor del plutonio, de día y de noche, cerca o lejos del Sol. Los usan Curiosity, Perseverance y la Voyager."
+      }
+    }
+  ],
+  "antennas": [
+    {
+      "id": "whip",
+      "mass": 0.5,
+      "power_w": 2,
+      "range_km": 3000,
+      "rate_mbps": 0.5,
+      "cost_musd": 0.1,
+      "unlock": 0,
+      "name": {
+        "en": "Whip antenna",
+        "es": "Antena de látigo"
+      },
+      "what": {
+        "en": "Reaches a few thousand kilometres: fine for sounding rockets and low orbit.",
+        "es": "Llega a unos miles de kilómetros: sirve para cohetes sonda y órbita baja."
+      },
+      "ref_km": 3000
+    },
+    {
+      "id": "patch",
+      "mass": 2,
+      "power_w": 10,
+      "range_km": 500000,
+      "rate_mbps": 4,
+      "cost_musd": 1,
+      "unlock": 2,
+      "name": {
+        "en": "Medium-gain antenna",
+        "es": "Antena de ganancia media"
+      },
+      "what": {
+        "en": "Reaches the Moon. Beyond that the signal gets too weak.",
+        "es": "Llega hasta la Luna. Más lejos la señal se debilita demasiado."
+      },
+      "ref_km": 500000
+    },
+    {
+      "id": "dish",
+      "mass": 15,
+      "power_w": 40,
+      "range_km": 2000000000,
+      "rate_mbps": 2,
+      "cost_musd": 6,
+      "unlock": 5,
+      "name": {
+        "en": "High-gain dish",
+        "es": "Plato de alta ganancia"
+      },
+      "what": {
+        "en": "Talks to NASA's Deep Space Network from the planets. It must point exactly at the Earth.",
+        "es": "Habla con la Red de Espacio Profundo de la NASA desde los planetas. Debe apuntar exacto a la Tierra."
+      },
+      "ref_km": 225000000,
+      "needs_pointing": true
+    }
+  ],
+  "destinations": {
+    "0": {
+      "au": 1,
+      "link_km": 600,
+      "hours": 0.3,
+      "zones": {
+        "suborbital": 1,
+        "atmosphere": 1
+      },
+      "target": 6,
+      "usd_per_kg": 5000,
+      "payload_min_kg": 50,
+      "rad": 1
+    },
+    "1": {
+      "au": 1,
+      "link_km": 2000,
+      "hours": 2000,
+      "zones": {
+        "orbit": 1
+      },
+      "target": 12,
+      "usd_per_kg": 10000,
+      "payload_min_kg": 150,
+      "rad": 1
+    },
+    "2": {
+      "au": 1,
+      "link_km": 42000,
+      "hours": 8000,
+      "zones": {
+        "orbit": 1,
+        "deep": 0.6
+      },
+      "target": 20,
+      "usd_per_kg": 30000,
+      "payload_min_kg": 1500,
+      "rad": 3
+    },
+    "3": {
+      "au": 1,
+      "link_km": 384400,
+      "hours": 4000,
+      "zones": {
+        "orbit": 1.6,
+        "flyby": 0.8
+      },
+      "target": 40,
+      "usd_per_kg": 80000,
+      "payload_min_kg": 1500,
+      "rad": 1.5
+    },
+    "4": {
+      "au": 1,
+      "link_km": 384400,
+      "hours": 1000,
+      "zones": {
+        "orbit": 1.6,
+        "surface": 2
+      },
+      "target": 60,
+      "usd_per_kg": 80000,
+      "payload_min_kg": 4000,
+      "rad": 1.5
+    },
+    "5": {
+      "au": 1.52,
+      "link_km": 225000000,
+      "hours": 9000,
+      "zones": {
+        "orbit": 2.4,
+        "flyby": 1
+      },
+      "target": 70,
+      "usd_per_kg": 180000,
+      "payload_min_kg": 2500,
+      "rad": 1.5
+    },
+    "6": {
+      "au": 1.52,
+      "link_km": 225000000,
+      "hours": 9000,
+      "zones": {
+        "surface": 3,
+        "atmosphere": 1.5
+      },
+      "target": 100,
+      "usd_per_kg": 200000,
+      "payload_min_kg": 3500,
+      "rad": 1.5
+    },
+    "7": {
+      "au": 5.2,
+      "link_km": 778000000,
+      "hours": 20000,
+      "zones": {
+        "orbit": 3.5,
+        "deep": 2
+      },
+      "target": 120,
+      "usd_per_kg": 220000,
+      "payload_min_kg": 3000,
+      "rad": 8
+    },
+    "8": {
+      "au": 30,
+      "link_km": 1800000000,
+      "hours": 90000,
+      "zones": {
+        "deep": 5
+      },
+      "target": 100,
+      "usd_per_kg": 600000,
+      "payload_min_kg": 1500,
+      "rad": 2
+    },
+    "9": {
+      "au": 30,
+      "link_km": 1800000000,
+      "hours": 90000,
+      "zones": {
+        "deep": 5
+      },
+      "target": 100,
+      "usd_per_kg": 600000,
+      "payload_min_kg": 1500,
+      "rad": 2
+    }
+  },
+  "landing": [
+    {
+      "id": "legs",
+      "mass": 120,
+      "cost_musd": 3,
+      "unlock": 4,
+      "needed_for": [
+        4
+      ],
+      "name": {
+        "en": "Landing legs",
+        "es": "Patas de aterrizaje"
+      },
+      "what": {
+        "en": "Four legs with crushable honeycomb inside: they absorb the touchdown and keep the lander level on rocks and slopes. The Apollo Lunar Module had them.",
+        "es": "Cuatro patas con panal de aluminio que se aplasta por dentro: absorben el golpe del contacto y mantienen la nave nivelada sobre rocas y pendientes. Las tenía el Módulo Lunar del Apolo."
+      }
+    },
+    {
+      "id": "heat_shield",
+      "mass": 350,
+      "cost_musd": 8,
+      "unlock": 6,
+      "needed_for": [
+        6
+      ],
+      "name": {
+        "en": "Heat shield",
+        "es": "Escudo térmico"
+      },
+      "what": {
+        "en": "Mars has thin air: entering at 5 km/s heats the front to about 1,300 °C. The shield burns slowly (ablates) and protects the rover while the air brakes it.",
+        "es": "Marte tiene aire delgado: entrar a 5 km/s calienta el frente a unos 1.300 °C. El escudo se quema despacio (se ablaciona) y protege al rover mientras el aire lo frena."
+      }
+    },
+    {
+      "id": "parachute",
+      "mass": 90,
+      "cost_musd": 4,
+      "unlock": 6,
+      "needed_for": [
+        6
+      ],
+      "name": {
+        "en": "Supersonic parachute",
+        "es": "Paracaídas supersónico"
+      },
+      "what": {
+        "en": "Opens at about Mach 1.7 and slows the capsule from 400 to 100 m/s. The last part is done with rockets (Perseverance used a sky crane).",
+        "es": "Se abre a unas 1,7 veces la velocidad del sonido y frena la cápsula de 400 a 100 m/s. El final se hace con cohetes (Perseverance usó una grúa aérea)."
+      }
+    }
+  ],
+  "_notes_resources": "Recursos del reto (docs/RETO-2026.md): data_mb = MB por día. Bajada por día = rate_mbps × gain de la estación × (ref_km / distancia, máx 1) × horas de contacto × 450. Vida = life_h del computador / rad del destino (radiación), o la batería si no hay energía suficiente. Operación = costo por año de la estación × años de misión (hours / 8766).",
+  "computers": [
+    {
+      "id": "obc_basic",
+      "mass": 1,
+      "power_w": 5,
+      "life_h": 30000,
+      "storage_mb": 4000,
+      "cost_musd": 0.3,
+      "unlock": 0,
+      "name": {
+        "en": "Basic computer",
+        "es": "Computador básico"
+      },
+      "what": {
+        "en": "Commercial chips, like a CubeSat. Cheap and light, but radiation wears it out: it lasts about 3 years near Earth and only months near Jupiter.",
+        "es": "Chips comerciales, como un CubeSat. Barato y liviano, pero la radiación lo desgasta: dura unos 3 años cerca de la Tierra y solo meses cerca de Júpiter."
+      }
+    },
+    {
+      "id": "obc_rad",
+      "mass": 5,
+      "power_w": 10,
+      "life_h": 250000,
+      "storage_mb": 32000,
+      "cost_musd": 8,
+      "unlock": 5,
+      "name": {
+        "en": "Radiation-hardened computer",
+        "es": "Computador resistente a la radiación"
+      },
+      "what": {
+        "en": "Built like the RAD750 of the Mars rovers and Juno. Heavier, uses more power and costs much more, but it survives decades and the belts of Jupiter.",
+        "es": "Hecho como el RAD750 de los rovers de Marte y de Juno. Pesa más, gasta más energía y cuesta mucho más, pero aguanta décadas y los cinturones de Júpiter."
+      }
+    }
+  ],
+  "adcs": [
+    {
+      "id": "spin",
+      "mass": 2,
+      "power_w": 2,
+      "pointing": 0.6,
+      "cost_musd": 0.2,
+      "unlock": 0,
+      "name": {
+        "en": "Spin and magnetorquers",
+        "es": "Giro y magnetorques"
+      },
+      "what": {
+        "en": "The probe spins like a top to stay steady. Simple and cheap, but cameras, spectrometers and radars only look at the target part of the time (60 % of the science) and a dish antenna cannot stay pointed at the Earth.",
+        "es": "La sonda gira como un trompo para mantenerse estable. Simple y barato, pero las cámaras, espectrómetros y radares solo miran al objetivo parte del tiempo (60 % de la ciencia) y una antena de plato no puede quedarse apuntando a la Tierra."
+      }
+    },
+    {
+      "id": "wheels",
+      "mass": 12,
+      "power_w": 10,
+      "pointing": 1,
+      "cost_musd": 4,
+      "unlock": 1,
+      "name": {
+        "en": "Reaction wheels and star tracker",
+        "es": "Ruedas de reacción y sensor de estrellas"
+      },
+      "what": {
+        "en": "Spinning wheels turn the probe and a camera reads the stars to know where it is pointing. It points exactly: all the science and a dish locked on the Earth. Costs mass, power and money.",
+        "es": "Unas ruedas que giran mueven la sonda y una cámara lee las estrellas para saber hacia dónde apunta. Apunta exacto: toda la ciencia y el plato fijo en la Tierra. Cuesta masa, energía y dinero."
+      }
+    }
+  ],
+  "ground": [
+    {
+      "id": "nen",
+      "gain": 1,
+      "contact_h": 4,
+      "max_km": 2000000,
+      "cost_musd_year": 2,
+      "unlock": 0,
+      "name": {
+        "en": "Near Earth Network",
+        "es": "Red Cercana a la Tierra (NEN)"
+      },
+      "what": {
+        "en": "NASA antennas around the world for satellites up to the Moon. Cheap, but each pass over a station lasts minutes: about 4 hours of contact per day in total.",
+        "es": "Antenas de la NASA repartidas por el mundo para satélites hasta la Luna. Es barata, pero cada paso sobre una estación dura minutos: unas 4 horas de contacto al día en total."
+      }
+    },
+    {
+      "id": "dsn",
+      "gain": 4,
+      "contact_h": 10,
+      "max_km": 100000000000,
+      "cost_musd_year": 8,
+      "unlock": 2,
+      "name": {
+        "en": "Deep Space Network (DSN)",
+        "es": "Red de Espacio Profundo (DSN)"
+      },
+      "what": {
+        "en": "Three giant dishes (California, Spain, Australia) that always see the probe. They hear four times better and reach Neptune, but time on them is expensive and shared with every mission.",
+        "es": "Tres platos gigantes (California, España y Australia) que siempre ven la sonda. Escuchan cuatro veces mejor y llegan a Neptuno, pero su tiempo es caro y se comparte con todas las misiones."
+      }
+    }
+  ],
+  "_notes_orbits": "Órbitas a elegir en las misiones de \"missions\". dv_extra se suma al Δv pedido. eclipse = fracción de cada vuelta en la sombra (los paneles solo cargan al sol). decay_h = cuánto dura antes de que el aire la frene. sci_mult multiplica la ciencia de los instrumentos que apuntan.",
+  "orbits": [
+    {
+      "id": "leo_low",
+      "alt_km": 250,
+      "dv_extra": 0,
+      "eclipse": 0.4,
+      "decay_h": 1200,
+      "sci_mult": 1.3,
+      "missions": [
+        1
+      ],
+      "unlock": 1,
+      "name": {
+        "en": "Very low orbit · 250 km",
+        "es": "Órbita muy baja · 250 km"
+      },
+      "what": {
+        "en": "Closer to the Earth, so photos are sharper (+30 % science). But up here there is still a little air: it brakes the probe and it falls in about 7 weeks.",
+        "es": "Más cerca de la Tierra, así que las fotos son más nítidas (+30 % de ciencia). Pero aquí todavía hay un poco de aire: frena la sonda y cae en unas 7 semanas."
+      }
+    },
+    {
+      "id": "leo",
+      "alt_km": 400,
+      "dv_extra": 0,
+      "eclipse": 0.38,
+      "decay_h": 40000,
+      "sci_mult": 1,
+      "missions": [
+        1
+      ],
+      "unlock": 1,
+      "name": {
+        "en": "Low orbit · 400 km (like the ISS)",
+        "es": "Órbita baja · 400 km (como la ISS)"
+      },
+      "what": {
+        "en": "The usual choice: lasts years, and the launch heads east to use the spin of the Earth. Each 92-minute lap spends about 35 minutes in the Earth's shadow: the panels only charge in sunlight.",
+        "es": "La opción normal: dura años y el lanzamiento va hacia el este para aprovechar el giro de la Tierra. Cada vuelta de 92 minutos pasa unos 35 en la sombra de la Tierra: los paneles solo cargan al sol."
+      }
+    },
+    {
+      "id": "sso",
+      "alt_km": 700,
+      "dv_extra": 400,
+      "eclipse": 0,
+      "decay_h": 1000000,
+      "sci_mult": 1.25,
+      "missions": [
+        1
+      ],
+      "unlock": 1,
+      "name": {
+        "en": "Sun-synchronous · 700 km",
+        "es": "Heliosincrónica · 700 km"
+      },
+      "what": {
+        "en": "Passes over the poles and always crosses each place at the same hour: same light in every photo (+25 % science) and, on the dawn-dusk line, never in shadow. Costs 400 m/s more because it does not use the spin of the Earth. Landsat flies like this.",
+        "es": "Pasa sobre los polos y cruza cada lugar siempre a la misma hora: la misma luz en cada foto (+25 % de ciencia) y, sobre la línea del amanecer, nunca está en sombra. Cuesta 400 m/s más porque no aprovecha el giro de la Tierra. Así vuela Landsat."
+      }
+    }
+  ],
+  "crew_capsule": {
+    "mass": 5500,
+    "cost_musd": 40,
+    "power_w": 60,
+    "name": {
+      "en": "Crew capsule (4 astronauts)",
+      "es": "Cápsula con tripulación (4 astronautas)"
+    },
+    "what": {
+      "en": "Like the Apollo command module: 5.5 t with seats, life support, heat shield and parachutes. People cannot stand much acceleration, so the rocket must be gentle. With a crew, the challenges happen inside the cabin; without one, from Houston.",
+      "es": "Como el módulo de mando del Apolo: 5,5 t con asientos, soporte vital, escudo térmico y paracaídas. Las personas no aguantan mucha aceleración, así que el cohete debe ser suave. Con tripulación los retos ocurren dentro de la cabina; sin ella, desde Houston."
+    }
+  },
+  "_notes_tests": "Pruebas antes del lanzamiento (CubeSat 101, cap. 6.9): cada una cuesta dinero y meses de desarrollo y reduce el riesgo de los eventos de la operación (ops_view.gd). deorbit: Δv para salir de órbita al final (basura espacial, ODAR).",
+  "tests": [
+    {
+      "id": "ditl",
+      "cost_musd": 0.5,
+      "months": 1,
+      "name": {
+        "en": "Day In The Life test",
+        "es": "Prueba de un día de operación (DITL)"
+      },
+      "what": {
+        "en": "The probe runs a whole day on the ground as if it were in space. It finds software errors before launch.",
+        "es": "La sonda funciona un día entero en tierra como si estuviera en el espacio. Encuentra errores de software antes de lanzar."
+      }
+    },
+    {
+      "id": "vibration",
+      "cost_musd": 1.5,
+      "months": 1,
+      "name": {
+        "en": "Vibration and shock test",
+        "es": "Prueba de vibración y choque"
+      },
+      "what": {
+        "en": "Shakes the probe like the rocket will. Loose screws and weak solders show up here, not in orbit.",
+        "es": "Sacude la sonda como lo hará el cohete. Los tornillos flojos y las soldaduras débiles aparecen aquí y no en órbita."
+      }
+    },
+    {
+      "id": "tvac",
+      "cost_musd": 2,
+      "months": 2,
+      "name": {
+        "en": "Thermal vacuum test",
+        "es": "Prueba de vacío térmico"
+      },
+      "what": {
+        "en": "A chamber without air that goes from very cold to very hot, like space. Checks batteries, electronics and seals.",
+        "es": "Una cámara sin aire que pasa de mucho frío a mucho calor, como el espacio. Comprueba baterías, electrónica y sellos."
+      }
+    }
+  ],
+  "deorbit": {
+    "dv": {
+      "1": 120,
+      "2": 15
+    },
+    "name": {
+      "en": "Save fuel to leave orbit at the end",
+      "es": "Guardar combustible para salir de órbita al final"
+    },
+    "what": {
+      "en": "Rules say a satellite must not stay as space junk. In low orbit it fires its engine to burn up in the air (120 m/s); in GEO it moves up to a \"graveyard orbit\" (15 m/s).",
+      "es": "Las normas piden que un satélite no quede como basura espacial. En órbita baja enciende el motor para quemarse en el aire (120 m/s); en GEO sube a una \"órbita cementerio\" (15 m/s)."
+    }
+  }
+}

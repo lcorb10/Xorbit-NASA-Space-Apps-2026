@@ -1,0 +1,1 @@
+v3|Not enough delta-v for Mars orbit insertion. The probe stays where it is. Look at the numbers: we need a bigger upper stage.

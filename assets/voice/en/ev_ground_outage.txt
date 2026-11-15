@@ -1,0 +1,1 @@
+Ground station down. The station that listens to the probe goes into maintenance for 3 days. The data keeps coming. A probe only sends data when a ground antenna is listening. Stations need maintenance too, and while one is down the data piles up on board.

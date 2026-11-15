@@ -1,0 +1,746 @@
+{
+  "_notes": "Tutorial de la misión 0, guiado por Houston. target = parte de la pantalla que se resalta. until = condición que hace avanzar (sin until: botón Siguiente). Voz: assets/voice/en/<id>.ogg (cuando exista se reproduce sola). allow = piezas que se pueden usar en ese paso (lo demás queda bloqueado). insert_at = posición forzada. select = tipo de pieza que se elige sola. tabs/launch = habilita pestañas o el botón Lanzar.",
+  "callsign": {
+    "en": "HOUSTON · MISSION CONTROL",
+    "es": "HOUSTON · CONTROL DE MISIÓN"
+  },
+  "steps": [
+    {
+      "id": "tut_01",
+      "target": "",
+      "text": {
+        "en": "Houston here, welcome to Xorbit. Your first mission: build a small rocket that flies higher than 100 kilometres. That line is where space begins. I will explain every part: what it is, where it goes and why.",
+        "es": "Aquí Houston, bienvenido a Xorbit. Tu primera misión: armar un cohete pequeño que suba más de 100 kilómetros. Esa línea es donde empieza el espacio. Te voy a explicar cada pieza: qué es, dónde va y por qué."
+      },
+      "allow": []
+    },
+    {
+      "id": "tut_02",
+      "target": "view",
+      "text": {
+        "en": "This is the hangar. The round base in the middle is the launch stand: the rocket is built on top of it, from the bottom up. Drag with the mouse to look around and use the wheel to zoom.",
+        "es": "Este es el hangar. La base redonda del centro es el soporte de lanzamiento: el cohete se arma encima, de abajo hacia arriba. Arrastra con el ratón para mirar alrededor y usa la rueda para acercarte."
+      },
+      "allow": [],
+      "point": {
+        "en": "Drag to look around",
+        "es": "Arrastra para mirar"
+      }
+    },
+    {
+      "id": "tut_03",
+      "target": "part:solid_motor",
+      "text": {
+        "en": "Step one: the engine, always at the bottom. It pushes the rocket up by throwing hot gas down. Drag the Solid motor onto the stand. A solid motor is a tube full of fuel that burns all at once: simple, cheap and powerful.",
+        "es": "Paso uno: el motor, siempre abajo. Empuja el cohete hacia arriba lanzando gas caliente hacia abajo. Arrastra el Motor sólido al soporte. Un motor sólido es un tubo lleno de combustible que se quema de una vez: simple, barato y potente."
+      },
+      "allow": [
+        "solid_motor"
+      ],
+      "until": "has_solid",
+      "point": {
+        "en": "Drag this to the stand",
+        "es": "Arrastra esto al soporte"
+      }
+    },
+    {
+      "id": "tut_04",
+      "target": "editor",
+      "text": {
+        "en": "Step two: fins, at the bottom of the rocket. They work like the feathers of an arrow: if the rocket tilts, the air pushes the fins and straightens it. A solid motor cannot steer, so it needs them. Press Add fins in this panel.",
+        "es": "Paso dos: aletas, en la parte de abajo del cohete. Funcionan como las plumas de una flecha: si el cohete se tuerce, el aire empuja las aletas y lo endereza. Un motor sólido no puede girar, por eso las necesita. Pulsa Agregar aletas en este panel."
+      },
+      "allow": [],
+      "until": "has_fins",
+      "point": {
+        "en": "Press Add fins",
+        "es": "Pulsa Agregar aletas"
+      }
+    },
+    {
+      "id": "tut_05",
+      "target": "part:payload_bay",
+      "text": {
+        "en": "Step three: the payload, above the engine. It is what the rocket carries: the instruments that do the science. That is the reason we fly. Drag the Payload bay onto the rocket; it snaps on top of the motor.",
+        "es": "Paso tres: la carga útil, encima del motor. Es lo que el cohete lleva: los instrumentos que hacen la ciencia. Por eso volamos. Arrastra la Bahía de carga al cohete; se encaja sola encima del motor."
+      },
+      "allow": [
+        "payload_bay"
+      ],
+      "insert_at": 0,
+      "until": "payload_on_top",
+      "point": {
+        "en": "Drag this onto the rocket",
+        "es": "Arrastra esto al cohete"
+      }
+    },
+    {
+      "id": "tut_05b",
+      "target": "part:payload_bay",
+      "allow": [],
+      "until": "payload_selected",
+      "text": {
+        "en": "Now click the Payload bay to open it. Inside goes the probe: the part of the mission that does the science.",
+        "es": "Ahora haz clic en la Bahía de carga para abrirla. Adentro va la sonda: la parte de la misión que hace la ciencia."
+      },
+      "point": {
+        "en": "Click the payload",
+        "es": "Clic en la carga"
+      }
+    },
+    {
+      "id": "tut_05c",
+      "target": "editor",
+      "allow": [],
+      "text": {
+        "en": "This is the probe. Each instrument adds mass, uses power, makes data and costs money. Below you choose the power source, the antenna, the computer, how it points, and the ground station that listens. Hover over any option to learn what it does.",
+        "es": "Esta es la sonda. Cada instrumento suma masa, gasta energía, genera datos y cuesta dinero. Abajo eliges la fuente de energía, la antena, el computador, cómo se orienta y la estación de tierra que la escucha. Pasa el mouse sobre cualquier opción para saber qué hace."
+      },
+      "point": {
+        "en": "Instruments, power, antenna",
+        "es": "Instrumentos, energía, antena"
+      }
+    },
+    {
+      "id": "tut_05d",
+      "target": "stats",
+      "allow": [],
+      "text": {
+        "en": "The analysis shows the six resources of every space mission: mass, power, budget, data, communications and time. Green means it is enough. Above them, the six steps NASA follows to design a mission, and how mature your concept is.",
+        "es": "El análisis muestra los seis recursos de toda misión espacial: masa, energía, presupuesto, datos, comunicaciones y tiempo. Verde significa que alcanza. Arriba, los seis pasos que sigue la NASA para diseñar una misión y qué tan maduro está tu concepto."
+      },
+      "point": {
+        "en": "The six resources",
+        "es": "Los seis recursos"
+      }
+    },
+    {
+      "id": "tut_06",
+      "target": "part:nose_ogive",
+      "text": {
+        "en": "Step four: the nose, always at the very top. A flat top slams into the air and slows the rocket down; a pointed one lets the air slide around it. Drag a nose onto the rocket. The ogive, the curved one, cuts the air a little better than the cone.",
+        "es": "Paso cuatro: la punta, siempre en lo más alto. Una cara plana choca contra el aire y frena el cohete; una punta deja que el aire se deslice alrededor. Arrastra una punta al cohete. La ojival, la curva, corta el aire un poco mejor que la cónica."
+      },
+      "allow": [
+        "nose_cone",
+        "nose_ogive",
+        "k_nose_a",
+        "k_nose_b"
+      ],
+      "insert_at": 0,
+      "until": "nose_first",
+      "point": {
+        "en": "The nose goes on top",
+        "es": "La punta va arriba"
+      }
+    },
+    {
+      "id": "tut_07",
+      "target": "dv_meter",
+      "text": {
+        "en": "Your rocket is complete: engine at the bottom, payload in the middle, nose on top. This bar is delta-v: how much speed the rocket can gain with all its fuel. This mission needs 2 kilometres per second. If the bar does not reach the mark, pick the motor and make it longer: more fuel, more speed.",
+        "es": "Tu cohete está completo: motor abajo, carga en el medio, punta arriba. Esta barra es el delta-v: cuánta velocidad puede ganar el cohete con todo su combustible. Esta misión necesita 2 kilómetros por segundo. Si la barra no llega a la marca, elige el motor y hazlo más largo: más combustible, más velocidad."
+      },
+      "allow": [],
+      "until": "dv_ok",
+      "point": {
+        "en": "Fill past the mark",
+        "es": "Llénala hasta la marca"
+      }
+    },
+    {
+      "id": "tut_08",
+      "target": "tab_plan",
+      "text": {
+        "en": "Now let us check that it flies straight. Open the Plan tab: it is the engineering drawing of your rocket, with its balance points.",
+        "es": "Ahora revisemos que vuele derecho. Abre la pestaña Plano: es el dibujo de ingeniería de tu cohete, con sus puntos de equilibrio."
+      },
+      "allow": [],
+      "until": "tab_plan",
+      "point": {
+        "en": "Open the Plan",
+        "es": "Abre el Plano"
+      }
+    },
+    {
+      "id": "tut_09",
+      "target": "canvas",
+      "text": {
+        "en": "Two marks matter here. The black and white circle is the centre of mass, where the weight balances. The orange cross is the centre of pressure, where the air pushes. Rule: the circle must be above the cross. If it is not, make the fins bigger, or move weight up.",
+        "es": "Aquí importan dos marcas. El círculo blanco y negro es el centro de masa, donde se equilibra el peso. La cruz naranja es el centro de presión, donde empuja el aire. Regla: el círculo tiene que estar encima de la cruz. Si no, agranda las aletas o sube peso."
+      },
+      "allow": [],
+      "until": "stable",
+      "point": {
+        "en": "Circle above the cross",
+        "es": "Círculo encima de la cruz"
+      }
+    },
+    {
+      "id": "tut_10",
+      "target": "cost_meter",
+      "text": {
+        "en": "Last check: money. Every part costs something. Keep this bar to the left of the line. If you are over, make the motor a little shorter.",
+        "es": "Última revisión: el dinero. Cada pieza cuesta algo. Mantén esta barra a la izquierda de la línea. Si te pasas, acorta un poco el motor."
+      },
+      "allow": [],
+      "until": "in_budget",
+      "point": {
+        "en": "Stay left of the line",
+        "es": "Quédate antes de la línea"
+      }
+    },
+    {
+      "id": "tut_11",
+      "target": "codex",
+      "text": {
+        "en": "If you forget something, press Manual: it has the drawing of where each part goes and why. And if you get stuck, press Help and I will tell you what to fix first.",
+        "es": "Si olvidas algo, pulsa Manual: ahí está el dibujo de dónde va cada pieza y por qué. Y si te trabas, pulsa Ayuda y te digo qué arreglar primero."
+      },
+      "allow": [],
+      "point": {
+        "en": "The rocket manual",
+        "es": "El manual del cohete"
+      }
+    },
+    {
+      "id": "tut_12",
+      "target": "launch",
+      "text": {
+        "en": "Everything is green on my board. When you are ready, press Launch. Good luck, flight engineer.",
+        "es": "Todo en verde en mi tablero. Cuando estés listo, pulsa Lanzar. Buena suerte, ingeniero de vuelo."
+      },
+      "allow": [],
+      "until": "launched",
+      "point": {
+        "en": "Press to launch",
+        "es": "Pulsa para lanzar"
+      }
+    }
+  ],
+  "levels": {
+    "1": {
+      "start": "empty",
+      "steps": [
+        {
+          "id": "t1_01",
+          "target": "",
+          "text": {
+            "en": "Mission one: orbit. Orbiting is not going high; it is going sideways very fast, about 8 kilometres per second, so fast that while you fall you keep missing the Earth. You need about 9.4 kilometres per second in total. One stage is not enough, so today you build a rocket with two stages.",
+            "es": "Misión uno: la órbita. Orbitar no es subir alto; es ir de lado muy rápido, unos 8 kilómetros por segundo, tan rápido que mientras caes no dejas de errarle a la Tierra. Necesitas unos 9,4 kilómetros por segundo en total. Una etapa no alcanza, así que hoy armas un cohete de dos etapas."
+          }
+        },
+        {
+          "id": "t1_02",
+          "target": "part:engine",
+          "text": {
+            "en": "Start at the bottom again: a liquid engine. Unlike the solid one, it can be throttled, shut off and tilted. Tilting is called gimbal: the engine steers the rocket, so it does not need fins. Drag the Liquid engine onto the stand.",
+            "es": "Empieza otra vez por abajo: un motor líquido. A diferencia del sólido, se puede regular, apagar e inclinar. Inclinarse se llama gimbal: el motor dirige el cohete, así que no necesita aletas. Arrastra el Motor líquido al soporte."
+          },
+          "allow": [
+            "engine"
+          ],
+          "until": "has_engine",
+          "point": {
+            "en": "Engine at the bottom",
+            "es": "El motor va abajo"
+          }
+        },
+        {
+          "id": "t1_03",
+          "target": "part:tank",
+          "text": {
+            "en": "A liquid engine drinks from a tank, and the tank goes right above it. Inside there is kerosene, the fuel, and liquid oxygen to burn it, because in space there is no air. Drag a Tank on top of the engine.",
+            "es": "Un motor líquido toma su combustible de un tanque, y el tanque va justo encima. Adentro hay queroseno, el combustible, y oxígeno líquido para quemarlo, porque en el espacio no hay aire. Arrastra un Tanque encima del motor."
+          },
+          "allow": [
+            "tank"
+          ],
+          "until": "tank_above_engine",
+          "point": {
+            "en": "Tank right above the engine",
+            "es": "Tanque justo encima del motor"
+          }
+        },
+        {
+          "id": "t1_04",
+          "target": "editor",
+          "text": {
+            "en": "Look at thrust to weight, TWR. It compares how hard the engine pushes with how much the rocket weighs. Below 1, the rocket does not even leave the ground. Aim for 1.3 to 1.5. If it is low, add engines with the Engines slider, or make the tank shorter.",
+            "es": "Mira el empuje/peso, TWR. Compara cuánto empuja el motor con cuánto pesa el cohete. Por debajo de 1, el cohete ni se despega del suelo. Apunta a entre 1,3 y 1,5. Si está bajo, agrega motores con el control Motores, o acorta el tanque."
+          },
+          "until": "twr_ok",
+          "point": {
+            "en": "TWR between 1.3 and 1.5",
+            "es": "TWR entre 1,3 y 1,5"
+          }
+        },
+        {
+          "id": "t1_05",
+          "target": "part:decoupler",
+          "text": {
+            "en": "Here is the trick to reach orbit. When the first tank is empty, it is just dead weight. The decoupler is a ring with small explosive bolts: it drops the empty stage so the rest flies lighter. It goes on top of the first tank. Drag the Decoupler there.",
+            "es": "Este es el truco para llegar a la órbita. Cuando el primer tanque se vacía, es solo peso muerto. El desacoplador es un anillo con pernos explosivos: suelta la etapa vacía para que el resto vuele más liviano. Va encima del primer tanque. Arrastra el Desacoplador ahí."
+          },
+          "allow": [
+            "decoupler"
+          ],
+          "until": "has_decoupler",
+          "point": {
+            "en": "Decoupler between stages",
+            "es": "Desacoplador entre etapas"
+          }
+        },
+        {
+          "id": "t1_06",
+          "target": "library",
+          "text": {
+            "en": "Now the second stage, above the decoupler. It is a small rocket on top of the big one: an engine, and its own tank above it. It starts lighter, so the same fuel gives it more speed.",
+            "es": "Ahora la segunda etapa, encima del desacoplador. Es un cohete pequeño encima del grande: un motor, y su propio tanque encima. Arranca más liviana, así que el mismo combustible le da más velocidad."
+          },
+          "allow": [
+            "engine",
+            "tank"
+          ],
+          "until": "two_stages",
+          "point": {
+            "en": "Engine, then tank above",
+            "es": "Motor y encima su tanque"
+          }
+        },
+        {
+          "id": "t1_07",
+          "target": "part:payload_bay",
+          "text": {
+            "en": "Finish the stack from the top: the Payload bay with the satellite, and a Nose at the very top to cut the air. Order from top to bottom: nose, payload, stage two, decoupler, stage one.",
+            "es": "Termina la pila por arriba: la Bahía de carga con el satélite, y una Punta en lo más alto para cortar el aire. Orden de arriba hacia abajo: punta, carga, etapa dos, desacoplador, etapa uno."
+          },
+          "allow": [
+            "payload_bay",
+            "nose_cone",
+            "nose_ogive",
+            "k_nose_a",
+            "k_nose_b"
+          ],
+          "until": "payload_nose",
+          "point": {
+            "en": "Payload, then nose on top",
+            "es": "Carga y la punta arriba"
+          }
+        },
+        {
+          "id": "t1_07b",
+          "target": "part:payload_bay",
+          "allow": [],
+          "until": "payload_selected",
+          "text": {
+            "en": "Open the payload bay. The client wants photos of the crops: the camera makes about 900 megabytes a day, and the antenna must send them all to the ground.",
+            "es": "Abre la bahía de carga. El cliente quiere fotos de los cultivos: la cámara genera unos 900 megabytes al día y la antena tiene que enviarlos todos a tierra."
+          },
+          "point": {
+            "en": "Open the payload",
+            "es": "Abre la carga"
+          }
+        },
+        {
+          "id": "t1_07c",
+          "target": "editor",
+          "allow": [],
+          "text": {
+            "en": "Compare DATA with COMMUNICATIONS: if the camera makes more than the antenna can send, part of the science is lost. Pick the orbit too: lower gives sharper photos but the air brings it down; sun-synchronous always has the same light but costs more fuel.",
+            "es": "Compara DATOS con COMUNICACIONES: si la cámara genera más de lo que la antena puede enviar, parte de la ciencia se pierde. Elige también la órbita: más baja da fotos más nítidas, pero el aire la hace caer; la heliosincrónica siempre tiene la misma luz, pero cuesta más combustible."
+          },
+          "point": {
+            "en": "Data, antenna, orbit",
+            "es": "Datos, antena, órbita"
+          }
+        },
+        {
+          "id": "t1_07d",
+          "target": "editor",
+          "allow": [],
+          "text": {
+            "en": "Real teams test before launch: shaking, vacuum and a full day of operation. Tests cost money and months, but problems in orbit get rarer. And at the end, a satellite should leave orbit so it does not become space junk.",
+            "es": "Los equipos reales prueban antes de lanzar: sacudidas, vacío y un día completo de operación. Las pruebas cuestan dinero y meses, pero los problemas en órbita se vuelven más raros. Y al final, un satélite debería salir de órbita para no quedar como basura espacial."
+          },
+          "point": {
+            "en": "Tests and end of mission",
+            "es": "Pruebas y fin de misión"
+          }
+        },
+        {
+          "id": "t1_08",
+          "target": "dv_meter",
+          "text": {
+            "en": "Check delta-v: you need 9.4. If you are short, pick a tank and make it longer. Tip: a kilogram saved in the top stage is worth more than one in the bottom stage, because the bottom one has to lift it.",
+            "es": "Revisa el delta-v: necesitas 9,4. Si te falta, elige un tanque y alárgalo. Consejo: un kilo ahorrado en la etapa de arriba vale más que uno en la de abajo, porque la de abajo tiene que levantarlo."
+          },
+          "until": "dv_ok",
+          "point": {
+            "en": "Reach 9.4 km/s",
+            "es": "Llega a 9,4 km/s"
+          }
+        },
+        {
+          "id": "t1_09",
+          "target": "cost_meter",
+          "text": {
+            "en": "Now the money. Each engine, each tonne of metal and of fuel costs. Stay within the budget: real missions are won with the cheapest rocket that does the job.",
+            "es": "Ahora el dinero. Cada motor, cada tonelada de metal y de combustible cuesta. Quédate dentro del presupuesto: las misiones reales se ganan con el cohete más barato que hace el trabajo."
+          },
+          "until": "in_budget",
+          "point": {
+            "en": "Stay within budget",
+            "es": "Dentro del presupuesto"
+          }
+        },
+        {
+          "id": "t1_10",
+          "target": "launch",
+          "text": {
+            "en": "Ready to launch. Watch the rocket lean east little by little to gain sideways speed. It will drop the first stage and the second will finish the job.",
+            "es": "Listo para lanzar. Mira cómo el cohete se inclina hacia el este poco a poco para ganar velocidad de lado. Soltará la primera etapa y la segunda terminará el trabajo."
+          },
+          "until": "launched",
+          "point": {
+            "en": "Press to launch",
+            "es": "Pulsa para lanzar"
+          }
+        }
+      ]
+    },
+    "2": {
+      "start": "two_stage",
+      "steps": [
+        {
+          "id": "t2_01",
+          "target": "",
+          "text": {
+            "en": "Mission two: geostationary orbit, 36,000 kilometres up. There a satellite goes around once a day, so it seems still in the sky; TV and weather satellites live there. It takes about 13.3 kilometres per second. To get there you need a better fuel: hydrogen.",
+            "es": "Misión dos: órbita geoestacionaria, a 36.000 kilómetros. Ahí un satélite da una vuelta por día, así que parece quieto en el cielo; ahí viven los satélites de televisión y del clima. Cuesta unos 13,3 kilómetros por segundo. Para llegar necesitas un combustible mejor: el hidrógeno."
+          }
+        },
+        {
+          "id": "t2_02",
+          "target": "editor",
+          "text": {
+            "en": "Specific impulse, Isp, tells how much push an engine gets from each kilogram of fuel. Kerosene gives about 340 seconds, hydrogen about 450: a third more for the same fuel. Pick the tank of the second stage and change its propellant to hydrogen.",
+            "es": "El impulso específico, Isp, dice cuánto empuje saca un motor de cada kilo de combustible. El queroseno da unos 340 segundos; el hidrógeno unos 450: un tercio más con el mismo combustible. Elige el tanque de la segunda etapa y cambia su propelente a hidrógeno."
+          },
+          "until": "has_lh2",
+          "point": {
+            "en": "Propellant: hydrogen",
+            "es": "Propelente: hidrógeno"
+          }
+        },
+        {
+          "id": "t2_03",
+          "target": "editor",
+          "text": {
+            "en": "A hydrogen tank needs a hydrogen engine. Pick the engine of the second stage and choose a vacuum engine like the RL10. Its huge bell lets the gas expand fully where there is no air, so it pushes more.",
+            "es": "Un tanque de hidrógeno necesita un motor de hidrógeno. Elige el motor de la segunda etapa y escoge un motor de vacío como el RL10. Su campana enorme deja que el gas se expanda del todo donde no hay aire, y así empuja más."
+          },
+          "until": "upper_hydrogen_engine",
+          "point": {
+            "en": "Engine: RL10",
+            "es": "Motor: RL10"
+          }
+        },
+        {
+          "id": "t2_04",
+          "target": "view",
+          "text": {
+            "en": "See the orange foam on the hydrogen tank? Liquid hydrogen boils at 253 degrees below zero, so it is wrapped in insulation, just like the Space Shuttle's big tank.",
+            "es": "¿Ves la espuma naranja en el tanque de hidrógeno? El hidrógeno líquido hierve a 253 grados bajo cero, así que va envuelto en aislante, igual que el tanque grande del transbordador."
+          },
+          "point": {
+            "en": "Insulation foam",
+            "es": "Espuma aislante"
+          }
+        },
+        {
+          "id": "t2_04b",
+          "target": "part:payload_bay",
+          "allow": [],
+          "until": "payload_selected",
+          "text": {
+            "en": "Geostationary orbit is far away: 36 thousand kilometres. Open the payload bay and check the probe.",
+            "es": "La órbita geoestacionaria está lejos: a 36 mil kilómetros. Abre la bahía de carga y revisa la sonda."
+          },
+          "point": {
+            "en": "Open the payload",
+            "es": "Abre la carga"
+          }
+        },
+        {
+          "id": "t2_04c",
+          "target": "editor",
+          "allow": [],
+          "text": {
+            "en": "Far from Earth the whip antenna does not reach: use the medium-gain one. Reaction wheels point the instruments exactly. Up here there is more radiation: watch the LIFETIME bar, and remember the Deep Space Network if you go even farther.",
+            "es": "Lejos de la Tierra la antena de látigo no alcanza: usa la de ganancia media. Las ruedas de reacción apuntan los instrumentos con exactitud. Aquí arriba hay más radiación: mira la barra de VIDA ÚTIL, y recuerda la Red de Espacio Profundo si vas todavía más lejos."
+          },
+          "point": {
+            "en": "Antenna, pointing, lifetime",
+            "es": "Antena, orientación, vida útil"
+          }
+        },
+        {
+          "id": "t2_05",
+          "target": "dv_meter",
+          "text": {
+            "en": "Now make the hydrogen tank longer until delta-v reaches 13.3. If the first stage TWR drops below 1.2, add engines to the first stage.",
+            "es": "Ahora alarga el tanque de hidrógeno hasta que el delta-v llegue a 13,3. Si el empuje/peso de la primera etapa baja de 1,2, agrega motores a la primera etapa."
+          },
+          "until": "dv_ok",
+          "point": {
+            "en": "Reach 13.3 km/s",
+            "es": "Llega a 13,3 km/s"
+          }
+        },
+        {
+          "id": "t2_06",
+          "target": "cost_meter",
+          "text": {
+            "en": "Hydrogen is efficient but expensive and bulky. Keep the cost within the budget.",
+            "es": "El hidrógeno es eficiente pero caro y voluminoso. Mantén el costo dentro del presupuesto."
+          },
+          "until": "in_budget",
+          "point": {
+            "en": "Stay within budget",
+            "es": "Dentro del presupuesto"
+          }
+        },
+        {
+          "id": "t2_07",
+          "target": "launch",
+          "text": {
+            "en": "Ready to launch. Hydrogen upper stages push gently for many minutes: little thrust, lots of efficiency. Be patient.",
+            "es": "Listo para lanzar. Las etapas de hidrógeno empujan suave durante muchos minutos: poco empuje, mucha eficiencia. Paciencia."
+          },
+          "until": "launched",
+          "point": {
+            "en": "Press to launch",
+            "es": "Pulsa para lanzar"
+          }
+        }
+      ]
+    },
+    "3": {
+      "start": "keep",
+      "steps": [
+        {
+          "id": "t3_01",
+          "target": "part:payload_bay",
+          "until": "payload_selected",
+          "text": {
+            "en": "Mission three: orbit the Moon. Open the payload bay; something changes when you go this far.",
+            "es": "Misión tres: órbita lunar. Abre la bahía de carga; algo cambia cuando vas tan lejos."
+          },
+          "point": {
+            "en": "Open the payload",
+            "es": "Abre la carga"
+          }
+        },
+        {
+          "id": "t3_02",
+          "target": "editor",
+          "text": {
+            "en": "The Moon is 384 thousand kilometres away: the whip antenna does not reach. Use the medium-gain antenna. New instrument: the spectrometer, which tells what the surface is made of.",
+            "es": "La Luna está a 384 mil kilómetros: la antena de látigo no alcanza. Usa la de ganancia media. Instrumento nuevo: el espectrómetro, que dice de qué está hecha la superficie."
+          },
+          "point": {
+            "en": "Antenna and spectrometer",
+            "es": "Antena y espectrómetro"
+          }
+        },
+        {
+          "id": "t3_03",
+          "target": "dv_meter",
+          "text": {
+            "en": "To leave Earth orbit you need two more burns: one to travel to the Moon and one to brake and stay there. That is why the Δv goal is bigger.",
+            "es": "Para salir de la órbita de la Tierra hacen falta dos encendidos más: uno para viajar a la Luna y otro para frenar y quedarse. Por eso la meta de Δv es mayor."
+          },
+          "point": {
+            "en": "More Δv for the trip",
+            "es": "Más Δv para el viaje"
+          }
+        }
+      ]
+    },
+    "4": {
+      "start": "keep",
+      "steps": [
+        {
+          "id": "t4_01",
+          "target": "part:payload_bay",
+          "until": "payload_selected",
+          "text": {
+            "en": "Mission four: land on the Moon, with astronauts. Open the payload bay.",
+            "es": "Misión cuatro: alunizar, con astronautas. Abre la bahía de carga."
+          },
+          "point": {
+            "en": "Open the payload",
+            "es": "Abre la carga"
+          }
+        },
+        {
+          "id": "t4_02",
+          "target": "editor",
+          "text": {
+            "en": "Landing needs landing legs: without them the lander tips over. New instrument: the drill, to take samples from the ground. This mission carries a crew, so the challenges happen inside the capsule.",
+            "es": "Para aterrizar hacen falta patas: sin ellas el módulo se vuelca. Instrumento nuevo: el taladro, para sacar muestras del suelo. Esta misión lleva tripulación, así que los retos ocurren dentro de la cápsula."
+          },
+          "point": {
+            "en": "Landing legs and drill",
+            "es": "Patas y taladro"
+          }
+        }
+      ]
+    },
+    "5": {
+      "start": "keep",
+      "steps": [
+        {
+          "id": "t5_01",
+          "target": "part:payload_bay",
+          "until": "payload_selected",
+          "text": {
+            "en": "Mission five: Mars orbit. Seven months of travel. Open the payload bay.",
+            "es": "Misión cinco: órbita de Marte. Siete meses de viaje. Abre la bahía de carga."
+          },
+          "point": {
+            "en": "Open the payload",
+            "es": "Abre la carga"
+          }
+        },
+        {
+          "id": "t5_02",
+          "target": "editor",
+          "text": {
+            "en": "Mars is hundreds of millions of kilometres away: only the high-gain dish reaches, and only the Deep Space Network can hear it. The dish must point exactly: use reaction wheels. New: the radar sees under the surface.",
+            "es": "Marte está a cientos de millones de kilómetros: solo llega el plato de alta ganancia, y solo la Red de Espacio Profundo lo escucha. El plato debe apuntar exacto: usa ruedas de reacción. Nuevo: el radar ve bajo la superficie."
+          },
+          "point": {
+            "en": "Dish, DSN and radar",
+            "es": "Plato, DSN y radar"
+          }
+        },
+        {
+          "id": "t5_03",
+          "target": "stats",
+          "text": {
+            "en": "Check the six resources: far from the Sun the panels give less power, and the computer must survive the whole trip.",
+            "es": "Revisa los seis recursos: lejos del Sol los paneles dan menos energía, y el computador tiene que aguantar todo el viaje."
+          },
+          "point": {
+            "en": "Power and lifetime",
+            "es": "Energía y vida útil"
+          }
+        }
+      ]
+    },
+    "6": {
+      "start": "keep",
+      "steps": [
+        {
+          "id": "t6_01",
+          "target": "part:payload_bay",
+          "until": "payload_selected",
+          "text": {
+            "en": "Mission six: a rover on Mars. Open the payload bay.",
+            "es": "Misión seis: un rover en Marte. Abre la bahía de carga."
+          },
+          "point": {
+            "en": "Open the payload",
+            "es": "Abre la carga"
+          }
+        },
+        {
+          "id": "t6_02",
+          "target": "editor",
+          "text": {
+            "en": "Mars has air: entering at twenty thousand kilometres per hour heats the capsule like a furnace. You need a heat shield, and then a parachute to slow down. Without them, the rover is lost.",
+            "es": "Marte tiene aire: entrar a veinte mil kilómetros por hora calienta la cápsula como un horno. Hace falta un escudo térmico, y después un paracaídas para frenar. Sin ellos, el rover se pierde."
+          },
+          "point": {
+            "en": "Heat shield and parachute",
+            "es": "Escudo y paracaídas"
+          }
+        }
+      ]
+    },
+    "7": {
+      "start": "keep",
+      "steps": [
+        {
+          "id": "t7_01",
+          "target": "part:payload_bay",
+          "until": "payload_selected",
+          "text": {
+            "en": "Mission seven: Jupiter. Open the payload bay.",
+            "es": "Misión siete: Júpiter. Abre la bahía de carga."
+          },
+          "point": {
+            "en": "Open the payload",
+            "es": "Abre la carga"
+          }
+        },
+        {
+          "id": "t7_02",
+          "target": "editor",
+          "text": {
+            "en": "Jupiter is five times farther from the Sun: the panels give 27 times less power. Use the RTG, a nuclear battery that works anywhere. Its radiation belts destroy normal electronics: use the radiation-hardened computer.",
+            "es": "Júpiter está cinco veces más lejos del Sol: los paneles dan 27 veces menos energía. Usa el RTG, una batería nuclear que funciona en cualquier parte. Sus cinturones de radiación destruyen la electrónica normal: usa el computador resistente a la radiación."
+          },
+          "point": {
+            "en": "RTG and hardened computer",
+            "es": "RTG y computador resistente"
+          }
+        },
+        {
+          "id": "t7_03",
+          "target": "stats",
+          "text": {
+            "en": "Watch POWER and LIFETIME: if either is red, the probe goes silent before finishing.",
+            "es": "Mira ENERGÍA y VIDA ÚTIL: si alguna está en rojo, la sonda se apaga antes de terminar."
+          },
+          "point": {
+            "en": "Power and lifetime",
+            "es": "Energía y vida útil"
+          }
+        }
+      ]
+    },
+    "8": {
+      "start": "keep",
+      "steps": [
+        {
+          "id": "t8_01",
+          "target": "part:payload_bay",
+          "until": "payload_selected",
+          "text": {
+            "en": "Mission eight: leave the Solar System. Open the payload bay.",
+            "es": "Misión ocho: salir del sistema solar. Abre la bahía de carga."
+          },
+          "point": {
+            "en": "Open the payload",
+            "es": "Abre la carga"
+          }
+        },
+        {
+          "id": "t8_02",
+          "target": "editor",
+          "text": {
+            "en": "This trip lasts more than ten years, like Voyager. The farther it goes, the slower the data arrives: send only what matters. Everything has to last: RTG, hardened computer and the Deep Space Network.",
+            "es": "Este viaje dura más de diez años, como el de la Voyager. Mientras más lejos, más lento llegan los datos: envía solo lo que importa. Todo tiene que durar: RTG, computador resistente y la Red de Espacio Profundo."
+          },
+          "point": {
+            "en": "A ten-year trip",
+            "es": "Un viaje de diez años"
+          }
+        }
+      ]
+    }
+  }
+}

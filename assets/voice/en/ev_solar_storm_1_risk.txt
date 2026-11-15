@@ -1,0 +1,1 @@
+A particle flipped bits in the memory: the computer rebooted and lost a week of data. A radiation-hardened computer would have survived.

@@ -1,0 +1,38 @@
+{
+  "_notes": "bulk_density_kg_m3: densidad de la mezcla oxidante+combustible con la relación de mezcla indicada, 1/((r/(1+r))/rho_ox + (1/(1+r))/rho_fuel). Densidades: LOX 1141, RP-1 810, LH2 71, N2O4 1440, Aerozine-50 900 kg/m3. cost_usd_per_kg: valor de juego.",
+  "propellants": [
+    {
+      "id": "lox_rp1",
+      "label": "LOX / RP-1",
+      "mixture_ratio": 2.56,
+      "bulk_density_kg_m3": 1024,
+      "cost_usd_per_kg": 0.3,
+      "unlock_level": 1
+    },
+    {
+      "id": "lox_lh2",
+      "label": "LOX / LH2",
+      "mixture_ratio": 6,
+      "bulk_density_kg_m3": 362,
+      "cost_usd_per_kg": 1.5,
+      "unlock_level": 2
+    },
+    {
+      "id": "hypergolic",
+      "label": "N2O4 / A-50",
+      "mixture_ratio": 1.6,
+      "bulk_density_kg_m3": 1170,
+      "cost_usd_per_kg": 40,
+      "unlock_level": 4
+    },
+    {
+      "id": "solid",
+      "label": "APCP",
+      "mixture_ratio": null,
+      "bulk_density_kg_m3": 1750,
+      "cost_usd_per_kg": 1000,
+      "unlock_level": 0,
+      "note": "Propelente sólido compuesto. El costo incluye fabricar el grano del motor."
+    }
+  ]
+}

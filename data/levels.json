@@ -1,0 +1,16 @@
+{
+  "_notes": "dv_km_s: aproximado desde la superficie de la Tierra, sin asistencias gravitatorias (ver diseno.html, Hoja 3). budget_musd: propuesta de juego, se ajusta jugando. Textos en data/i18n.json (LEVEL_<id>_NAME, _DESC, _UNLOCKS).",
+  "_notes_legs": "legs: tramos después de la órbita baja (Δv en m/s, días de viaje). La suma = dv_km_s - 9,4. view: earth (sistema Tierra-Luna) o sun (sistema solar). Valores aproximados de manual (Hohmann, sin asistencias).",
+  "levels": [
+    {"id":0,"dv_km_s":2,"budget_musd":18},
+    {"id":1,"dv_km_s":9.4,"budget_musd":40},
+    {"id":2,"dv_km_s":13.3,"budget_musd":125,"view":"earth","target":"geo","legs":[{"key":"gto","dv":2440,"days":0.2},{"key":"circ_geo","dv":1460,"days":0.2}]},
+    {"id":3,"dv_km_s":13.4,"budget_musd":260,"view":"earth","target":"moon","legs":[{"key":"tli","dv":3150,"days":3},{"key":"loi","dv":850,"days":0.1}]},
+    {"id":4,"dv_km_s":15.1,"budget_musd":630,"view":"earth","target":"moon","legs":[{"key":"tli","dv":3150,"days":3},{"key":"loi","dv":850,"days":0.1},{"key":"land_moon","dv":1700,"days":0.05}]},
+    {"id":5,"dv_km_s":15.1,"budget_musd":700,"view":"sun","target":"mars","legs":[{"key":"tmi","dv":3600,"days":259},{"key":"moi","dv":2100,"days":1}]},
+    {"id":6,"dv_km_s":13.6,"budget_musd":910,"view":"sun","target":"mars","legs":[{"key":"tmi","dv":3600,"days":259},{"key":"edl_mars","dv":600,"days":0.01}]},
+    {"id":7,"dv_km_s":15.7,"budget_musd":1100,"view":"sun","target":"jupiter","legs":[{"key":"tji","dv":6300,"days":997}]},
+    {"id":8,"dv_km_s":18.2,"budget_musd":1450,"view":"sun","target":"escape","legs":[{"key":"solar_escape","dv":8800,"days":4000}]},
+    {"id":9,"dv_km_s":null,"budget_musd":null,"view":"galaxy","target":"stars","legs":[]}
+  ]
+}

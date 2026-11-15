@@ -1,0 +1,1 @@
+The probe has no instruments: the client would get nothing. Pick the payload bay and tick at least one instrument.

@@ -1,0 +1,1 @@
+The probe stopped answering on day {d}. The computer did not survive the whole mission.

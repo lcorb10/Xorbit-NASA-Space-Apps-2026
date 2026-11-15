@@ -1,0 +1,1 @@
+Thrust is below weight: it will not leave the pad. Add engines, pick a stronger one, or remove mass. Thrust-to-weight on stage one should be above 1.2.

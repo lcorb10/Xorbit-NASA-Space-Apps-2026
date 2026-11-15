@@ -1,0 +1,1 @@
+Houston here, welcome to Xorbit. Your first mission: build a small rocket that flies higher than 100 kilometres. That line is where space begins. I will explain every part: what it is, where it goes and why.

@@ -1,0 +1,1 @@
+Now let us check that it flies straight. Open the Plan tab: it is the engineering drawing of your rocket, with its balance points.
