@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Xorbit</title>
+<meta name="description" content="Xorbit: design the rocket, fly the mission, learn why it worked. A rocket and mission design game for the NASA Space Apps Challenge 2026.">
+<meta property="og:title" content="Xorbit">
+<meta property="og:description" content="Design the rocket. Fly the mission. Learn why it worked.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Blueprint del juego: papel azul con cuadrícula, tinta clara y un solo lápiz naranja que resalta */
+:root {
+  --paper: #0d2540;
+  --paper-deep: #0a1d33;
+  --ink: #e3eef8;
+  --ink-dim: #9db8d2;
+  --line: #2f5378;
+  --mark: #fb923c;
+  --good: #5ad19a;
+  --display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background-color: var(--paper-deep);
+  background-image:
+    linear-gradient(rgba(227,238,248,.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227,238,248,.09) 1px, transparent 1px),
+    linear-gradient(rgba(227,238,248,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227,238,248,.045) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  color: var(--ink);
+  font: 400 16px/1.65 var(--mono);
+}
+a { color: var(--mark); }
+img { max-width: 100%; display: block; }
+figure { margin: 0; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font: 500 12px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); }
+.eyebrow b { color: var(--mark); font-weight: 500; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.05; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(34px, 5vw, 52px); }
+h3 { font-size: 26px; }
+p { margin: 0; max-width: 66ch; }
+.dim { color: var(--ink-dim); }
+
+/* Barra superior */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(10,29,51,.88); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 21; background: var(--paper-deep); }
+.top .wrap { display: flex; align-items: center; gap: 24px; height: 60px; }
+.top img { height: 26px; width: auto; }
+.top nav { display: flex; gap: 20px; margin-left: auto; flex-wrap: wrap; }
+.top nav a { color: var(--ink-dim); text-decoration: none; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.top nav a:hover, .top nav a:focus-visible { color: var(--ink); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.lang button { background: none; border: 0; color: var(--ink-dim); font: 500 13px var(--mono); padding: 6px 12px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--mark); color: #1a0f04; }
+@media (max-width: 760px) { .top nav { display: none; } .lang { margin-left: auto; } }
+
+/* Botones */
+.btn { display: inline-flex; align-items: center; gap: 10px; font: 600 22px/1 var(--display); letter-spacing: .02em; padding: 14px 26px; border-radius: 6px; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: rgba(13,37,64,.8); }
+.btn.primary { background: var(--mark); border-color: var(--mark); color: #1a0f04; }
+.btn:hover { filter: brightness(1.08); }
+.btn:focus-visible, .lang button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.btn small { font: 400 12px var(--mono); opacity: .8; }
+
+/* Portada */
+.hero { position: relative; padding-block: 72px 56px; overflow: hidden; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,29,51,.96) 0%, rgba(10,29,51,.8) 45%, rgba(10,29,51,.25) 100%), url(img/hero.jpg) center/cover no-repeat; z-index: -1; }
+.hero .logo { width: min(560px, 90%); margin: 14px 0 18px; }
+.hero .tag { font: 500 clamp(24px, 3.4vw, 34px)/1.2 var(--display); color: var(--ink-dim); margin-bottom: 26px; }
+.hero p { margin-bottom: 30px; }
+.cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+/* Ficha técnica (cajetín del plano) */
+.titleblock { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); background: rgba(10,29,51,.85); margin-top: 44px; max-width: 760px; }
+.titleblock div { padding: 10px 14px; border-right: 1px solid var(--line); }
+.titleblock div:last-child { border-right: 0; }
+.titleblock span { display: block; font-size: 11px; letter-spacing: .1em; color: var(--ink-dim); text-transform: uppercase; }
+@media (max-width: 640px) { .titleblock { grid-template-columns: repeat(2, minmax(0, 1fr)); } .titleblock div:nth-child(2) { border-right: 0; } .titleblock div:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+
+section { padding-block: 80px; border-top: 1px solid var(--line); }
+.head { display: grid; gap: 14px; margin-bottom: 40px; }
+
+/* Tráiler */
+.video { aspect-ratio: 16 / 9; width: 100%; max-width: 100%; border: 1px solid var(--line); background: #000; }
+.video iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* Pasos del juego */
+.steps { display: grid; gap: 56px; }
+.step { display: grid; grid-template-columns: 1fr 1.25fr; gap: 40px; align-items: center; }
+.step:nth-child(even) .shot { order: -1; }
+.step .num { font: 700 18px var(--mono); color: var(--mark); }
+.step h3 { margin: 6px 0 12px; font-size: 34px; }
+.shot { border: 1px solid var(--line); position: relative; }
+.shot img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.shot figcaption { position: absolute; left: 0; bottom: 0; background: rgba(10,29,51,.9); padding: 4px 10px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-dim); border-top: 1px solid var(--line); border-right: 1px solid var(--line); }
+@media (max-width: 860px) { .step { grid-template-columns: 1fr; gap: 20px; } .step:nth-child(even) .shot { order: 0; } }
+
+/* Misiones: regla de Δv */
+.ladder { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border: 1px solid var(--line); }
+.ladder li { padding: 16px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(13,37,64,.55); }
+.ladder li:nth-child(5n) { border-right: 0; }
+.ladder li:nth-last-child(-n+5) { border-bottom: 0; }
+.ladder .n { font-size: 12px; color: var(--mark); }
+.ladder .t { font: 600 23px/1.1 var(--display); margin: 4px 0 8px; }
+.ladder .dv { font-size: 12px; color: var(--ink-dim); font-variant-numeric: tabular-nums; }
+@media (max-width: 860px) { .ladder { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ladder li { border-right: 1px solid var(--line) !important; border-bottom: 1px solid var(--line) !important; } .ladder li:nth-child(2n) { border-right: 0 !important; } }
+
+/* Lista técnica del reto */
+.spec { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); }
+.spec > div { padding: 22px 24px; border-bottom: 1px solid var(--line); }
+.spec > div:nth-child(odd) { border-right: 1px solid var(--line); }
+.spec > div:nth-last-child(-n+2) { border-bottom: 0; }
+.spec h3 { font-size: 24px; margin-bottom: 8px; }
+.spec p { font-size: 14px; color: var(--ink-dim); }
+@media (max-width: 760px) { .spec { grid-template-columns: 1fr; } .spec > div { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; } .spec > div:last-child { border-bottom: 0 !important; } }
+
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.gallery .shot img { aspect-ratio: 16 / 9; }
+@media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } }
+
+.download { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+.download ol { margin: 0; padding-left: 1.2em; color: var(--ink-dim); }
+.download ol li { margin-bottom: 6px; }
+@media (max-width: 860px) { .download { grid-template-columns: 1fr; } }
+
+.credits { columns: 2 320px; column-gap: 40px; font-size: 13px; color: var(--ink-dim); }
+.credits p { break-inside: avoid; margin-bottom: 12px; }
+.credits b { color: var(--ink); font-weight: 500; }
+
+footer { border-top: 1px solid var(--line); padding-block: 32px; font-size: 13px; color: var(--ink-dim); }
+footer .wrap { display: flex; gap: 20px; flex-wrap: wrap; justify-content: space-between; }
+
+[data-es] { }
+html[lang="es"] [data-en-only] { display: none; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#top" aria-label="Xorbit"><img src="img/logo.png" alt="Xorbit" width="120" height="26"></a>
+    <nav>
+      <a href="#trailer" data-i="nav_trailer">Trailer</a>
+      <a href="#play" data-i="nav_play">How it plays</a>
+      <a href="#missions" data-i="nav_missions">Missions</a>
+      <a href="#challenge" data-i="nav_challenge">The challenge</a>
+      <a href="#download" data-i="nav_download">Download</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><b>NASA Space Apps Challenge 2026</b> · Space Mission Design Game</div>
+      <img class="logo" src="img/logo.png" alt="Xorbit" width="1140" height="200">
+      <div class="tag" data-i="tag">Design the rocket. Fly the mission. Learn why it worked.</div>
+      <p data-i="hero_p">A game where you build a rocket on a budget, fit a spacecraft with instruments, power and an antenna, and launch it from Kennedy Space Center. The flight runs on real physics, and when something fails the game tells you why.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/lcorb10/Xorbit-NASA-Space-Apps-2026/releases/download/v1.0/Xorbit-Windows.zip"><span data-i="btn_dl">Download for Windows</span> <small>.zip · 280 MB</small></a>
+        <a class="btn" href="#trailer" data-i="btn_trailer">Watch the trailer</a>
+      </div>
+      <div class="titleblock" aria-label="Project data">
+        <div><span data-i="tb_project">Project</span>Xorbit</div>
+        <div><span data-i="tb_rev">Rev.</span>1.0</div>
+        <div><span data-i="tb_engine">Engine</span>Godot 4.7</div>
+        <div><span data-i="tb_drawn">Drawn by</span>Sebastián · María Cecilia</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="trailer">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow" data-i="tr_eb">Trailer</div>
+        <h2 data-i="tr_h">Watch Xorbit in action</h2>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/B7jEm8iAciw" title="Xorbit trailer" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="play">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow" data-i="play_eb">How it plays</div>
+        <h2 data-i="play_h">From a blank workbench to the Moon</h2>
+        <p class="dim" data-i="play_p">Every mission follows the same loop that real mission designers use: define what you need, design it, check it, fly it and learn from the result.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div>
+            <div class="num">01</div>
+            <h3 data-i="s1_h">Read the job</h3>
+            <p data-i="s1_p">A client hires XORBIT for a mission: weather sensors above 100 km, a satellite in orbit, instruments on the Moon. Each job comes with a budget, a minimum spacecraft mass and the delta-v you need to get there. Houston talks you through it on the radio.</p>
+          </div>
+          <figure class="shot"><img src="img/contrato.jpg" alt="Mission briefing with Houston" loading="lazy" width="1600" height="900"><figcaption data-i="c_job">Mission briefing</figcaption></figure>
+        </div>
+        <div class="step">
+          <div>
+            <div class="num">02</div>
+            <h3 data-i="s2_h">Build the rocket</h3>
+            <p data-i="s2_p">Stack noses, tanks, engines, fins and decouplers in a VAB-sized hangar, or turn your own parts on a lathe. The analysis panel updates live: delta-v per stage, thrust-to-weight, stability, cost, power, data and lifetime. Load real rockets like the Saturn V or Falcon 9 to see why they work.</p>
+          </div>
+          <figure class="shot"><img src="img/taller.jpg" alt="The workshop with the analysis panel" loading="lazy" width="1600" height="900"><figcaption data-i="c_ws">Workshop</figcaption></figure>
+        </div>
+        <div class="step">
+          <div>
+            <div class="num">03</div>
+            <h3 data-i="s3_h">Launch from pad 39A</h3>
+            <p data-i="s3_p">The crawler carries your rocket to the pad, the countdown runs and the engines light. You watch the real ascent: max-Q, staging, the edge of space and orbit. Up to four players can fly as a crew, each with a station and short challenges during the flight.</p>
+          </div>
+          <figure class="shot"><img src="img/despegue.jpg" alt="Liftoff" loading="lazy" width="1600" height="900"><figcaption data-i="c_launch">Liftoff</figcaption></figure>
+        </div>
+        <div class="step">
+          <div>
+            <div class="num">04</div>
+            <h3 data-i="s4_h">Travel and land</h3>
+            <p data-i="s4_p">Past low orbit, the flight continues on a map of the Earth-Moon system or the Solar System, burn by burn, with the delta-v of each manoeuvre. On the Moon you guide the descent, step out with lunar gravity and plant the flag. On Mars, the sky crane lowers the rover.</p>
+          </div>
+          <figure class="shot"><img src="img/luna.jpg" alt="Lunar landing" loading="lazy" width="1600" height="900"><figcaption data-i="c_moon">Moon landing</figcaption></figure>
+        </div>
+        <div class="step">
+          <div>
+            <div class="num">05</div>
+            <h3 data-i="s5_h">Learn why</h3>
+            <p data-i="s5_p">The report shows how far you got and why: not enough delta-v, unstable in the air, too much g for the crew, over budget. Stars reward reaching the goal, saving money and doing the science. Then you go back to the workshop and fix it.</p>
+          </div>
+          <figure class="shot"><img src="img/informe.jpg" alt="Mission report" loading="lazy" width="1600" height="900"><figcaption data-i="c_report">Mission report</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="missions">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow" data-i="m_eb">Ten missions</div>
+        <h2 data-i="m_h">Each one asks for more delta-v</h2>
+        <p class="dim" data-i="m_p">Every mission adds budget and unlocks new parts. The first ones come with a guided tutorial.</p>
+      </div>
+      <ol class="ladder">
+        <li><div class="n">00</div><div class="t" data-i="l0">Reach space</div><div class="dv">Δv 2.0 km/s</div></li>
+        <li><div class="n">01</div><div class="t" data-i="l1">Low Earth orbit</div><div class="dv">Δv 9.4 km/s</div></li>
+        <li><div class="n">02</div><div class="t" data-i="l2">Geostationary orbit</div><div class="dv">Δv 13.3 km/s</div></li>
+        <li><div class="n">03</div><div class="t" data-i="l3">Lunar orbit</div><div class="dv">Δv 13.4 km/s</div></li>
+        <li><div class="n">04</div><div class="t" data-i="l4">Moon landing</div><div class="dv">Δv 15.1 km/s</div></li>
+        <li><div class="n">05</div><div class="t" data-i="l5">Mars orbit</div><div class="dv">Δv 15.1 km/s</div></li>
+        <li><div class="n">06</div><div class="t" data-i="l6">Mars rover</div><div class="dv">Δv 13.6 km/s</div></li>
+        <li><div class="n">07</div><div class="t" data-i="l7">Jupiter</div><div class="dv">Δv 15.7 km/s</div></li>
+        <li><div class="n">08</div><div class="t" data-i="l8">Leave the Solar System</div><div class="dv">Δv 18.2 km/s</div></li>
+        <li><div class="n">09</div><div class="t" data-i="l9">The stars</div><div class="dv" data-i="l9_dv">Future tech</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="challenge">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow" data-i="c_eb">The challenge</div>
+        <h2 data-i="c_h">How Xorbit answers Space Mission Design Game</h2>
+        <p class="dim" data-i="c_p">The challenge asks for a game where players design a complete space mission under real constraints. This is what we built for that.</p>
+      </div>
+      <div class="spec">
+        <div><h3 data-i="r1_h">A real budget</h3><p data-i="r1_p">Cost comes from mass and material, engines, propellant, launch operations and years of ground station time (NEN or the Deep Space Network).</p></div>
+        <div><h3 data-i="r2_h">The spacecraft resources</h3><p data-i="r2_p">Mass, power, data per day against downlink, communications, lifetime under the destination's radiation and build time: the resources NASA lists in the challenge documents.</p></div>
+        <div><h3 data-i="r3_h">Four mission segments</h3><p data-i="r3_p">Launch, space, ground and users. The report tells you what each segment delivered, including how much data reached the scientists.</p></div>
+        <div><h3 data-i="r4_h">Concept maturity levels</h3><p data-i="r4_p">The workshop follows NASA's Concept Maturity Levels, from the first need to a design that is ready to fly.</p></div>
+        <div><h3 data-i="r5_h">Real physics</h3><p data-i="r5_p">The Tsiolkovsky equation per stage, thrust-to-weight, drag with Mach, centre of mass against centre of pressure, structural limits and Hohmann transfers. Nothing in the flight is scripted.</p></div>
+        <div><h3 data-i="r6_h">Real data</h3><p data-i="r6_p">Planets from NASA's Planetary Fact Sheet, real engines, NASA 3D models of the Saturn V, the crawler and the VAB, and Apollo 11 sounds.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow" data-i="g_eb">Screenshots</div>
+        <h2 data-i="g_h">Inside the game</h2>
+      </div>
+      <div class="gallery">
+        <figure class="shot"><img src="img/traslado.jpg" alt="Crawler rollout to pad 39A" loading="lazy" width="1600" height="900"></figure>
+        <figure class="shot"><img src="img/cabina.jpg" alt="Crew cabin with four players" loading="lazy" width="1600" height="900"></figure>
+        <figure class="shot"><img src="img/bandera.jpg" alt="Flag planted on the Moon" loading="lazy" width="1600" height="900"></figure>
+        <figure class="shot"><img src="img/mapa.jpg" alt="Transfer map" loading="lazy" width="1600" height="900"></figure>
+        <figure class="shot"><img src="img/marte.jpg" alt="Landing on Mars" loading="lazy" width="1600" height="900"></figure>
+        <figure class="shot"><img src="img/misiones.jpg" alt="Mission select" loading="lazy" width="1600" height="900"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap download">
+      <div>
+        <div class="eyebrow" data-i="d_eb">Download</div>
+        <h2 data-i="d_h" style="margin:14px 0 18px">Play Xorbit</h2>
+        <ol>
+          <li data-i="d1">Download Xorbit-Windows.zip.</li>
+          <li data-i="d2">Unzip it and open Xorbit.exe.</li>
+          <li data-i="d3">Pick English or Spanish on the main menu.</li>
+        </ol>
+        <p class="dim" style="margin-top:14px;font-size:14px" data-i="d_req">Windows 10 or 11, 64-bit. A dedicated graphics card is recommended. Keyboard and mouse or gamepads (DualShock, Xbox, Joy-Con).</p>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/lcorb10/Xorbit-NASA-Space-Apps-2026/releases/download/v1.0/Xorbit-Windows.zip"><span data-i="btn_dl2">Download</span> <small>v1.0 · Windows</small></a>
+        <a class="btn" href="https://github.com/lcorb10/Xorbit-NASA-Space-Apps-2026" data-i="btn_src">Source code</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="credits">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow" data-i="cr_eb">Team and credits</div>
+        <h2 data-i="cr_h">Made in Barranquilla, Colombia</h2>
+      </div>
+      <div class="credits">
+        <p><b data-i="cr_team">Team</b><br>Sebastián · María Cecilia</p>
+        <p><b>NASA</b><br><span data-i="cr_nasa">3D models from NASA 3D Resources, Apollo 11 and launch audio, Blue Marble and City Lights, Planetary Fact Sheet, MMRTG and NSTAR fact sheets.</span></p>
+        <p><b data-i="cr_free">Free assets</b><br>Kenney, Quaternius, Poly Haven, ambientCG, MakeHuman (CC0) · Solar System Scope (CC BY 4.0) · Wikimedia Commons</p>
+        <p><b data-i="cr_music">Music</b><br><span data-i="cr_music_p">OpenGameArt (CC0): yd, Centurion_of_war, Yoiyami, vitalezzz, Ville Nousiainen and XCVG, cynicmusic, allen yatsura.</span></p>
+        <p><b data-i="cr_tools">Tools and data</b><br>Godot Engine 4.7 (MIT) · oddurs/tsi (MIT) · Barlow Condensed and IBM Plex Mono (OFL)</p>
+        <p><b data-i="cr_insp">Inspiration</b><br>Kerbal Space Program · The Open Space Program</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Xorbit · NASA Space Apps Challenge 2026</span>
+    <a href="https://github.com/lcorb10/Xorbit-NASA-Space-Apps-2026">github.com/lcorb10/Xorbit-NASA-Space-Apps-2026</a>
+  </div>
+</footer>
+
+<script>
+const ES = {
+  nav_trailer: "Tráiler", nav_play: "Cómo se juega", nav_missions: "Misiones", nav_challenge: "El reto", nav_download: "Descargar",
+  tag: "Diseña el cohete. Vuela la misión. Entiende por qué funcionó.",
+  hero_p: "Un juego donde armas un cohete con presupuesto, le pones a la nave instrumentos, energía y antena, y lo lanzas desde el Centro Espacial Kennedy. El vuelo sigue la física real y, cuando algo falla, el juego te dice por qué.",
+  btn_dl: "Descargar para Windows", btn_trailer: "Ver el tráiler",
+  tb_project: "Proyecto", tb_rev: "Rev.", tb_engine: "Motor", tb_drawn: "Dibujado por",
+  tr_eb: "Tráiler", tr_h: "Mira Xorbit en acción",
+  play_eb: "Cómo se juega", play_h: "De un taller vacío a la Luna",
+  play_p: "Cada misión sigue el mismo ciclo que usan los diseñadores de misiones de verdad: definir lo que se necesita, diseñarlo, revisarlo, volarlo y aprender del resultado.",
+  s1_h: "Lee el encargo", s1_p: "Un cliente contrata a XORBIT para una misión: sensores del clima por encima de 100 km, un satélite en órbita, instrumentos en la Luna. Cada encargo trae un presupuesto, una masa mínima de nave y el delta-v que hace falta para llegar. Houston te lo explica por radio.", c_job: "Encargo de la misión",
+  s2_h: "Arma el cohete", s2_p: "Apila puntas, tanques, motores, aletas y separadores en un hangar del tamaño del VAB, o fabrica tus propias piezas en un torno. El análisis cambia en vivo: delta-v por etapa, empuje contra peso, estabilidad, costo, energía, datos y vida útil. Carga cohetes reales como el Saturno V o el Falcon 9 para ver por qué funcionan.", c_ws: "Taller",
+  s3_h: "Despega desde la 39A", s3_p: "El crawler lleva tu cohete a la plataforma, corre la cuenta regresiva y se encienden los motores. Ves el ascenso real: max-Q, separación de etapas, el borde del espacio y la órbita. Hasta cuatro jugadores pueden volar como tripulación, cada uno con un puesto y retos cortos durante el vuelo.", c_launch: "Despegue",
+  s4_h: "Viaja y aterriza", s4_p: "Más allá de la órbita baja, el vuelo sigue en un mapa del sistema Tierra-Luna o del sistema solar, maniobra por maniobra, con el delta-v de cada una. En la Luna guías el descenso, sales a caminar con la gravedad lunar y plantas la bandera. En Marte, la grúa baja el rover.", c_moon: "Alunizaje",
+  s5_h: "Entiende por qué", s5_p: "El informe muestra hasta dónde llegaste y por qué: faltó delta-v, era inestable en el aire, demasiadas g para la tripulación, te pasaste del presupuesto. Las estrellas premian llegar, ahorrar y hacer la ciencia. Después vuelves al taller y lo arreglas.", c_report: "Informe de la misión",
+  m_eb: "Diez misiones", m_h: "Cada una pide más delta-v", m_p: "Cada misión da más presupuesto y desbloquea piezas nuevas. Las primeras traen un tutorial guiado.",
+  l0: "Llegar al espacio", l1: "Órbita baja", l2: "Órbita geoestacionaria", l3: "Órbita lunar", l4: "Aterrizaje lunar", l5: "Órbita de Marte", l6: "Rover en Marte", l7: "Júpiter", l8: "Salir del sistema solar", l9: "Las estrellas",
+  l9_dv: "Tecnología del futuro",
+  c_eb: "El reto", c_h: "Cómo responde Xorbit a Space Mission Design Game", c_p: "El reto pide un juego donde se diseñe una misión espacial completa con restricciones reales. Esto es lo que hicimos para eso.",
+  r1_h: "Un presupuesto real", r1_p: "El costo sale de la masa y el material, los motores, el propelente, las operaciones de lanzamiento y los años de estación de tierra (NEN o la Red de Espacio Profundo).",
+  r2_h: "Los recursos de la nave", r2_p: "Masa, energía, datos por día contra lo que se puede bajar, comunicaciones, vida útil con la radiación del destino y tiempo de construcción: los recursos que la NASA pone en los documentos del reto.",
+  r3_h: "Cuatro segmentos de misión", r3_p: "Lanzamiento, espacio, tierra y usuarios. El informe dice qué entregó cada segmento, incluidos los datos que llegaron a los científicos.",
+  r4_h: "Niveles de madurez", r4_p: "El taller sigue los Concept Maturity Levels de la NASA, desde la primera necesidad hasta un diseño listo para volar.",
+  r5_h: "Física real", r5_p: "La ecuación de Tsiolkovsky por etapa, empuje contra peso, arrastre con Mach, centro de masa contra centro de presión, límites de la estructura y transferencias de Hohmann. Nada del vuelo está guionizado.",
+  r6_h: "Datos reales", r6_p: "Planetas de la Planetary Fact Sheet de la NASA, motores reales, modelos 3D de la NASA del Saturno V, el crawler y el VAB, y sonidos del Apolo 11.",
+  g_eb: "Capturas", g_h: "Dentro del juego",
+  d_eb: "Descargar", d_h: "Juega Xorbit", d1: "Descarga Xorbit-Windows.zip.", d2: "Descomprímelo y abre Xorbit.exe.", d3: "Elige inglés o español en el menú principal.",
+  d_req: "Windows 10 u 11 de 64 bits. Se recomienda tarjeta gráfica dedicada. Teclado y ratón o mandos (DualShock, Xbox, Joy-Con).",
+  btn_dl2: "Descargar", btn_src: "Código fuente",
+  cr_eb: "Equipo y créditos", cr_h: "Hecho en Barranquilla, Colombia", cr_team: "Equipo",
+  cr_nasa: "Modelos 3D de NASA 3D Resources, audio del Apolo 11 y de lanzamientos, Blue Marble y City Lights, Planetary Fact Sheet, fichas del MMRTG y del NSTAR.",
+  cr_free: "Recursos libres", cr_music: "Música", cr_music_p: "OpenGameArt (CC0): yd, Centurion_of_war, Yoiyami, vitalezzz, Ville Nousiainen y XCVG, cynicmusic, allen yatsura.",
+  cr_tools: "Herramientas y datos", cr_insp: "Inspiración"
+};
+const EN = {};
+document.querySelectorAll("[data-i]").forEach(el => { EN[el.dataset.i] = el.textContent; });
+function setLang(l) {
+  const dict = l === "es" ? ES : EN;
+  document.querySelectorAll("[data-i]").forEach(el => { const t = dict[el.dataset.i]; if (t) el.textContent = t; });
+  document.documentElement.lang = l;
+  document.getElementById("lang-en").setAttribute("aria-pressed", l === "en");
+  document.getElementById("lang-es").setAttribute("aria-pressed", l === "es");
+  try { localStorage.setItem("xorbit-lang", l); } catch (e) {}
+}
+document.getElementById("lang-en").addEventListener("click", () => setLang("en"));
+document.getElementById("lang-es").addEventListener("click", () => setLang("es"));
+let saved = null;
+try { saved = localStorage.getItem("xorbit-lang"); } catch (e) {}
+if (saved === "es" || (!saved && (navigator.language || "").startsWith("es"))) setLang("es");
+</script>
+</body>
+</html>
